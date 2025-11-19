@@ -1,4 +1,4 @@
-import { Star, ThumbsUp } from 'lucide-react';
+﻿import { Star, ThumbsUp } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -104,7 +104,7 @@ export default function ProductReviews({ productId, reviews }: ProductReviewsPro
             <option value="rating">{t('product.highestRating')}</option>
           </select>
 
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <button className="px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
             {t('product.writeReview')}
           </button>
         </div>
@@ -160,7 +160,7 @@ export default function ProductReviews({ productId, reviews }: ProductReviewsPro
                 </div>
               )}
 
-              <button className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <button className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
                 <ThumbsUp className="w-4 h-4" />
                 {t('product.helpful', { count: review.helpful })}
               </button>

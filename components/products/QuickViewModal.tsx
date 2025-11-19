@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { X, ShoppingCart, Heart, Star, Minus, Plus, Share2 } from 'lucide-react';
 import { Product } from '../../services/api';
@@ -141,7 +141,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
                     onClick={() => setSelectedImage(idx)}
                     className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       selectedImage === idx
-                        ? 'border-blue-500 scale-105'
+                        ? 'border-orange-500 scale-105'
                         : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                     }`}
                   >
@@ -200,7 +200,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
                       onClick={() => setSelectedColor(color)}
                       className={`px-4 py-2 rounded-lg border-2 transition-all ${
                         selectedColor === color
-                          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-orange-500/10'
                           : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                       }`}
                     >
@@ -221,7 +221,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
                       onClick={() => setSelectedSize(size)}
                       className={`px-4 py-2 rounded-lg border-2 transition-all ${
                         selectedSize === size
-                          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-orange-500/10'
                           : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                       }`}
                     >
@@ -258,7 +258,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
               <button
                 onClick={handleAddToCart}
                 disabled={product.stock === 0}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
               >
                 <ShoppingCart className="w-5 h-5" />
                 {t('product.addToCart')}
@@ -275,7 +275,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
               </button>
               <button
                 onClick={handleShare}
-                className="p-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 hover:border-blue-500 hover:text-blue-500 transition-colors"
+                className="p-3 rounded-lg border-2 border-gray-300 dark:border-gray-700 hover:border-orange-500 hover:text-orange-500 transition-colors"
               >
                 <Share2 className="w-5 h-5" />
               </button>

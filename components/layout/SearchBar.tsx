@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import { productsApi, Product } from '../../services/api';
@@ -69,7 +69,7 @@ export default function SearchBar({ onClose }: SearchBarProps) {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
           placeholder="Search products..."
-          className="w-full pl-10 pr-10 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full pl-10 pr-10 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
           autoFocus
         />
         {query && (
@@ -106,7 +106,7 @@ export default function SearchBar({ onClose }: SearchBarProps) {
                     <p className="text-sm text-gray-900 dark:text-white">
                       {t(getProductNameKey(product.id))}
                     </p>
-                    <p className="text-sm text-blue-600 dark:text-blue-400">
+                    <p className="text-sm text-orange-500 dark:text-orange-400">
                       ${product.price.toFixed(2)}
                     </p>
                   </div>
@@ -114,7 +114,7 @@ export default function SearchBar({ onClose }: SearchBarProps) {
               ))}
               <button
                 onClick={handleSearch}
-                className="w-full p-3 text-sm text-blue-600 dark:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="w-full p-3 text-sm text-orange-500 dark:text-orange-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 View all results
               </button>

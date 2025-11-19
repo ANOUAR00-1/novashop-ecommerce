@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Tag, Clock, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import ProductCard from '../components/products/ProductCard';
@@ -101,7 +101,7 @@ export default function DealsPage() {
         {/* Daily Deals */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <TrendingUp className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            <TrendingUp className="w-8 h-8 text-orange-500 dark:text-orange-400" />
             <div>
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
                 {t('deals.dailyDeals')}
@@ -132,7 +132,7 @@ export default function DealsPage() {
         </div>
 
         {/* Subscribe CTA */}
-        <div className="mt-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-12 text-center text-white">
+        <div className="mt-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-12 text-center text-white">
           <h3 className="text-3xl font-bold mb-4">{t('deals.subscribe.title')}</h3>
           <p className="text-xl mb-8 opacity-90">{t('deals.subscribe.description')}</p>
           <div className="flex gap-4 max-w-md mx-auto">

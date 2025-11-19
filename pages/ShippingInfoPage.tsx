@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 import { Truck, Package, Globe, Clock, DollarSign, MapPin } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
@@ -52,7 +52,7 @@ export default function ShippingInfoPage() {
               </div>
 
               {/* Express Shipping */}
-              <div className="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+              <div className="p-6 bg-orange-50 dark:bg-orange-500/10 rounded-xl">
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">
@@ -62,7 +62,7 @@ export default function ShippingInfoPage() {
                       {t('shipping.methods.express.delivery')}
                     </p>
                   </div>
-                  <span className="text-blue-600 font-bold">{t('shipping.methods.express.price')}</span>
+                  <span className="text-orange-500 font-bold">{t('shipping.methods.express.price')}</span>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 text-sm">
                   {t('shipping.methods.express.description')}

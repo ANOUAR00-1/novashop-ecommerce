@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { X, ArrowLeft, Check, Minus, ShoppingCart } from 'lucide-react';
 import { useProductComparison } from '../hooks/useProductComparison';
 import { useAppDispatch } from '../store';
@@ -40,7 +40,7 @@ export default function ComparisonPage() {
             </p>
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
               {t('comparison.browseProducts')}
@@ -107,7 +107,7 @@ export default function ComparisonPage() {
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                       {t(getProductNameKey(product.id))}
                     </h3>
-                    <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    <p className="text-2xl font-bold text-orange-500 dark:text-orange-400 mb-2">
                       ${product.price}
                     </p>
                     <div className="flex items-center justify-center gap-1 mb-4">
@@ -117,7 +117,7 @@ export default function ComparisonPage() {
                     </div>
                     <button
                       onClick={() => handleAddToCart(product)}
-                      className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                      className="w-full px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center gap-2"
                     >
                       <ShoppingCart className="w-4 h-4" />
                       {t('common.addToCart')}
@@ -134,7 +134,7 @@ export default function ComparisonPage() {
                 </td>
                 {comparedProducts.map(product => (
                   <td key={product.id} className="p-4 text-center">
-                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    <span className="text-2xl font-bold text-orange-500 dark:text-orange-400">
                       ${product.price}
                     </span>
                     {product.originalPrice && (

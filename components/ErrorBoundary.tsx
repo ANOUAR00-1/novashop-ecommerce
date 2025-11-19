@@ -1,4 +1,4 @@
-import { Component, ReactNode } from 'react';
+﻿import { Component, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -37,7 +37,7 @@ export default class ErrorBoundary extends Component<Props, State> {
             </p>
             <button
               onClick={() => window.location.href = '/'}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
             >
               Go to Homepage
             </button>

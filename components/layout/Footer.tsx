@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, MapPin, Phone } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -12,8 +12,8 @@ export default function Footer() {
           {/* About */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-xl shadow-lg"></div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 via-orange-500 to-orange-600 rounded-xl shadow-lg"></div>
+              <span className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                 NovaShop
               </span>
             </div>
@@ -21,10 +21,10 @@ export default function Footer() {
               {t('footer.aboutDescription')}
             </p>
             <div className="flex gap-3 pt-2">
-              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
+              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
+              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-blue-400 hover:to-orange-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
                 <Twitter className="w-5 h-5" />
               </a>
               <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-pink-500 hover:to-rose-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
@@ -41,26 +41,26 @@ export default function Footer() {
             <h3 className="mb-6 text-lg font-bold text-gray-900 dark:text-white">{t('footer.shopTitle')}</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/products" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/products" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('footer.allProducts')}
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=Electronics" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/products?category=Electronics" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('header.electronics')}
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=Fashion" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/products?category=Fashion" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('header.fashion')}
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=Wearables" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/products?category=Wearables" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('header.wearables')}
                 </Link>
               </li>
@@ -72,26 +72,26 @@ export default function Footer() {
             <h3 className="mb-6 text-lg font-bold text-gray-900 dark:text-white">{t('footer.customerServiceTitle')}</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/contact" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/contact" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('footer.contactUs')}
                 </Link>
               </li>
               <li>
-                <Link to="/shipping-info" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/shipping-info" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('footer.shippingInfo')}
                 </Link>
               </li>
               <li>
-                <Link to="/returns" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/returns" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('footer.returns')}
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <Link to="/faq" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   {t('footer.faq')}
                 </Link>
               </li>
@@ -103,18 +103,18 @@ export default function Footer() {
             <h3 className="mb-6 text-lg font-bold text-gray-900 dark:text-white">{t('footer.contactInfoTitle')}</h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
-                <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <span>{t('footer.address')}</span>
               </li>
               <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                <Phone className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                <a href={`tel:${t('footer.phone')}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Phone className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                <a href={`tel:${t('footer.phone')}`} className="hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
                   {t('footer.phone')}
                 </a>
               </li>
               <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                <Mail className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                <a href={`mailto:${t('footer.email')}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                <a href={`mailto:${t('footer.email')}`} className="hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
                   {t('footer.email')}
                 </a>
               </li>
@@ -128,13 +128,13 @@ export default function Footer() {
               {t('footer.copyright')}
             </p>
             <div className="flex gap-6 text-sm">
-              <Link to="/privacy-policy" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link to="/privacy-policy" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
                 {t('footer.privacyPolicy')}
               </Link>
-              <Link to="/terms-of-service" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link to="/terms-of-service" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
                 {t('footer.termsOfService')}
               </Link>
-              <Link to="/cookie-policy" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Link to="/cookie-policy" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
                 {t('footer.cookiePolicy')}
               </Link>
             </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { User, MapPin, Bell, Shield, CreditCard, Plus, Edit, Trash2 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -65,7 +65,7 @@ export default function SettingsPage() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors mb-2 ${
                       activeTab === tab.id
-                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                        ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-500 dark:text-orange-400'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                     }`}
                   >
@@ -95,7 +95,7 @@ export default function SettingsPage() {
                         <input
                           type="text"
                           defaultValue={user?.firstName}
-                          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                         />
                       </div>
                       <div>
@@ -105,7 +105,7 @@ export default function SettingsPage() {
                         <input
                           type="text"
                           defaultValue={user?.lastName}
-                          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                         />
                       </div>
                     </div>
@@ -116,7 +116,7 @@ export default function SettingsPage() {
                       <input
                         type="email"
                         defaultValue={user?.email}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div>
@@ -126,10 +126,10 @@ export default function SettingsPage() {
                       <input
                         type="tel"
                         placeholder="+1 (234) 567-890"
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
-                    <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
                       {t('common.save')} {t('settings.profile.changes')}
                     </button>
                   </div>
@@ -143,7 +143,7 @@ export default function SettingsPage() {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                       {t('settings.addresses.title')}
                     </h2>
-                    <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
                       <Plus className="w-5 h-5" />
                       {t('settings.addresses.addNew')}
                     </button>
@@ -152,7 +152,7 @@ export default function SettingsPage() {
                     {addresses.map(address => (
                       <div
                         key={address.id}
-                        className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+                        className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:border-orange-500 dark:hover:border-orange-500 transition-colors"
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
@@ -161,7 +161,7 @@ export default function SettingsPage() {
                                 {address.name}
                               </h3>
                               {address.isDefault && (
-                                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded">
+                                <span className="px-2 py-1 bg-orange-100 dark:bg-orange-500/10 text-orange-500 dark:text-orange-400 text-xs font-semibold rounded">
                                   {t('settings.addresses.default')}
                                 </span>
                               )}
@@ -174,7 +174,7 @@ export default function SettingsPage() {
                             </p>
                           </div>
                           <div className="flex items-center gap-2">
-                            <button className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors">
+                            <button className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-500/10 rounded-lg transition-colors">
                               <Edit className="w-5 h-5" />
                             </button>
                             <button
@@ -209,7 +209,7 @@ export default function SettingsPage() {
                         <input
                           type="checkbox"
                           defaultChecked
-                          className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
+                          className="w-5 h-5 text-orange-500 rounded focus:ring-orange-500"
                         />
                       </label>
                     ))}
@@ -230,7 +230,7 @@ export default function SettingsPage() {
                       </label>
                       <input
                         type="password"
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div>
@@ -239,7 +239,7 @@ export default function SettingsPage() {
                       </label>
                       <input
                         type="password"
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
                     <div>
@@ -248,10 +248,10 @@ export default function SettingsPage() {
                       </label>
                       <input
                         type="password"
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                       />
                     </div>
-                    <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
                       {t('settings.security.updatePassword')}
                     </button>
                   </div>
@@ -265,7 +265,7 @@ export default function SettingsPage() {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                       {t('settings.payment.title')}
                     </h2>
-                    <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
                       <Plus className="w-5 h-5" />
                       {t('settings.payment.addCard')}
                     </button>

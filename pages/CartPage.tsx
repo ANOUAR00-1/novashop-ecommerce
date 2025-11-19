@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+﻿import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../store';
 import { removeFromCart, updateQuantity, clearCart } from '../store/slices/cartSlice';
@@ -40,7 +40,7 @@ export default function CartPage() {
           </p>
           <Link
             to="/products"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-block px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
           >
             Shop Now
           </Link>
@@ -79,7 +79,7 @@ export default function CartPage() {
                 <div className="flex-1">
                   <Link
                     to={`/products/${item.productId}`}
-                    className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+                    className="text-gray-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-400"
                   >
                     {item.name}
                   </Link>
@@ -89,7 +89,7 @@ export default function CartPage() {
                       {item.variant.size && <span>Size: {item.variant.size}</span>}
                     </div>
                   )}
-                  <p className="mt-2 text-blue-600 dark:text-blue-400">
+                  <p className="mt-2 text-orange-500 dark:text-orange-400">
                     ${item.price.toFixed(2)}
                   </p>
 
@@ -164,7 +164,7 @@ export default function CartPage() {
 
               <button
                 onClick={() => navigate('/checkout')}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mb-3"
+                className="w-full px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors mb-3"
               >
                 Proceed to Checkout
               </button>

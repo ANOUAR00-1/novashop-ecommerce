@@ -1,4 +1,4 @@
-import { Flame, Sparkles, Tag, TrendingUp, Clock } from 'lucide-react';
+﻿import { Flame, Sparkles, Tag, TrendingUp, Clock } from 'lucide-react';
 
 interface ProductBadgeProps {
   type: 'new' | 'sale' | 'hot' | 'bestseller' | 'limited';
@@ -11,7 +11,7 @@ export default function ProductBadge({ type, discount, className = '' }: Product
     new: {
       label: 'New',
       icon: Sparkles,
-      className: 'bg-blue-500 text-white',
+      className: 'bg-orange-500 text-white',
     },
     sale: {
       label: discount ? `-${discount}%` : 'Sale',

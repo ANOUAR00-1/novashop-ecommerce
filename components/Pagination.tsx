@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+﻿import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface PaginationProps {
   currentPage: number;
@@ -55,7 +55,7 @@ export default function Pagination({
           onClick={() => onPageChange(page)}
           className={`px-4 py-2 rounded-lg transition-colors ${
             page === currentPage
-              ? 'bg-blue-600 text-white'
+              ? 'bg-orange-500 text-white'
               : 'border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
           }`}
         >

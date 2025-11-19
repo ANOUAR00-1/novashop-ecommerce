@@ -1,4 +1,4 @@
-import { Users, Award, Globe, Heart } from 'lucide-react';
+﻿import { Users, Award, Globe, Heart } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
 export default function AboutPage() {
@@ -53,7 +53,7 @@ export default function AboutPage() {
               const Icon = stat.icon;
               return (
                 <div key={index} className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center">
-                  <Icon className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+                  <Icon className="w-12 h-12 text-orange-500 dark:text-orange-400 mx-auto mb-4" />
                   <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
                     {stat.value}
                   </div>
@@ -83,7 +83,7 @@ export default function AboutPage() {
                 Our commitment to sustainability and ethical sourcing means you can shop with confidence, knowing that your purchases support responsible business practices.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl h-96 flex items-center justify-center">
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl h-96 flex items-center justify-center">
               <div className="text-center text-white">
                 <div className="text-6xl font-bold mb-4">2020</div>
                 <p className="text-xl">Founded with a vision</p>
@@ -99,7 +99,7 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-orange-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6">
                 <span className="text-3xl">🎯</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
@@ -163,7 +163,7 @@ export default function AboutPage() {
         </section>
 
         {/* Why Choose Us */}
-        <section className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white text-center">
+        <section className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-12 text-white text-center">
           <h2 className="text-4xl font-bold mb-6">Why Choose NovaShop?</h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
             With over 50,000 happy customers and a 4.9-star rating, we're committed to delivering excellence in every interaction.

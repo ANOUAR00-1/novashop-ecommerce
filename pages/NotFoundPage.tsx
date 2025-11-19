@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+﻿import { Link, useLocation } from 'react-router-dom';
 import { Home, AlertCircle } from 'lucide-react';
 import { useEffect } from 'react';
 
@@ -15,7 +15,7 @@ export default function NotFoundPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4">
       <div className="text-center max-w-2xl">
-        <h1 className="text-9xl text-blue-600 dark:text-blue-400 mb-4">404</h1>
+        <h1 className="text-9xl text-orange-500 dark:text-orange-400 mb-4">404</h1>
         <h2 className="mb-4 text-gray-900 dark:text-white">
           Page Not Found
         </h2>
@@ -47,7 +47,7 @@ export default function NotFoundPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
           >
             <Home className="w-5 h-5" />
             Back to Home
@@ -60,11 +60,11 @@ export default function NotFoundPage() {
           </Link>
         </div>
 
-        <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+        <div className="mt-8 p-4 bg-orange-50 dark:bg-orange-500/10 border border-blue-200 dark:border-blue-800 rounded-lg">
           <p className="text-sm text-blue-800 dark:text-blue-300 mb-2">
             <strong>Available Routes - Click to test:</strong>
           </p>
-          <div className="grid grid-cols-2 gap-2 text-xs text-blue-700 dark:text-blue-400">
+          <div className="grid grid-cols-2 gap-2 text-xs text-orange-600 dark:text-orange-400">
             <Link to="/" className="hover:underline">• Home (/)</Link>
             <Link to="/test" className="hover:underline">• Test Page (debug)</Link>
             <Link to="/diagnostic" className="hover:underline">• Diagnostic</Link>

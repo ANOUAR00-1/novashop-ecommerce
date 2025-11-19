@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Heart, ShoppingCart, Star, Eye, GitCompare } from 'lucide-react';
 import { Product } from '../../services/api';
@@ -114,12 +114,12 @@ export default function ProductCard({ product, showFlashBadge = false }: Product
 
   return (
     <>
-      <div className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-500 hover:-translate-y-2">
+      <div className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-soft hover:shadow-strong hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-300 hover:-translate-y-1">
         <Link to={`/products/${product.id}`} className="block relative aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
           <img
             src={getImageUrl(product.image)}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700 ease-out"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             loading="lazy"
           />
           
@@ -143,7 +143,7 @@ export default function ProductCard({ product, showFlashBadge = false }: Product
             </button>
             <button
               onClick={handleQuickView}
-              className="p-3 rounded-xl bg-white/90 backdrop-blur-md shadow-lg text-gray-700 hover:bg-blue-500 hover:text-white hover:scale-125 hover:shadow-blue-500/30 transition-all duration-300 transform"
+              className="p-3 rounded-xl bg-white/90 backdrop-blur-md shadow-lg text-gray-700 hover:bg-orange-500 hover:text-white hover:scale-125 hover:shadow-blue-500/30 transition-all duration-300 transform"
               title={t('product.quickView')}
             >
               <Eye className="w-5 h-5" />
@@ -172,14 +172,14 @@ export default function ProductCard({ product, showFlashBadge = false }: Product
 
         <div className="p-5">
           <Link to={`/products/${product.id}`}>
-            <p className="text-xs text-blue-600 dark:text-blue-400 mb-2 uppercase tracking-wider font-semibold">
+            <p className="text-xs text-orange-500 dark:text-orange-400 mb-2 uppercase tracking-wider font-semibold">
               {typeof product.category === 'object' && product.category?.name 
                 ? product.category.name 
                 : typeof product.category === 'string' 
                   ? product.category 
                   : 'Uncategorized'}
             </p>
-            <h3 className="mb-3 text-gray-900 dark:text-white line-clamp-2 font-semibold text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors leading-tight">
+            <h3 className="mb-3 text-gray-900 dark:text-white line-clamp-2 font-semibold text-lg hover:text-orange-500 dark:hover:text-orange-400 transition-colors leading-tight">
               {product.name}
             </h3>
           </Link>
@@ -212,7 +212,7 @@ export default function ProductCard({ product, showFlashBadge = false }: Product
                   ${product.originalPrice.toFixed(2)}
                 </span>
               )}
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                 ${product.price.toFixed(2)}
               </span>
             </div>
@@ -221,7 +221,7 @@ export default function ProductCard({ product, showFlashBadge = false }: Product
           <button
             onClick={handleAddToCart}
             disabled={product.stock === 0}
-            className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold group"
+            className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-blue-700 text-white rounded-xl hover:from-orange-600 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold group"
           >
             <ShoppingCart className="w-5 h-5 group-hover:animate-bounce" />
             {product.stock === 0 ? t('product.outOfStock') : t('product.addToCart')}

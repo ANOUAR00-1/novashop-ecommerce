@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Package, Search, CheckCircle, Clock, Truck, Home, MapPin } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import BackButton from '../components/BackButton';
@@ -117,14 +117,14 @@ export default function OrderTrackingPage() {
                 value={trackingNumber}
                 onChange={(e) => setTrackingNumber(e.target.value)}
                 placeholder={t('tracking.placeholder')}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 dark:bg-gray-700 dark:text-white"
                 required
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center gap-2"
+              className="px-8 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50 flex items-center gap-2"
             >
               {loading ? (
                 <>
@@ -152,12 +152,12 @@ export default function OrderTrackingPage() {
                     {t('tracking.order')} #{orderData.trackingNumber}
                   </h2>
                   <p className="text-gray-600 dark:text-gray-400">
-                    {t('tracking.estimatedDelivery')}: <span className="font-semibold text-blue-600 dark:text-blue-400">{orderData.estimatedDelivery}</span>
+                    {t('tracking.estimatedDelivery')}: <span className="font-semibold text-orange-500 dark:text-orange-400">{orderData.estimatedDelivery}</span>
                   </p>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
-                  <Truck className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                  <span className="font-semibold text-blue-600 dark:text-blue-400">
+                <div className="flex items-center gap-2 px-4 py-2 bg-orange-100 dark:bg-orange-500/10 rounded-lg">
+                  <Truck className="w-5 h-5 text-orange-500 dark:text-orange-400" />
+                  <span className="font-semibold text-orange-500 dark:text-orange-400">
                     {t('tracking.currentLocation')}: {orderData.currentLocation}
                   </span>
                 </div>
@@ -205,7 +205,7 @@ export default function OrderTrackingPage() {
                             {step.label}
                           </h3>
                           {step.current && (
-                            <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-semibold rounded">
+                            <span className="px-2 py-1 bg-orange-100 dark:bg-orange-500/10 text-orange-500 dark:text-orange-400 text-xs font-semibold rounded">
                               {t('tracking.current')}
                             </span>
                           )}
@@ -262,13 +262,13 @@ export default function OrderTrackingPage() {
         )}
 
         {/* Help Section */}
-        <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 text-center">
+        <div className="mt-8 bg-orange-50 dark:bg-orange-500/10 rounded-xl p-6 text-center">
           <p className="text-gray-700 dark:text-gray-300 mb-2">
             {t('tracking.needHelp')}
           </p>
           <a
             href="/contact"
-            className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+            className="text-orange-500 dark:text-orange-400 font-semibold hover:underline"
           >
             {t('tracking.contactSupport')}
           </a>

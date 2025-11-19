@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Star, Heart, ShoppingCart, Truck, Shield, RotateCcw } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../store';
@@ -107,7 +107,7 @@ export default function ProductDetailPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -119,7 +119,7 @@ export default function ProductDetailPage() {
           <h2 className="mb-4 text-gray-900 dark:text-white">Product not found</h2>
           <button
             onClick={() => navigate('/products')}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
           >
             Back to Products
           </button>
@@ -152,7 +152,7 @@ export default function ProductDetailPage() {
                     onClick={() => setSelectedImage(idx)}
                     className={`aspect-square rounded-lg overflow-hidden border-2 ${
                       selectedImage === idx
-                        ? 'border-blue-600'
+                        ? 'border-orange-500'
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                   >
@@ -196,7 +196,7 @@ export default function ProductDetailPage() {
                   ${product.originalPrice.toFixed(2)}
                 </span>
               )}
-              <span className="text-3xl text-blue-600 dark:text-blue-400">
+              <span className="text-3xl text-orange-500 dark:text-orange-400">
                 ${product.price.toFixed(2)}
               </span>
               {product.originalPrice && (
@@ -223,7 +223,7 @@ export default function ProductDetailPage() {
                       onClick={() => setSelectedVariant({ ...selectedVariant, color })}
                       className={`px-4 py-2 rounded-lg border-2 transition-colors ${
                         selectedVariant.color === color
-                          ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400'
                           : 'border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
                       }`}
                     >
@@ -246,7 +246,7 @@ export default function ProductDetailPage() {
                       onClick={() => setSelectedVariant({ ...selectedVariant, size })}
                       className={`px-4 py-2 rounded-lg border-2 transition-colors ${
                         selectedVariant.size === size
-                          ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400'
                           : 'border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
                       }`}
                     >
@@ -289,7 +289,7 @@ export default function ProductDetailPage() {
               <button
                 onClick={handleAddToCart}
                 disabled={product.stock === 0}
-                className="flex-1 px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                className="flex-1 px-6 py-4 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
               >
                 <ShoppingCart className="w-5 h-5" />
                 Add to Cart
@@ -316,7 +316,7 @@ export default function ProductDetailPage() {
             {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
               <div className="flex items-center gap-3">
-                <Truck className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                <Truck className="w-6 h-6 text-orange-500 dark:text-orange-400" />
                 <div>
                   <p className="text-sm text-gray-900 dark:text-white">Free Shipping</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">On orders $50+</p>
@@ -349,7 +349,7 @@ export default function ProductDetailPage() {
                 onClick={() => setActiveTab(tab)}
                 className={`pb-4 transition-colors capitalize ${
                   activeTab === tab
-                    ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600'
+                    ? 'text-orange-500 dark:text-orange-400 border-b-2 border-orange-500'
                     : 'text-gray-600 dark:text-gray-400'
                 }`}
               >
@@ -376,7 +376,7 @@ export default function ProductDetailPage() {
                         key={idx}
                         className="flex items-start gap-2 text-gray-600 dark:text-gray-400"
                       >
-                        <span className="text-blue-600 dark:text-blue-400">•</span>
+                        <span className="text-orange-500 dark:text-orange-400">•</span>
                         {feature}
                       </li>
                     ))}

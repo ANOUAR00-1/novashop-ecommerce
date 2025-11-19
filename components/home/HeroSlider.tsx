@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+﻿import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -23,7 +23,7 @@ const slides: Slide[] = [
     descriptionKey: 'home.hero.slide1.description',
     ctaKey: 'home.hero.slide1.cta',
     ctaLink: '/products?category=electronics',
-    gradient: 'from-blue-900/80 via-purple-900/70 to-transparent'
+    gradient: 'from-gray-900/90 via-gray-800/80 to-transparent'
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const slides: Slide[] = [
     descriptionKey: 'home.hero.slide2.description',
     ctaKey: 'home.hero.slide2.cta',
     ctaLink: '/products?category=fashion',
-    gradient: 'from-pink-900/80 via-rose-900/70 to-transparent'
+    gradient: 'from-gray-900/90 via-gray-800/80 to-transparent'
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     descriptionKey: 'home.hero.slide3.description',
     ctaKey: 'home.hero.slide3.cta',
     ctaLink: '/products',
-    gradient: 'from-indigo-900/80 via-blue-900/70 to-transparent'
+    gradient: 'from-gray-900/90 via-gray-800/80 to-transparent'
   }
 ];
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../store';
 import { createOrder } from '../store/slices/ordersSlice';
@@ -91,7 +91,7 @@ export default function CheckoutPage() {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     step >= 1
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-orange-500 text-white'
                       : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                   }`}
                 >
@@ -100,14 +100,14 @@ export default function CheckoutPage() {
                 <div
                   className={`w-24 h-1 ${
                     step >= 2
-                      ? 'bg-blue-600'
+                      ? 'bg-orange-500'
                       : 'bg-gray-200 dark:bg-gray-700'
                   }`}
                 ></div>
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     step >= 2
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-orange-500 text-white'
                       : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                   }`}
                 >
@@ -132,7 +132,7 @@ export default function CheckoutPage() {
                         setShippingInfo({ ...shippingInfo, fullName: e.target.value })
                       }
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                     />
                   </div>
                   <div>
@@ -146,7 +146,7 @@ export default function CheckoutPage() {
                         setShippingInfo({ ...shippingInfo, address: e.target.value })
                       }
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
@@ -161,7 +161,7 @@ export default function CheckoutPage() {
                           setShippingInfo({ ...shippingInfo, city: e.target.value })
                         }
                         required
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                       />
                     </div>
                     <div>
@@ -175,7 +175,7 @@ export default function CheckoutPage() {
                           setShippingInfo({ ...shippingInfo, state: e.target.value })
                         }
                         required
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                       />
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export default function CheckoutPage() {
                           setShippingInfo({ ...shippingInfo, zipCode: e.target.value })
                         }
                         required
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                       />
                     </div>
                     <div>
@@ -205,13 +205,13 @@ export default function CheckoutPage() {
                           setShippingInfo({ ...shippingInfo, phone: e.target.value })
                         }
                         required
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                       />
                     </div>
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="w-full px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
                   >
                     Continue to Payment
                   </button>
@@ -226,7 +226,7 @@ export default function CheckoutPage() {
                   <h2 className="text-gray-900 dark:text-white">Payment Method</h2>
                   <button
                     onClick={() => setStep(1)}
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-orange-500 dark:text-orange-400 hover:underline"
                   >
                     Edit Shipping
                   </button>
@@ -237,7 +237,7 @@ export default function CheckoutPage() {
                     onClick={() => setPaymentMethod('card')}
                     className={`w-full p-4 rounded-lg border-2 flex items-center gap-3 transition-colors ${
                       paymentMethod === 'card'
-                        ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/30'
+                        ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30'
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                   >
@@ -253,7 +253,7 @@ export default function CheckoutPage() {
                     onClick={() => setPaymentMethod('paypal')}
                     className={`w-full p-4 rounded-lg border-2 flex items-center gap-3 transition-colors ${
                       paymentMethod === 'paypal'
-                        ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/30'
+                        ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30'
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                   >

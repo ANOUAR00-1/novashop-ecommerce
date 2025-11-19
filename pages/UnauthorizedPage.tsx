@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Home, ShieldAlert } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -25,7 +25,7 @@ export default function UnauthorizedPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-semibold text-lg"
           >
             <Home className="w-6 h-6" />
             {t('unauthorized.backToHome')}

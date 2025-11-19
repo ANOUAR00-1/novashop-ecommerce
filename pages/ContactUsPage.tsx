@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -32,7 +32,7 @@ export default function ContactUsPage() {
         <BackButton />
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-500 to-cyan-600 rounded-2xl mb-6">
             <MessageSquare className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -49,8 +49,8 @@ export default function ContactUsPage() {
             {/* Email */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 bg-orange-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-orange-500" />
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 dark:text-white">
@@ -61,7 +61,7 @@ export default function ContactUsPage() {
                   </p>
                 </div>
               </div>
-              <a href="mailto:support@novashop.com" className="text-blue-600 hover:underline">
+              <a href="mailto:support@novashop.com" className="text-orange-500 hover:underline">
                 support@novashop.com
               </a>
             </div>
@@ -143,7 +143,7 @@ export default function ContactUsPage() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                       placeholder={t('contact.form.namePlaceholder')}
                     />
                   </div>
@@ -156,7 +156,7 @@ export default function ContactUsPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                       placeholder={t('contact.form.emailPlaceholder')}
                     />
                   </div>
@@ -171,7 +171,7 @@ export default function ContactUsPage() {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                     placeholder={t('contact.form.subjectPlaceholder')}
                   />
                 </div>
@@ -185,7 +185,7 @@ export default function ContactUsPage() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                     placeholder={t('contact.form.messagePlaceholder')}
                   />
                 </div>
@@ -193,7 +193,7 @@ export default function ContactUsPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                  className="w-full px-6 py-4 bg-gradient-to-r from-orange-500 to-cyan-600 text-white rounded-lg hover:from-orange-600 hover:to-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
                 >
                   <Send className="w-5 h-5" />
                   {loading ? t('contact.form.sending') : t('contact.form.send')}

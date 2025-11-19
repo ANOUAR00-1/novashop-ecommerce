@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useToast } from '../../contexts/ToastContext';
@@ -101,22 +101,22 @@ export default function LoginPage() {
         </div>
 
         {pendingActionInfo && (
-          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <div className="mb-6 p-4 bg-orange-50 dark:bg-orange-500/10 border border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="flex items-start gap-3">
               {pendingAction?.type === 'add-to-cart' && (
-                <ShoppingCart className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <ShoppingCart className="w-5 h-5 text-orange-500 dark:text-orange-400 flex-shrink-0 mt-0.5" />
               )}
               {pendingAction?.type === 'add-to-wishlist' && (
-                <Heart className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <Heart className="w-5 h-5 text-orange-500 dark:text-orange-400 flex-shrink-0 mt-0.5" />
               )}
               {pendingAction?.type === 'checkout' && (
-                <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-orange-500 dark:text-orange-400 flex-shrink-0 mt-0.5" />
               )}
               <div className="flex-1">
                 <p className="text-sm font-medium text-blue-800 dark:text-blue-300">
                   Action Pending
                 </p>
-                <p className="text-sm text-blue-700 dark:text-blue-400 mt-1">
+                <p className="text-sm text-orange-600 dark:text-orange-400 mt-1">
                   {pendingActionInfo}
                 </p>
               </div>
@@ -135,7 +135,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder={t('auth.emailPlaceholder')}
               />
             </div>
@@ -149,7 +149,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder={t('auth.passwordPlaceholder')}
               />
             </div>
@@ -158,7 +158,7 @@ export default function LoginPage() {
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  className="rounded text-blue-600 focus:ring-blue-500"
+                  className="rounded text-orange-500 focus:ring-orange-500"
                 />
                 <span className="text-sm text-gray-700 dark:text-gray-300">
                   {t('auth.rememberMe')}
@@ -166,7 +166,7 @@ export default function LoginPage() {
               </label>
               <Link
                 to="/forgot-password"
-                className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-sm text-orange-500 dark:text-orange-400 hover:underline"
               >
                 {t('auth.forgotPassword')}
               </Link>
@@ -175,7 +175,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {loading ? t('auth.loggingIn') : t('auth.signIn')}
             </button>
@@ -186,7 +186,7 @@ export default function LoginPage() {
               {t('auth.dontHaveAccount')}{' '}
               <Link
                 to="/register"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-orange-500 dark:text-orange-400 hover:underline"
               >
                 {t('auth.signUp')}
               </Link>

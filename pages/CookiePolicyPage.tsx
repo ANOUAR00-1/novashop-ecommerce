@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 import { Cookie, Settings, BarChart, Target, Shield } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
@@ -40,9 +40,9 @@ export default function CookiePolicyPage() {
             </h2>
 
             {/* Essential Cookies */}
-            <div className="mb-6 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+            <div className="mb-6 p-6 bg-orange-50 dark:bg-orange-500/10 rounded-xl">
               <div className="flex items-center gap-3 mb-3">
-                <Shield className="w-6 h-6 text-blue-600" />
+                <Shield className="w-6 h-6 text-orange-500" />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                   {t('cookies.types.essential.title')}
                 </h3>

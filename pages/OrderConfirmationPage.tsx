@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CheckCircle, Package, Truck, MapPin } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../store';
@@ -19,7 +19,7 @@ export default function OrderConfirmationPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default function OrderConfirmationPage() {
           <h2 className="mb-4 text-gray-900 dark:text-white">Order not found</h2>
           <Link
             to="/orders"
-            className="text-blue-600 dark:text-blue-400 hover:underline"
+            className="text-orange-500 dark:text-orange-400 hover:underline"
           >
             View all orders
           </Link>
@@ -52,7 +52,7 @@ export default function OrderConfirmationPage() {
             Thank you for your purchase. Your order has been received.
           </p>
           <p className="text-gray-900 dark:text-white">
-            Order ID: <span className="text-blue-600 dark:text-blue-400">{order.id}</span>
+            Order ID: <span className="text-orange-500 dark:text-orange-400">{order.id}</span>
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export default function OrderConfirmationPage() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             to="/orders"
-            className="flex-1 px-6 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex-1 px-6 py-3 bg-orange-500 text-white text-center rounded-lg hover:bg-orange-600 transition-colors"
           >
             View All Orders
           </Link>

@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 import { RefreshCw, Package, CheckCircle, XCircle, AlertTriangle, Clock } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
@@ -12,7 +12,7 @@ export default function ReturnsPage() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-500 to-indigo-600 rounded-2xl mb-6">
               <RefreshCw className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -26,30 +26,30 @@ export default function ReturnsPage() {
           {/* Return Policy */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <CheckCircle className="w-6 h-6 text-blue-600" />
+              <CheckCircle className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('returns.policy.title')}
               </h2>
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 mb-6">
+            <div className="bg-orange-50 dark:bg-orange-500/10 rounded-xl p-6 mb-6">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 {t('returns.policy.description')}
               </p>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                   <span>{t('returns.policy.condition1')}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                   <span>{t('returns.policy.condition2')}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                   <span>{t('returns.policy.condition3')}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                   <span>{t('returns.policy.condition4')}</span>
                 </li>
               </ul>
@@ -59,14 +59,14 @@ export default function ReturnsPage() {
           {/* How to Return */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <Package className="w-6 h-6 text-blue-600" />
+              <Package className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('returns.howTo.title')}
               </h2>
             </div>
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   1
                 </div>
                 <div>
@@ -79,7 +79,7 @@ export default function ReturnsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   2
                 </div>
                 <div>
@@ -92,7 +92,7 @@ export default function ReturnsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   3
                 </div>
                 <div>
@@ -105,7 +105,7 @@ export default function ReturnsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   4
                 </div>
                 <div>
@@ -123,7 +123,7 @@ export default function ReturnsPage() {
           {/* Exchange Policy */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <RefreshCw className="w-6 h-6 text-blue-600" />
+              <RefreshCw className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('returns.exchange.title')}
               </h2>
@@ -171,7 +171,7 @@ export default function ReturnsPage() {
           {/* Refund Processing */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <Clock className="w-6 h-6 text-blue-600" />
+              <Clock className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('returns.refund.title')}
               </h2>
@@ -193,13 +193,13 @@ export default function ReturnsPage() {
           </section>
 
           {/* Contact */}
-          <section className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+          <section className="mt-12 p-6 bg-orange-50 dark:bg-orange-500/10 rounded-xl">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
               {t('returns.contact.title')}
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
               {t('returns.contact.description')}
-              <a href="mailto:returns@novashop.com" className="text-blue-600 hover:underline ml-1">
+              <a href="mailto:returns@novashop.com" className="text-orange-500 hover:underline ml-1">
                 returns@novashop.com
               </a>
             </p>

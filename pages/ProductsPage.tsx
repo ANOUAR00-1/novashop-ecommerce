@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Grid, List, SlidersHorizontal } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../store';
@@ -79,7 +79,7 @@ export default function ProductsPage() {
             <select
               value={filters.sort}
               onChange={(e) => handleSortChange(e.target.value)}
-              className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="newest">Newest</option>
               <option value="price-asc">Price: Low to High</option>
@@ -92,7 +92,7 @@ export default function ProductsPage() {
                 onClick={() => setViewMode('grid')}
                 className={`p-2 rounded ${
                   viewMode === 'grid'
-                    ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400'
+                    ? 'bg-white dark:bg-gray-700 text-orange-500 dark:text-orange-400'
                     : 'text-gray-600 dark:text-gray-400'
                 }`}
               >
@@ -102,7 +102,7 @@ export default function ProductsPage() {
                 onClick={() => setViewMode('list')}
                 className={`p-2 rounded ${
                   viewMode === 'list'
-                    ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400'
+                    ? 'bg-white dark:bg-gray-700 text-orange-500 dark:text-orange-400'
                     : 'text-gray-600 dark:text-gray-400'
                 }`}
               >
@@ -123,7 +123,7 @@ export default function ProductsPage() {
           <div className="flex-1">
             {loading ? (
               <div className="flex items-center justify-center py-20">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
               </div>
             ) : products.length > 0 ? (
               <>

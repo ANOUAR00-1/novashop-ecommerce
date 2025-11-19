@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAppSelector } from '../store';
@@ -122,42 +122,42 @@ export default function DiagnosticPage() {
           </div>
 
           {/* Quick Links */}
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
+          <div className="bg-orange-50 dark:bg-orange-500/10 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
             <h2 className="text-blue-900 dark:text-blue-300 mb-4">Quick Links</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               <Link
                 to="/"
-                className="px-4 py-2 bg-blue-600 text-white rounded text-center hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-orange-500 text-white rounded text-center hover:bg-orange-600 transition-colors"
               >
                 Home
               </Link>
               <Link
                 to="/products"
-                className="px-4 py-2 bg-blue-600 text-white rounded text-center hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-orange-500 text-white rounded text-center hover:bg-orange-600 transition-colors"
               >
                 Products
               </Link>
               <Link
                 to="/cart"
-                className="px-4 py-2 bg-blue-600 text-white rounded text-center hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-orange-500 text-white rounded text-center hover:bg-orange-600 transition-colors"
               >
                 Cart
               </Link>
               <Link
                 to="/login"
-                className="px-4 py-2 bg-blue-600 text-white rounded text-center hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-orange-500 text-white rounded text-center hover:bg-orange-600 transition-colors"
               >
                 Login
               </Link>
               <Link
                 to="/register"
-                className="px-4 py-2 bg-blue-600 text-white rounded text-center hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-orange-500 text-white rounded text-center hover:bg-orange-600 transition-colors"
               >
                 Register
               </Link>
               <Link
                 to="/admin"
-                className="px-4 py-2 bg-blue-600 text-white rounded text-center hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-orange-500 text-white rounded text-center hover:bg-orange-600 transition-colors"
               >
                 Admin
               </Link>

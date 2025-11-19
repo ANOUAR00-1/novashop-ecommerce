@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 import { Shield, Eye, Lock, Database, UserCheck, Cookie } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mb-6">
               <Shield className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
           {/* Information We Collect */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <Database className="w-6 h-6 text-blue-600" />
+              <Database className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('privacy.infoWeCollect.title')}
               </h2>
@@ -58,7 +58,7 @@ export default function PrivacyPolicyPage() {
           {/* How We Use Information */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <Eye className="w-6 h-6 text-blue-600" />
+              <Eye className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('privacy.howWeUse.title')}
               </h2>
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
           {/* Data Security */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <Lock className="w-6 h-6 text-blue-600" />
+              <Lock className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('privacy.dataSecurity.title')}
               </h2>
@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
           {/* Cookies */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <Cookie className="w-6 h-6 text-blue-600" />
+              <Cookie className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('privacy.cookies.title')}
               </h2>
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
           {/* Your Rights */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <UserCheck className="w-6 h-6 text-blue-600" />
+              <UserCheck className="w-6 h-6 text-orange-500" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('privacy.yourRights.title')}
               </h2>
@@ -120,13 +120,13 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Contact */}
-          <section className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+          <section className="mt-12 p-6 bg-orange-50 dark:bg-orange-500/10 rounded-xl">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
               {t('privacy.contact.title')}
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
               {t('privacy.contact.description')}
-              <a href="mailto:privacy@novashop.com" className="text-blue-600 hover:underline ml-1">
+              <a href="mailto:privacy@novashop.com" className="text-orange-500 hover:underline ml-1">
                 privacy@novashop.com
               </a>
             </p>

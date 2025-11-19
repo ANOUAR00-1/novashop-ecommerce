@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -116,7 +116,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <Link
               to="/login"
               onClick={onClose}
-              className="block px-4 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700"
+              className="block px-4 py-3 bg-orange-500 text-white text-center rounded-lg hover:bg-orange-600"
             >
               Login
             </Link>

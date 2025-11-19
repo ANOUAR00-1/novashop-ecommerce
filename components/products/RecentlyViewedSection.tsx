@@ -1,4 +1,4 @@
-import { Clock, ArrowRight } from 'lucide-react';
+﻿import { Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRecentlyViewed } from '../../hooks/useRecentlyViewed';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -15,14 +15,14 @@ export default function RecentlyViewedSection() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
-            <Clock className="w-6 h-6 text-blue-600" />
+            <Clock className="w-6 h-6 text-orange-500" />
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               {t('product.recentlyViewed')}
             </h2>
           </div>
           <Link
             to="/products"
-            className="text-blue-600 hover:underline flex items-center gap-2"
+            className="text-orange-500 hover:underline flex items-center gap-2"
           >
             {t('cart.continueShopping')}
             <ArrowRight className="w-4 h-4" />
@@ -46,7 +46,7 @@ export default function RecentlyViewedSection() {
               <h3 className="font-medium text-sm text-gray-900 dark:text-white line-clamp-2 mb-2">
                 {t(getProductNameKey(product.id))}
               </h3>
-              <p className="text-lg font-bold text-blue-600">
+              <p className="text-lg font-bold text-orange-500">
                 ${product.price.toFixed(2)}
               </p>
             </Link>

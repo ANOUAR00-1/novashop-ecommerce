@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Plus, Edit, Trash2, Tag, Search, Copy, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import CouponFormModal from '../../components/admin/CouponFormModal';
@@ -127,7 +127,7 @@ export default function AdminCoupons() {
   if (loading) {
     return (
       <div className="p-8 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -144,7 +144,7 @@ export default function AdminCoupons() {
         </div>
         <button 
           onClick={handleAdd}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+          className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
           Add Coupon
@@ -161,7 +161,7 @@ export default function AdminCoupons() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search coupons..."
-            className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
 
@@ -169,7 +169,7 @@ export default function AdminCoupons() {
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
           <option value="all">All Types</option>
           <option value="percentage">Percentage</option>
@@ -180,7 +180,7 @@ export default function AdminCoupons() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
           <option value="all">All Status</option>
           <option value="active">Active</option>
@@ -203,7 +203,7 @@ export default function AdminCoupons() {
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Usage</p>
-          <p className="text-2xl text-blue-600 dark:text-blue-400">
+          <p className="text-2xl text-orange-500 dark:text-orange-400">
             {coupons.reduce((sum, c) => sum + c.usageCount, 0)}
           </p>
         </div>
@@ -230,19 +230,19 @@ export default function AdminCoupons() {
                   ? 'border-red-200 dark:border-red-900 opacity-60'
                   : !coupon.isActive
                   ? 'border-gray-200 dark:border-gray-700 opacity-75'
-                  : 'border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-700'
+                  : 'border-blue-200 dark:border-blue-900 hover:border-orange-500 dark:hover:border-blue-700'
               }`}
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <Tag className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <Tag className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                     <button
                       onClick={() => handleCopyCode(coupon.code)}
                       className="group flex items-center gap-2"
                     >
-                      <code className="text-lg text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                      <code className="text-lg text-orange-500 dark:text-orange-400 group-hover:text-orange-600 dark:group-hover:text-blue-300 transition-colors">
                         {coupon.code}
                       </code>
                       {copiedCode === coupon.code ? (
@@ -334,7 +334,7 @@ export default function AdminCoupons() {
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={() => handleEdit(coupon)}
-                    className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                    className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
                     title="Edit coupon"
                   >
                     <Edit className="w-4 h-4" />

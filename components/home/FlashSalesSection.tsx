@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Flame, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../products/ProductCard';
@@ -98,7 +98,7 @@ export default function FlashSalesSection({ products }: FlashSalesSectionProps) 
         <div className="text-center">
           <Link
             to="/products"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white rounded-2xl hover:from-orange-600 hover:via-red-600 hover:to-pink-600 transition-all font-bold shadow-2xl hover:shadow-orange-500/50 hover:scale-105 transform"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white rounded-2xl hover:from-orange-600 hover:via-red-600 hover:to-orange-600 transition-all font-bold shadow-2xl hover:shadow-orange-500/50 hover:scale-105 transform"
           >
             {t('home.flashSales.viewAllDeals')}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

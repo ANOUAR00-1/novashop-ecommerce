@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+﻿import { X } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { setCategory, setPriceRange, setInStock, setRating, resetFilters } from '../../store/slices/filtersSlice';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -65,7 +65,7 @@ export default function FilterSidebar({ isOpen, onClose }: FilterSidebarProps) {
                 name="category"
                 checked={filters.category === ''}
                 onChange={() => dispatch(setCategory(''))}
-                className="text-blue-600 focus:ring-blue-500"
+                className="text-orange-500 focus:ring-orange-500"
               />
               <span className="text-gray-700 dark:text-gray-300">{t('common.viewAll')}</span>
             </label>
@@ -76,7 +76,7 @@ export default function FilterSidebar({ isOpen, onClose }: FilterSidebarProps) {
                   name="category"
                   checked={filters.category.toLowerCase() === cat.slug.toLowerCase()}
                   onChange={() => dispatch(setCategory(cat.slug))}
-                  className="text-blue-600 focus:ring-blue-500"
+                  className="text-orange-500 focus:ring-orange-500"
                 />
                 <span className="text-gray-700 dark:text-gray-300">{cat.name}</span>
               </label>
@@ -134,7 +134,7 @@ export default function FilterSidebar({ isOpen, onClose }: FilterSidebarProps) {
                   name="rating"
                   checked={filters.rating === rating}
                   onChange={() => dispatch(setRating(rating))}
-                  className="text-blue-600 focus:ring-blue-500"
+                  className="text-orange-500 focus:ring-orange-500"
                 />
                 <span className="text-gray-700 dark:text-gray-300">
                   {rating === 0 ? t('common.viewAll') : `${rating}+ ${t('product.rating')}`}
@@ -151,7 +151,7 @@ export default function FilterSidebar({ isOpen, onClose }: FilterSidebarProps) {
               type="checkbox"
               checked={filters.inStock}
               onChange={(e) => dispatch(setInStock(e.target.checked))}
-              className="rounded text-blue-600 focus:ring-blue-500"
+              className="rounded text-orange-500 focus:ring-orange-500"
             />
             <span className="text-gray-700 dark:text-gray-300">{t('common.inStock')}</span>
           </label>

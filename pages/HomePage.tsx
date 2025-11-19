@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Shield, Truck, HeadphonesIcon } from 'lucide-react';
 import { productsApi, Product } from '../services/api';
@@ -59,8 +59,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                <Truck className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <div className="p-3 bg-orange-100 dark:bg-blue-900/30 rounded-lg">
+                <Truck className="w-6 h-6 text-orange-500 dark:text-orange-400" />
               </div>
               <div>
                 <h3 className="mb-1 text-gray-900 dark:text-white">{t('home.features.freeShipping.title')}</h3>
@@ -180,7 +180,7 @@ export default function HomePage() {
             <h2 className="text-gray-900 dark:text-white">{t('home.featuredProducts.title')}</h2>
             <Link
               to="/products"
-              className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2"
+              className="text-orange-500 dark:text-orange-400 hover:underline flex items-center gap-2"
             >
               {t('common.viewAll')}
               <ArrowRight className="w-4 h-4" />
@@ -212,7 +212,7 @@ export default function HomePage() {
 
       {/* CTA Section - Only show when not logged in */}
       {!isAuthenticated && (
-        <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 text-white">
               {t('home.cta.title')}
@@ -222,7 +222,7 @@ export default function HomePage() {
             </p>
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-500 rounded-lg hover:bg-orange-50 transition-colors"
             >
               {t('home.cta.button')}
               <ArrowRight className="w-5 h-5" />

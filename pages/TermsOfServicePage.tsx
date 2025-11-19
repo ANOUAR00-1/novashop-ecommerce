@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 import { FileText, ShoppingBag, Ban, AlertCircle, Scale, RefreshCw } from 'lucide-react';
 import BackButton from '../components/BackButton';
 
@@ -12,7 +12,7 @@ export default function TermsOfServicePage() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mb-6">
               <FileText className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

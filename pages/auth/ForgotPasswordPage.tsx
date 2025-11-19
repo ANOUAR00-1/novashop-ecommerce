@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { authApi } from '../../services/api';
 import { toast } from 'sonner';
@@ -30,7 +30,7 @@ export default function ForgotPasswordPage() {
       <div className="max-w-md w-full">
         <Link
           to="/login"
-          className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline mb-8"
+          className="inline-flex items-center gap-2 text-orange-500 dark:text-orange-400 hover:underline mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Login
@@ -56,7 +56,7 @@ export default function ForgotPasswordPage() {
               </div>
               <Link
                 to="/login"
-                className="block w-full px-6 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors"
+                className="block w-full px-6 py-3 bg-orange-500 text-white text-center rounded-lg hover:bg-orange-600 transition-colors"
               >
                 Back to Login
               </Link>
@@ -72,7 +72,7 @@ export default function ForgotPasswordPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                   placeholder={t('auth.emailPlaceholder')}
                 />
               </div>
@@ -80,7 +80,7 @@ export default function ForgotPasswordPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {loading ? 'Sending...' : 'Send Reset Link'}
               </button>

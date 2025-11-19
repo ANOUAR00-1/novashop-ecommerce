@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Search } from 'lucide-react';
 import BackButton from '../components/BackButton';
@@ -288,7 +288,7 @@ Start your winter shopping early to get the best selection and take advantage of
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-12 pr-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
           </div>
@@ -301,7 +301,7 @@ Start your winter shopping early to get the best selection and take advantage of
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-medium transition-all capitalize ${
                   selectedCategory === category
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-orange-500 text-white'
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >
@@ -349,7 +349,7 @@ Start your winter shopping early to get the best selection and take advantage of
                       </div>
                       <Link
                         to={`/blog/${post.id}`}
-                        className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                        className="text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-blue-300 transition-colors"
                       >
                         <ArrowRight className="w-5 h-5" />
                       </Link>

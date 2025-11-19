@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { ordersApi, Order } from '../../services/api';
 import { Eye, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -56,7 +56,7 @@ export default function AdminOrders() {
       case 'delivered':
         return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
       case 'shipped':
-        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400';
+        return 'bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400';
       case 'processing':
         return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
       case 'cancelled':
@@ -69,7 +69,7 @@ export default function AdminOrders() {
   if (loading) {
     return (
       <div className="p-8 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -88,7 +88,7 @@ export default function AdminOrders() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search orders..."
-            className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function AdminOrders() {
                       value={order.status}
                       onChange={(e) => handleStatusUpdate(order.id, e.target.value as Order['status'])}
                       disabled={updatingStatus === order.id}
-                      className={`px-3 py-1.5 rounded-lg text-xs capitalize border-0 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed ${getStatusColor(
+                      className={`px-3 py-1.5 rounded-lg text-xs capitalize border-0 focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed ${getStatusColor(
                         order.status
                       )}`}
                     >
@@ -154,7 +154,7 @@ export default function AdminOrders() {
                     <div className="flex items-center justify-end">
                       <Link
                         to={`/order-confirmation/${order.id}`}
-                        className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                        className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
                       >
                         <Eye className="w-4 h-4" />
                       </Link>

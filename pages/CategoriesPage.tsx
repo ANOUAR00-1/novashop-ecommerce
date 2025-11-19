@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Laptop, Shirt, Watch, Home, Dumbbell, Palette } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAppSelector } from '../store';
@@ -13,14 +13,14 @@ export default function CategoriesPage() {
       name: 'Electronics',
       icon: Laptop,
       image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800',
-      color: 'from-blue-600 to-cyan-600',
+      color: 'from-orange-500 to-cyan-600',
       description: t('categories.electronics.description'),
     },
     {
       name: 'Fashion',
       icon: Shirt,
       image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=800',
-      color: 'from-pink-600 to-purple-600',
+      color: 'from-pink-600 to-orange-600',
       description: t('categories.fashion.description'),
     },
     {
@@ -41,14 +41,14 @@ export default function CategoriesPage() {
       name: 'Sports & Outdoors',
       icon: Dumbbell,
       image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800',
-      color: 'from-indigo-600 to-purple-600',
+      color: 'from-indigo-600 to-orange-600',
       description: t('categories.sportsOutdoors.description'),
     },
     {
       name: 'Beauty & Personal Care',
       icon: Palette,
       image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800',
-      color: 'from-rose-600 to-pink-600',
+      color: 'from-rose-600 to-orange-600',
       description: t('categories.beautyPersonalCare.description'),
     },
   ];
@@ -60,7 +60,7 @@ export default function CategoriesPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
+      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-4">{t('categories.title')}</h1>
           <p className="text-xl opacity-90">{t('categories.subtitle')}</p>
@@ -113,7 +113,7 @@ export default function CategoriesPage() {
         </div>
 
         {/* Featured Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center text-white">
+        <div className="mt-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-12 text-center text-white">
           <h3 className="text-3xl font-bold mb-4">{t('categories.featured.title')}</h3>
           <p className="text-xl mb-8 opacity-90">{t('categories.featured.description')}</p>
           <Link

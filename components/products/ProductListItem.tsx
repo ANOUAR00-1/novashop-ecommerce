@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { Product } from '../../services/api';
 import { useAppDispatch, useAppSelector } from '../../store';
@@ -73,7 +73,7 @@ export default function ProductListItem({ product }: ProductListItemProps) {
           {t(getCategoryTranslationKey(product.category))}
         </p>
         <Link to={`/products/${product.id}`}>
-          <h3 className="mb-2 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
+          <h3 className="mb-2 text-gray-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-400">
             {t(getProductNameKey(product.id))}
           </h3>
         </Link>
@@ -100,7 +100,7 @@ export default function ProductListItem({ product }: ProductListItemProps) {
                 ${product.originalPrice.toFixed(2)}
               </span>
             )}
-            <span className="text-xl text-blue-600 dark:text-blue-400">
+            <span className="text-xl text-orange-500 dark:text-orange-400">
               ${product.price.toFixed(2)}
             </span>
           </div>
@@ -118,7 +118,7 @@ export default function ProductListItem({ product }: ProductListItemProps) {
             </button>
             <button
               onClick={handleAddToCart}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
             >
               <ShoppingCart className="w-5 h-5" />
               {t('product.addToCart')}

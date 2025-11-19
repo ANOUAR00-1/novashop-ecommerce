@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
@@ -54,7 +54,7 @@ export default function ShopPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-600 text-white py-20">
+      <section className="bg-gradient-to-br from-orange-500 to-orange-600 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-4">Shop by Category</h1>
@@ -69,7 +69,7 @@ export default function ShopPage() {
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link to="/" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+            <Link to="/" className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400">
               Home
             </Link>
             <ChevronRight className="w-4 h-4 text-gray-400" />
@@ -94,7 +94,7 @@ export default function ShopPage() {
                   <li key={itemIndex}>
                     <Link
                       to={`/products?category=${item.slug}`}
-                      className="group flex items-center justify-between text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2"
+                      className="group flex items-center justify-between text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors py-2"
                     >
                       <span className="text-sm font-medium">{item.name}</span>
                       <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -108,7 +108,7 @@ export default function ShopPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
           <p className="text-xl text-blue-100 mb-8">
@@ -117,13 +117,13 @@ export default function ShopPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/products"
-              className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+              className="px-8 py-3 bg-white text-orange-500 rounded-lg font-semibold hover:bg-orange-50 transition-colors"
             >
               View All Products
             </Link>
             <Link
               to="/products"
-              className="px-8 py-3 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition-colors border-2 border-white"
+              className="px-8 py-3 bg-orange-600 text-white rounded-lg font-semibold hover:bg-blue-800 transition-colors border-2 border-white"
             >
               Search Products
             </Link>

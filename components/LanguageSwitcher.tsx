@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+﻿import { useState, useRef, useEffect } from 'react';
 import { Globe } from 'lucide-react';
 import { useLanguage, LANGUAGES, Language } from '../contexts/LanguageContext';
 
@@ -27,7 +27,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 p-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all"
+        className="flex items-center gap-2 p-3 text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-500/10 rounded-xl transition-all"
         aria-label="Change language"
       >
         <Globe className="w-5 h-5" />
@@ -44,7 +44,7 @@ export default function LanguageSwitcher() {
                 onClick={() => handleLanguageChange(lang.code)}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all ${
                   language === lang.code
-                    ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                    ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-500 dark:text-orange-400'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                 }`}
               >
@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
                   <div className="text-xs text-gray-500 dark:text-gray-400">{lang.name}</div>
                 </div>
                 {language === lang.code && (
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                 )}
               </button>
             ))}

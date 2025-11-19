@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -146,7 +146,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                   required
                   maxLength={20}
                   placeholder={t('admin.couponForm.couponCodePlaceholder')}
-                  className="flex-1 px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
                 <button
                   type="button"
@@ -171,7 +171,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                 required
                 rows={3}
                 placeholder={t('admin.couponForm.descriptionPlaceholder')}
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -187,7 +187,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                     setFormData({ ...formData, type: e.target.value as any })
                   }
                   required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 >
                   <option value="percentage">{t('admin.couponForm.discountTypePercentage')}</option>
                   <option value="fixed">{t('admin.couponForm.discountTypeFixed')}</option>
@@ -207,7 +207,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                   min={formData.type === 'percentage' ? 1 : 0.01}
                   max={formData.type === 'percentage' ? 100 : undefined}
                   step={formData.type === 'percentage' ? 1 : 0.01}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                   min={0}
                   step={0.01}
                   placeholder={t('admin.couponForm.minPurchasePlaceholder')}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
               {formData.type === 'percentage' && (
@@ -244,7 +244,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                     min={0}
                     step={0.01}
                     placeholder={t('admin.couponForm.maxDiscountPlaceholder')}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
               )}
@@ -264,7 +264,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                   }
                   required
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
               <div>
@@ -279,7 +279,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                   }
                   min={0}
                   placeholder={t('admin.couponForm.usageLimitPlaceholder')}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
             </div>
@@ -293,7 +293,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
                 onChange={(e) =>
                   setFormData({ ...formData, isActive: e.target.checked })
                 }
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 rounded focus:ring-orange-500"
               />
               <label htmlFor="isActive" className="text-sm text-gray-700 dark:text-gray-300">
                 {t('admin.couponForm.activeHint')}
@@ -305,7 +305,7 @@ export default function CouponFormModal({ coupon, onClose, onSuccess }: CouponFo
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {loading ? t('common.saving') : (coupon ? t('admin.couponForm.updateCoupon') : t('admin.couponForm.createCouponButton'))}
               </button>

@@ -1,4 +1,4 @@
-import { Award, Users, Globe, TrendingUp, Heart, Shield, Clock, Package } from 'lucide-react';
+﻿import { Award, Users, Globe, TrendingUp, Heart, Shield, Clock, Package } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import BackButton from '../components/BackButton';
 
@@ -61,7 +61,7 @@ export default function AboutUsPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">{t('about.hero.title')}</h1>
           <p className="text-xl max-w-3xl mx-auto opacity-90">
@@ -81,7 +81,7 @@ export default function AboutUsPage() {
                 key={index}
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center"
               >
-                <Icon className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+                <Icon className="w-12 h-12 text-orange-500 dark:text-orange-400 mx-auto mb-4" />
                 <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
                   {stat.value}
                 </div>
@@ -117,8 +117,8 @@ export default function AboutUsPage() {
               const Icon = value.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                  <div className="w-16 h-16 bg-orange-100 dark:bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-orange-500 dark:text-orange-400" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {value.title}
@@ -150,14 +150,14 @@ export default function AboutUsPage() {
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
                 {member.name}
               </h3>
-              <p className="text-blue-600 dark:text-blue-400">{member.role}</p>
+              <p className="text-orange-500 dark:text-orange-400">{member.role}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Mission Section */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
+      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-3xl font-bold mb-6">{t('about.mission.title')}</h2>
           <p className="text-xl opacity-90 leading-relaxed">

@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+﻿import { useLanguage } from '../contexts/LanguageContext';
 import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import BackButton from '../components/BackButton';
@@ -66,7 +66,7 @@ export default function FAQPage() {
         <BackButton />
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-600 to-orange-600 rounded-2xl mb-6">
             <HelpCircle className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -126,7 +126,7 @@ export default function FAQPage() {
         </div>
 
         {/* Still Have Questions */}
-        <div className="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-center">
+        <div className="mt-12 bg-gradient-to-r from-indigo-600 to-orange-600 rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">
             {t('faq.stillHaveQuestions.title')}
           </h3>

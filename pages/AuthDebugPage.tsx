@@ -1,4 +1,4 @@
-import { useAuth } from '../contexts/AuthContext';
+﻿import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 import { CheckCircle, XCircle, RefreshCw } from 'lucide-react';
 
@@ -46,7 +46,7 @@ export default function AuthDebugPage() {
 
             <div className="flex items-center gap-3">
               {loading ? (
-                <RefreshCw className="w-6 h-6 text-blue-600 animate-spin" />
+                <RefreshCw className="w-6 h-6 text-orange-500 animate-spin" />
               ) : isAuthenticated ? (
                 <CheckCircle className="w-6 h-6 text-green-600" />
               ) : (
@@ -134,7 +134,7 @@ export default function AuthDebugPage() {
             {!isAuthenticated && (
               <Link
                 to="/login"
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-center"
+                className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-center"
               >
                 Go to Login
               </Link>
@@ -166,7 +166,7 @@ export default function AuthDebugPage() {
         </div>
 
         {/* Admin Credentials */}
-        <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+        <div className="mt-8 bg-orange-50 dark:bg-orange-500/10 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
           <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-4">
             Admin Credentials
           </h3>

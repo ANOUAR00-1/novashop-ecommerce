@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Package, Eye } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../store';
@@ -18,7 +18,7 @@ export default function OrdersPage() {
       case 'delivered':
         return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
       case 'shipped':
-        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400';
+        return 'bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400';
       case 'processing':
         return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
       case 'cancelled':
@@ -31,7 +31,7 @@ export default function OrdersPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -51,7 +51,7 @@ export default function OrdersPage() {
             </p>
             <Link
               to="/products"
-              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-block px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
             >
               Browse Products
             </Link>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { 
   DollarSign, 
   ShoppingCart, 
@@ -94,7 +94,7 @@ export default function AdminDashboard() {
       case 'delivered':
         return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
       case 'shipped':
-        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400';
+        return 'bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400';
       case 'processing':
         return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
       case 'pending':
@@ -108,7 +108,7 @@ export default function AdminDashboard() {
     return (
       <div className="p-8 flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
           <p className="text-gray-600 dark:text-gray-400">Loading dashboard...</p>
         </div>
       </div>
@@ -165,8 +165,8 @@ export default function AdminDashboard() {
         {/* Total Orders */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-              <ShoppingCart className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            <div className="p-3 bg-orange-100 dark:bg-blue-900/30 rounded-lg">
+              <ShoppingCart className="w-6 h-6 text-orange-500 dark:text-orange-400" />
             </div>
             <div className="flex items-center gap-1 text-sm">
               {stats.ordersGrowth >= 0 ? (
@@ -235,7 +235,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <Link
           to="/admin/orders"
-          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
+          className="bg-gradient-to-r from-orange-500 to-blue-700 hover:from-orange-600 hover:to-blue-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -263,7 +263,7 @@ export default function AdminDashboard() {
 
         <Link
           to="/admin/reviews"
-          className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
+          className="bg-gradient-to-r from-orange-500 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -316,14 +316,14 @@ export default function AdminDashboard() {
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Top Products</h2>
-            <Link to="/admin/products" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+            <Link to="/admin/products" className="text-sm text-orange-500 dark:text-orange-400 hover:underline">
               View All
             </Link>
           </div>
           <div className="space-y-4">
             {stats.topProducts.map((product, index) => (
               <div key={product.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold">
                   {index + 1}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -354,7 +354,7 @@ export default function AdminDashboard() {
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Recent Orders</h2>
-            <Link to="/admin/orders" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+            <Link to="/admin/orders" className="text-sm text-orange-500 dark:text-orange-400 hover:underline">
               View All
             </Link>
           </div>
@@ -391,7 +391,7 @@ export default function AdminDashboard() {
                 {stats.lowStock?.length}
               </span>
             </div>
-            <Link to="/admin/products" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+            <Link to="/admin/products" className="text-sm text-orange-500 dark:text-orange-400 hover:underline">
               Manage
             </Link>
           </div>
@@ -414,7 +414,7 @@ export default function AdminDashboard() {
                     </p>
                   </div>
                 </div>
-                <button className="px-3 py-1.5 bg-blue-600 text-white text-xs rounded-lg hover:bg-blue-700 transition-colors">
+                <button className="px-3 py-1.5 bg-orange-500 text-white text-xs rounded-lg hover:bg-orange-600 transition-colors">
                   Restock
                 </button>
               </div>
