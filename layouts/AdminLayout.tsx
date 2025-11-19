@@ -6,6 +6,7 @@ import {
   Users,
   Tag,
   BarChart3,
+  MessageSquare,
   LogOut,
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
@@ -20,6 +21,7 @@ export default function AdminLayout() {
     { name: 'Orders', href: '/admin/orders', icon: ShoppingCart },
     { name: 'Users', href: '/admin/users', icon: Users },
     { name: 'Coupons', href: '/admin/coupons', icon: Tag },
+    { name: 'Reviews', href: '/admin/reviews', icon: MessageSquare },
     { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
   ];
 
@@ -34,13 +36,13 @@ export default function AdminLayout() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-white dark:bg-gray-800 min-h-screen border-r border-gray-200 dark:border-gray-700">
+        <aside className="w-64 bg-white dark:bg-gray-800 h-screen sticky top-0 border-r border-gray-200 dark:border-gray-700 overflow-y-auto">
           <div className="p-6">
             <h1 className="text-gray-900 dark:text-white">
               NovaShop Admin
             </h1>
           </div>
-          <nav className="px-3 space-y-1">
+          <nav className="px-3 space-y-1 pb-6">
             {navigation.map((item) => {
               const Icon = item.icon;
               return (
@@ -69,7 +71,7 @@ export default function AdminLayout() {
         </aside>
 
         {/* Main Content */}
-        <div className="flex-1">
+        <div className="flex-1 overflow-y-auto">
           <Outlet />
         </div>
       </div>
