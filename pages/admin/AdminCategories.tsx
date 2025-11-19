@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { categoriesApi, Category } from '../../services/api';
 import { toast } from 'sonner';
-import { useLanguage } from '../../contexts/LanguageContext';
 import { Plus, Edit, Trash2, Search } from 'lucide-react';
 import BackButton from '../../components/BackButton';
 
@@ -12,7 +11,6 @@ const AdminCategories = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
-  const { t } = useLanguage();
 
   // Form state
   const [formData, setFormData] = useState({
