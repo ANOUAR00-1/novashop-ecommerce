@@ -81,8 +81,8 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                <Zap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                <Zap className="w-6 h-6 text-orange-600 dark:text-orange-400" />
               </div>
               <div>
                 <h3 className="mb-1 text-gray-900 dark:text-white">{t('home.features.returns.title')}</h3>
@@ -217,7 +217,7 @@ export default function HomePage() {
             <h2 className="mb-4 text-white">
               {t('home.cta.title')}
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               {t('home.cta.subtitle')}
             </p>
             <Link

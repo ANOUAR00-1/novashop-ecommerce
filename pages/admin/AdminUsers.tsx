@@ -259,8 +259,8 @@ export default function AdminUsers() {
                     <span
                       className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs ${
                         user.role === 'admin' || user.role === 'superadmin'
-                          ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400'
-                          : 'bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400'
+                          ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
+                          : 'bg-orange-100 dark:bg-gray-900/30 text-orange-500 dark:text-orange-400'
                       }`}
                     >
                       {user.role === 'admin' || user.role === 'superadmin' ? (
@@ -286,7 +286,7 @@ export default function AdminUsers() {
                     <div className="flex items-center justify-end gap-2">
                       <button 
                         onClick={() => handleEdit(user)}
-                        className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                        className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-gray-900/30 rounded-lg transition-colors"
                         title="Edit user"
                       >
                         <Edit className="w-4 h-4" />

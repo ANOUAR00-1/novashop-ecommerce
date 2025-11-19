@@ -230,7 +230,7 @@ export default function AdminCoupons() {
                   ? 'border-red-200 dark:border-red-900 opacity-60'
                   : !coupon.isActive
                   ? 'border-gray-200 dark:border-gray-700 opacity-75'
-                  : 'border-blue-200 dark:border-blue-900 hover:border-orange-500 dark:hover:border-blue-700'
+                  : 'border-orange-200 dark:border-gray-900 hover:border-orange-500 dark:hover:border-orange-600'
               }`}
             >
               {/* Header */}
@@ -242,7 +242,7 @@ export default function AdminCoupons() {
                       onClick={() => handleCopyCode(coupon.code)}
                       className="group flex items-center gap-2"
                     >
-                      <code className="text-lg text-orange-500 dark:text-orange-400 group-hover:text-orange-600 dark:group-hover:text-blue-300 transition-colors">
+                      <code className="text-lg text-orange-500 dark:text-orange-400 group-hover:text-orange-600 dark:group-hover:text-white/70 transition-colors">
                         {coupon.code}
                       </code>
                       {copiedCode === coupon.code ? (
@@ -334,7 +334,7 @@ export default function AdminCoupons() {
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={() => handleEdit(coupon)}
-                    className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                    className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-gray-900/30 rounded-lg transition-colors"
                     title="Edit coupon"
                   >
                     <Edit className="w-4 h-4" />

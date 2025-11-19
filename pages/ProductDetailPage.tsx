@@ -223,7 +223,7 @@ export default function ProductDetailPage() {
                       onClick={() => setSelectedVariant({ ...selectedVariant, color })}
                       className={`px-4 py-2 rounded-lg border-2 transition-colors ${
                         selectedVariant.color === color
-                          ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-gray-900/30 text-orange-500 dark:text-orange-400'
                           : 'border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
                       }`}
                     >
@@ -246,7 +246,7 @@ export default function ProductDetailPage() {
                       onClick={() => setSelectedVariant({ ...selectedVariant, size })}
                       className={`px-4 py-2 rounded-lg border-2 transition-colors ${
                         selectedVariant.size === size
-                          ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-gray-900/30 text-orange-500 dark:text-orange-400'
                           : 'border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
                       }`}
                     >
@@ -330,7 +330,7 @@ export default function ProductDetailPage() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <RotateCcw className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                <RotateCcw className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                 <div>
                   <p className="text-sm text-gray-900 dark:text-white">30 Day Returns</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Money back</p>

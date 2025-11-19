@@ -36,7 +36,7 @@ export default function TermsOfServicePage() {
           {/* Use of Service */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <ShoppingBag className="w-6 h-6 text-purple-600" />
+              <ShoppingBag className="w-6 h-6 text-orange-600" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('terms.useOfService.title')}
               </h2>
@@ -60,7 +60,7 @@ export default function TermsOfServicePage() {
           {/* Product Information */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <AlertCircle className="w-6 h-6 text-purple-600" />
+              <AlertCircle className="w-6 h-6 text-orange-600" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('terms.products.title')}
               </h2>
@@ -76,7 +76,7 @@ export default function TermsOfServicePage() {
           {/* Orders and Payments */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <Scale className="w-6 h-6 text-purple-600" />
+              <Scale className="w-6 h-6 text-orange-600" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('terms.orders.title')}
               </h2>
@@ -91,7 +91,7 @@ export default function TermsOfServicePage() {
           {/* Returns and Refunds */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <RefreshCw className="w-6 h-6 text-purple-600" />
+              <RefreshCw className="w-6 h-6 text-orange-600" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('terms.returns.title')}
               </h2>
@@ -104,7 +104,7 @@ export default function TermsOfServicePage() {
           {/* Prohibited Activities */}
           <section className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <Ban className="w-6 h-6 text-purple-600" />
+              <Ban className="w-6 h-6 text-orange-600" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {t('terms.prohibited.title')}
               </h2>
@@ -129,13 +129,13 @@ export default function TermsOfServicePage() {
           </section>
 
           {/* Contact */}
-          <section className="mt-12 p-6 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+          <section className="mt-12 p-6 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
               {t('terms.contact.title')}
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
               {t('terms.contact.description')}
-              <a href="mailto:legal@novashop.com" className="text-purple-600 hover:underline ml-1">
+              <a href="mailto:legal@novashop.com" className="text-orange-600 hover:underline ml-1">
                 legal@novashop.com
               </a>
             </p>

@@ -94,7 +94,7 @@ export default function AdminDashboard() {
       case 'delivered':
         return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
       case 'shipped':
-        return 'bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400';
+        return 'bg-orange-100 dark:bg-gray-900/30 text-orange-500 dark:text-orange-400';
       case 'processing':
         return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
       case 'pending':
@@ -165,7 +165,7 @@ export default function AdminDashboard() {
         {/* Total Orders */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-orange-100 dark:bg-blue-900/30 rounded-lg">
+            <div className="p-3 bg-orange-100 dark:bg-gray-900/30 rounded-lg">
               <ShoppingCart className="w-6 h-6 text-orange-500 dark:text-orange-400" />
             </div>
             <div className="flex items-center gap-1 text-sm">
@@ -191,8 +191,8 @@ export default function AdminDashboard() {
         {/* Total Customers */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
-            <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-              <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+            <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+              <Users className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </div>
             <div className="flex items-center gap-1 text-sm">
               {stats.customersGrowth >= 0 ? (
@@ -235,7 +235,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <Link
           to="/admin/orders"
-          className="bg-gradient-to-r from-orange-500 to-blue-700 hover:from-orange-600 hover:to-blue-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
+          className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg p-4 transition-all hover:shadow-lg"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -263,7 +263,7 @@ export default function AdminDashboard() {
 
         <Link
           to="/admin/reviews"
-          className="bg-gradient-to-r from-orange-500 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
+          className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg p-4 transition-all hover:shadow-lg"
         >
           <div className="flex items-center justify-between">
             <div>

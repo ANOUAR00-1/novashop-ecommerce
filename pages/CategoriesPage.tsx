@@ -20,7 +20,7 @@ export default function CategoriesPage() {
       name: 'Fashion',
       icon: Shirt,
       image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=800',
-      color: 'from-pink-600 to-orange-600',
+      color: 'from-orange-600 to-orange-600',
       description: t('categories.fashion.description'),
     },
     {
@@ -118,7 +118,7 @@ export default function CategoriesPage() {
           <p className="text-xl mb-8 opacity-90">{t('categories.featured.description')}</p>
           <Link
             to="/products"
-            className="inline-block px-8 py-4 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             {t('categories.featured.button')}
           </Link>

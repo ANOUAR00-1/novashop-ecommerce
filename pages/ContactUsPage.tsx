@@ -49,7 +49,7 @@ export default function ContactUsPage() {
             {/* Email */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 bg-orange-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-orange-100 dark:bg-gray-900/30 rounded-lg flex items-center justify-center">
                   <Mail className="w-6 h-6 text-orange-500" />
                 </div>
                 <div>
@@ -89,8 +89,8 @@ export default function ContactUsPage() {
             {/* Address */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-purple-600" />
+                <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-orange-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 dark:text-white">

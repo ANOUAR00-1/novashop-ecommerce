@@ -70,7 +70,7 @@ export default function ShippingInfoPage() {
               </div>
 
               {/* Overnight Shipping */}
-              <div className="p-6 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+              <div className="p-6 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">
@@ -80,7 +80,7 @@ export default function ShippingInfoPage() {
                       {t('shipping.methods.overnight.delivery')}
                     </p>
                   </div>
-                  <span className="text-purple-600 font-bold">{t('shipping.methods.overnight.price')}</span>
+                  <span className="text-orange-600 font-bold">{t('shipping.methods.overnight.price')}</span>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 text-sm">
                   {t('shipping.methods.overnight.description')}

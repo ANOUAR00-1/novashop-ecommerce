@@ -141,7 +141,7 @@ export default function DealsPage() {
               placeholder={t('home.newsletter.placeholder')}
               className="flex-1 px-6 py-3 rounded-lg text-gray-900"
             />
-            <button className="px-8 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <button className="px-8 py-3 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               {t('home.newsletter.subscribe')}
             </button>
           </div>

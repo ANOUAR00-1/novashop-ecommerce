@@ -174,7 +174,7 @@ export default function AdminProducts() {
                     <div className="flex items-center justify-end gap-2">
                       <button 
                         onClick={() => handleEdit(product)}
-                        className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                        className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-gray-900/30 rounded-lg transition-colors"
                       >
                         <Edit className="w-4 h-4" />
                       </button>

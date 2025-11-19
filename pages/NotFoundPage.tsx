@@ -60,8 +60,8 @@ export default function NotFoundPage() {
           </Link>
         </div>
 
-        <div className="mt-8 p-4 bg-orange-50 dark:bg-orange-500/10 border border-blue-200 dark:border-blue-800 rounded-lg">
-          <p className="text-sm text-blue-800 dark:text-blue-300 mb-2">
+        <div className="mt-8 p-4 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-gray-800 rounded-lg">
+          <p className="text-sm text-orange-600 dark:text-white/70 mb-2">
             <strong>Available Routes - Click to test:</strong>
           </p>
           <div className="grid grid-cols-2 gap-2 text-xs text-orange-600 dark:text-orange-400">

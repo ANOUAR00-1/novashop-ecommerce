@@ -261,7 +261,7 @@ const AdminCategories = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <button
                         onClick={() => handleEdit(category)}
-                        className="text-orange-500 hover:text-blue-900 dark:text-orange-400 dark:hover:text-blue-300 mr-4"
+                        className="text-orange-500 hover:text-gray-900 dark:text-orange-400 dark:hover:text-white/70 mr-4"
                       >
                         <Edit className="w-5 h-5 inline" />
                       </button>

@@ -237,7 +237,7 @@ export default function CheckoutPage() {
                     onClick={() => setPaymentMethod('card')}
                     className={`w-full p-4 rounded-lg border-2 flex items-center gap-3 transition-colors ${
                       paymentMethod === 'card'
-                        ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30'
+                        ? 'border-orange-500 bg-orange-50 dark:bg-gray-900/30'
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                   >
@@ -253,7 +253,7 @@ export default function CheckoutPage() {
                     onClick={() => setPaymentMethod('paypal')}
                     className={`w-full p-4 rounded-lg border-2 flex items-center gap-3 transition-colors ${
                       paymentMethod === 'paypal'
-                        ? 'border-orange-500 bg-orange-50 dark:bg-blue-900/30'
+                        ? 'border-orange-500 bg-orange-50 dark:bg-gray-900/30'
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                   >

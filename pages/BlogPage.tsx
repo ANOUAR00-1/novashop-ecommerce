@@ -349,7 +349,7 @@ Start your winter shopping early to get the best selection and take advantage of
                       </div>
                       <Link
                         to={`/blog/${post.id}`}
-                        className="text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-blue-300 transition-colors"
+                        className="text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-white/70 transition-colors"
                       >
                         <ArrowRight className="w-5 h-5" />
                       </Link>

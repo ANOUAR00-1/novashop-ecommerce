@@ -122,8 +122,8 @@ export default function DiagnosticPage() {
           </div>
 
           {/* Quick Links */}
-          <div className="bg-orange-50 dark:bg-orange-500/10 rounded-lg p-6 border border-blue-200 dark:border-blue-800">
-            <h2 className="text-blue-900 dark:text-blue-300 mb-4">Quick Links</h2>
+          <div className="bg-orange-50 dark:bg-orange-500/10 rounded-lg p-6 border border-orange-200 dark:border-gray-800">
+            <h2 className="text-gray-900 dark:text-white/70 mb-4">Quick Links</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               <Link
                 to="/"

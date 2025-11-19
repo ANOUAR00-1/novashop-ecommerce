@@ -37,13 +37,13 @@ export default function FlashSalesSection({ products }: FlashSalesSectionProps) 
   if (!products || products.length === 0) return null;
 
   return (
-    <section className="py-20 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-orange-50 via-red-50 to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZjczMzMiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtOC44MzcgNy4xNjMtMTYgMTYtMTZzMTYgNy4xNjMgMTYgMTYtNy4xNjMgMTYtMTYgMTYtMTYtNy4xNjMtMTYtMTZ6bS0yMCAwYzAtOC44MzcgNy4xNjMtMTYgMTYtMTZzMTYgNy4xNjMgMTYgMTYtNy4xNjMgMTYtMTYgMTYtMTYtNy4xNjMtMTYtMTZ6bS0yMCAwYzAtOC44MzcgNy4xNjMtMTYgMTYtMTZzMTYgNy4xNjMgMTYgMTYtNy4xNjMgMTYtMTYgMTYtMTYtNy4xNjMtMTYtMTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
           <div className="flex items-center gap-4">
-            <div className="p-4 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-2xl shadow-2xl animate-pulse">
+            <div className="p-4 bg-gradient-to-br from-orange-500 via-red-500 to-orange-500 rounded-2xl shadow-2xl animate-pulse">
               <Flame className="w-8 h-8 text-white" />
             </div>
             <div>
@@ -98,7 +98,7 @@ export default function FlashSalesSection({ products }: FlashSalesSectionProps) 
         <div className="text-center">
           <Link
             to="/products"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white rounded-2xl hover:from-orange-600 hover:via-red-600 hover:to-orange-600 transition-all font-bold shadow-2xl hover:shadow-orange-500/50 hover:scale-105 transform"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 text-white rounded-2xl hover:from-orange-600 hover:via-red-600 hover:to-orange-600 transition-all font-bold shadow-2xl hover:shadow-orange-500/50 hover:scale-105 transform"
           >
             {t('home.flashSales.viewAllDeals')}
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

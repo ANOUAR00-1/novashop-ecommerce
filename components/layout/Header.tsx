@@ -174,7 +174,7 @@ export default function Header() {
               >
                 <Heart className="w-5 h-5 group-hover:fill-current" />
                 {wishlistItems.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                  <span className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg animate-pulse">
                     {wishlistItems.length}
                   </span>
                 )}
@@ -229,7 +229,7 @@ export default function Header() {
                     {user?.role === 'admin' && (
                       <Link
                         to="/admin"
-                        className="block px-4 py-2.5 text-sm font-medium text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all rounded-lg mx-2"
+                        className="block px-4 py-2.5 text-sm font-medium text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all rounded-lg mx-2"
                       >
                         {t('header.adminDashboard')}
                       </Link>

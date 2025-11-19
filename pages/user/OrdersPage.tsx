@@ -18,7 +18,7 @@ export default function OrdersPage() {
       case 'delivered':
         return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
       case 'shipped':
-        return 'bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400';
+        return 'bg-orange-100 dark:bg-gray-900/30 text-orange-500 dark:text-orange-400';
       case 'processing':
         return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
       case 'cancelled':

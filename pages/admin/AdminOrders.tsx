@@ -56,7 +56,7 @@ export default function AdminOrders() {
       case 'delivered':
         return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
       case 'shipped':
-        return 'bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400';
+        return 'bg-orange-100 dark:bg-gray-900/30 text-orange-500 dark:text-orange-400';
       case 'processing':
         return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
       case 'cancelled':
@@ -154,7 +154,7 @@ export default function AdminOrders() {
                     <div className="flex items-center justify-end">
                       <Link
                         to={`/order-confirmation/${order.id}`}
-                        className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                        className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-gray-900/30 rounded-lg transition-colors"
                       >
                         <Eye className="w-4 h-4" />
                       </Link>

@@ -143,7 +143,7 @@ export default function AuthDebugPage() {
             {isAuthenticated && hasRole('admin') && (
               <Link
                 to="/admin"
-                className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-center"
+                className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors text-center"
               >
                 Go to Admin Dashboard
               </Link>
@@ -166,11 +166,11 @@ export default function AuthDebugPage() {
         </div>
 
         {/* Admin Credentials */}
-        <div className="mt-8 bg-orange-50 dark:bg-orange-500/10 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
-          <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-4">
+        <div className="mt-8 bg-orange-50 dark:bg-orange-500/10 rounded-2xl p-8 border border-orange-200 dark:border-gray-800">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white/90 mb-4">
             Admin Credentials
           </h3>
-          <div className="space-y-2 text-blue-800 dark:text-blue-200">
+          <div className="space-y-2 text-orange-600 dark:text-white/80">
             <p><strong>Email:</strong> admin@novashop.com</p>
             <p><strong>Password:</strong> admin123</p>
           </div>

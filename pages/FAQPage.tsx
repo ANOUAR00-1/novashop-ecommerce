@@ -81,7 +81,7 @@ export default function FAQPage() {
         <div className="space-y-8">
           {categories.map((category, catIndex) => (
             <div key={category.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6">
+              <div className="bg-gradient-to-r from-gray-50 to-orange-50 dark:from-indigo-900/20 dark:to-orange-900/20 p-6">
                 <div className="flex items-center gap-3">
                   <span className="text-3xl">{category.icon}</span>
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -105,7 +105,7 @@ export default function FAQPage() {
                           {t(`faq.categories.${category.id}.questions.${item.q}`)}
                         </span>
                         {isOpen ? (
-                          <ChevronUp className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+                          <ChevronUp className="w-5 h-5 text-orange-600 flex-shrink-0" />
                         ) : (
                           <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
                         )}
@@ -135,7 +135,7 @@ export default function FAQPage() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            className="inline-block px-8 py-3 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
           >
             {t('faq.stillHaveQuestions.button')}
           </a>

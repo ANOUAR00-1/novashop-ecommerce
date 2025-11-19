@@ -24,10 +24,10 @@ export default function Footer() {
               <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-blue-400 hover:to-orange-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
+              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-orange-400 hover:to-orange-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-pink-500 hover:to-rose-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
+              <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="p-3 bg-white dark:bg-gray-800 rounded-xl hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 text-gray-600 dark:text-gray-400 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110">

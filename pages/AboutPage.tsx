@@ -52,7 +52,7 @@ export default function AboutPage() {
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center">
+                <div key={index} className="bg-gradient-to-br from-orange-50 to-orange-50 dark:from-orange-900/20 dark:to-orange-900/20 rounded-2xl p-8 text-center">
                   <Icon className="w-12 h-12 text-orange-500 dark:text-orange-400 mx-auto mb-4" />
                   <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
                     {stat.value}
@@ -99,7 +99,7 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-orange-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-orange-100 dark:bg-gray-900/30 rounded-xl flex items-center justify-center mb-6">
                 <span className="text-3xl">🎯</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
@@ -123,7 +123,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-6">
                 <span className="text-3xl">💡</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
@@ -165,24 +165,24 @@ export default function AboutPage() {
         {/* Why Choose Us */}
         <section className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-12 text-white text-center">
           <h2 className="text-4xl font-bold mb-6">Why Choose NovaShop?</h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
             With over 50,000 happy customers and a 4.9-star rating, we're committed to delivering excellence in every interaction.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div>
               <div className="text-4xl font-bold mb-2">✓</div>
               <h3 className="text-xl font-bold mb-2">Premium Quality</h3>
-              <p className="text-blue-100">Carefully curated products from trusted brands</p>
+              <p className="text-white/90">Carefully curated products from trusted brands</p>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">✓</div>
               <h3 className="text-xl font-bold mb-2">Fast Shipping</h3>
-              <p className="text-blue-100">Free shipping on orders over $50</p>
+              <p className="text-white/90">Free shipping on orders over $50</p>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">✓</div>
               <h3 className="text-xl font-bold mb-2">24/7 Support</h3>
-              <p className="text-blue-100">Dedicated customer service team</p>
+              <p className="text-white/90">Dedicated customer service team</p>
             </div>
           </div>
         </section>

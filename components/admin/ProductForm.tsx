@@ -309,7 +309,7 @@ export default function ProductForm({ product, onClose, onSuccess }: ProductForm
               type="file"
               accept="image/*"
               onChange={handleFileChange}
-              className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-600 hover:file:bg-orange-100 dark:file:bg-blue-900/30 dark:file:text-orange-400"
+              className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-600 hover:file:bg-orange-100 dark:file:bg-gray-900/30 dark:file:text-orange-400"
             />
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
               PNG, JPG, GIF up to 5MB

@@ -66,7 +66,7 @@ export default function ReturnsPage() {
             </div>
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-gray-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   1
                 </div>
                 <div>
@@ -79,7 +79,7 @@ export default function ReturnsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-gray-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   2
                 </div>
                 <div>
@@ -92,7 +92,7 @@ export default function ReturnsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-gray-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   3
                 </div>
                 <div>
@@ -105,7 +105,7 @@ export default function ReturnsPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 dark:bg-gray-900/30 rounded-full flex items-center justify-center text-orange-500 font-bold">
                   4
                 </div>
                 <div>

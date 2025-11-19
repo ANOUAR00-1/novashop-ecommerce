@@ -64,7 +64,7 @@ export default function ProfilePage() {
                 {user?.firstName} {user?.lastName}
               </h2>
               <p className="text-gray-600 dark:text-gray-400">{user?.email}</p>
-              <span className="inline-block px-3 py-1 bg-orange-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400 rounded-full text-sm mt-2">
+              <span className="inline-block px-3 py-1 bg-orange-100 dark:bg-gray-900/30 text-orange-500 dark:text-orange-400 rounded-full text-sm mt-2">
                 {user?.role === 'admin' ? 'Admin' : 'Customer'}
               </span>
             </div>

@@ -36,7 +36,7 @@ export default function NewsletterSection() {
             {t('home.newsletter.title')}
           </h2>
           
-          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+          <p className="text-xl text-white/90 mb-10 leading-relaxed">
             {t('home.newsletter.subtitle')}
           </p>
 
@@ -52,11 +52,11 @@ export default function NewsletterSection() {
             <button
               type="submit"
               disabled={loading}
-              className="px-8 py-4 bg-white text-purple-600 rounded-2xl hover:bg-gray-100 transition-all font-bold flex items-center justify-center gap-3 disabled:opacity-50 shadow-2xl hover:shadow-white/50 hover:scale-105 transform group"
+              className="px-8 py-4 bg-white text-orange-600 rounded-2xl hover:bg-gray-100 transition-all font-bold flex items-center justify-center gap-3 disabled:opacity-50 shadow-2xl hover:shadow-white/50 hover:scale-105 transform group"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
-                  <div className="w-5 h-5 border-3 border-purple-600 border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-3 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
                   {t('home.newsletter.subscribing')}
                 </span>
               ) : (
@@ -68,7 +68,7 @@ export default function NewsletterSection() {
             </button>
           </form>
 
-          <p className="text-sm text-blue-100 flex items-center justify-center gap-2">
+          <p className="text-sm text-white/90 flex items-center justify-center gap-2">
             <span className="text-xl">🔒</span>
             {t('home.newsletter.privacy')}
           </p>

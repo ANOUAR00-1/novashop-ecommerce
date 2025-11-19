@@ -101,7 +101,7 @@ export default function LoginPage() {
         </div>
 
         {pendingActionInfo && (
-          <div className="mb-6 p-4 bg-orange-50 dark:bg-orange-500/10 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <div className="mb-6 p-4 bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-gray-800 rounded-lg">
             <div className="flex items-start gap-3">
               {pendingAction?.type === 'add-to-cart' && (
                 <ShoppingCart className="w-5 h-5 text-orange-500 dark:text-orange-400 flex-shrink-0 mt-0.5" />
@@ -113,7 +113,7 @@ export default function LoginPage() {
                 <AlertCircle className="w-5 h-5 text-orange-500 dark:text-orange-400 flex-shrink-0 mt-0.5" />
               )}
               <div className="flex-1">
-                <p className="text-sm font-medium text-blue-800 dark:text-blue-300">
+                <p className="text-sm font-medium text-orange-600 dark:text-white/70">
                   Action Pending
                 </p>
                 <p className="text-sm text-orange-600 dark:text-orange-400 mt-1">

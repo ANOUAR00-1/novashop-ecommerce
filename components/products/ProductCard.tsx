@@ -143,7 +143,7 @@ export default function ProductCard({ product, showFlashBadge = false }: Product
             </button>
             <button
               onClick={handleQuickView}
-              className="p-3 rounded-xl bg-white/90 backdrop-blur-md shadow-lg text-gray-700 hover:bg-orange-500 hover:text-white hover:scale-125 hover:shadow-blue-500/30 transition-all duration-300 transform"
+              className="p-3 rounded-xl bg-white/90 backdrop-blur-md shadow-lg text-gray-700 hover:bg-orange-500 hover:text-white hover:scale-125 hover:shadow-orange-500/30 transition-all duration-300 transform"
               title={t('product.quickView')}
             >
               <Eye className="w-5 h-5" />
@@ -221,7 +221,7 @@ export default function ProductCard({ product, showFlashBadge = false }: Product
           <button
             onClick={handleAddToCart}
             disabled={product.stock === 0}
-            className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-blue-700 text-white rounded-xl hover:from-orange-600 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold group"
+            className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold group"
           >
             <ShoppingCart className="w-5 h-5 group-hover:animate-bounce" />
             {product.stock === 0 ? t('product.outOfStock') : t('product.addToCart')}

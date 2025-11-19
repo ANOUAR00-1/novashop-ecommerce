@@ -1,4 +1,4 @@
-import { Quote, Star } from 'lucide-react';
+﻿import { Quote, Star } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const testimonials = [
@@ -49,7 +49,7 @@ export default function TestimonialsSection() {
               key={testimonial.id}
               className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 relative hover:shadow-xl transition-shadow"
             >
-              <Quote className="absolute top-4 right-4 w-8 h-8 text-blue-200 dark:text-blue-900" />
+              <Quote className="absolute top-4 right-4 w-8 h-8 text-white/80 dark:text-gray-900" />
               
               <div className="flex items-center gap-4 mb-4">
                 <img
