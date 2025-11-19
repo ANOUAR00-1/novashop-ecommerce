@@ -254,7 +254,7 @@ describe('i18n Translation Tests', () => {
       
       // Check that we have product1 through product70
       for (let i = 1; i <= 70; i++) {
-        const key = `product${i}`;
+        const key = `product${i}` as keyof typeof en.products;
         expect(en.products[key]).toBeDefined();
         expect(fr.products[key]).toBeDefined();
         expect(ar.products[key]).toBeDefined();
@@ -343,13 +343,14 @@ describe('i18n Translation Tests', () => {
         'privacy', 'terms', 'cookies', 'contact', 'shipping', 'returns',
         'faq', 'unauthorized', 'comparison', 'about', 'tracking', 
         'deals', 'categories', 'settings', 'products'
-      ];
+      ] as const;
       
       console.log(`\n📋 Sections covered: ${sections.length}`);
       
       sections.forEach(section => {
-        if (en[section]) {
-          const keys = getAllKeys(en[section]);
+        const sectionKey = section as keyof typeof en;
+        if (en[sectionKey]) {
+          const keys = getAllKeys(en[sectionKey]);
           console.log(`  - ${section}: ${keys.length} keys`);
         }
       });
