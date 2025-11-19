@@ -77,13 +77,16 @@ export default function AdminProducts() {
     <div className="p-8">
       <BackButton />
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-gray-900 dark:text-white">Products</h1>
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t('admin.products')}</h1>
+          <p className="text-gray-600 dark:text-gray-400">{t('admin.manageProducts')}</p>
+        </div>
         <button 
           onClick={handleAdd}
           className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
-          Add Product
+          {t('admin.addProduct')}
         </button>
       </div>
 
@@ -95,7 +98,7 @@ export default function AdminProducts() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search products..."
+            placeholder={t('admin.searchProducts')}
             className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
@@ -108,22 +111,22 @@ export default function AdminProducts() {
             <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
               <tr>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Product
+                  {t('admin.product')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Category
+                  {t('admin.category')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Price
+                  {t('admin.price')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Stock
+                  {t('admin.stock')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Rating
+                  {t('admin.rating')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Actions
+                  {t('admin.actions')}
                 </th>
               </tr>
             </thead>

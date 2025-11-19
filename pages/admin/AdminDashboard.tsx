@@ -315,9 +315,9 @@ export default function AdminDashboard() {
         {/* Top Products */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Top Products</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{t('admin.topProducts')}</h2>
             <Link to="/admin/products" className="text-sm text-orange-500 dark:text-orange-400 hover:underline">
-              View All
+              {t('admin.viewAll')}
             </Link>
           </div>
           <div className="space-y-4">
@@ -353,9 +353,9 @@ export default function AdminDashboard() {
         {/* Recent Orders */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Recent Orders</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{t('admin.recentOrders')}</h2>
             <Link to="/admin/orders" className="text-sm text-orange-500 dark:text-orange-400 hover:underline">
-              View All
+              {t('admin.viewAll')}
             </Link>
           </div>
           <div className="space-y-3">
@@ -386,13 +386,13 @@ export default function AdminDashboard() {
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Low Stock Alert</h2>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{t('admin.lowStockAlert')}</h2>
               <span className="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full">
                 {stats.lowStock?.length}
               </span>
             </div>
             <Link to="/admin/products" className="text-sm text-orange-500 dark:text-orange-400 hover:underline">
-              Manage
+              {t('common.manage')}
             </Link>
           </div>
           <div className="space-y-3">
