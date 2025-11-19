@@ -137,17 +137,17 @@ export default function AdminCoupons() {
       <BackButton />
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-gray-900 dark:text-white mb-2">Coupons Management</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t('admin.couponsManagement')}</h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Create and manage discount coupons
+            {t('admin.manageCoupons')}
           </p>
         </div>
-        <button 
+        <button
           onClick={handleAdd}
           className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
-          Add Coupon
+          {t('admin.addCoupon')}
         </button>
       </div>
 
@@ -160,7 +160,7 @@ export default function AdminCoupons() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search coupons..."
+            placeholder={t('admin.searchCoupons')}
             className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
@@ -171,7 +171,7 @@ export default function AdminCoupons() {
           onChange={(e) => setTypeFilter(e.target.value)}
           className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
-          <option value="all">All Types</option>
+          <option value="all">{t('admin.allTypes')}</option>
           <option value="percentage">Percentage</option>
           <option value="fixed">Fixed Amount</option>
         </select>
@@ -182,33 +182,33 @@ export default function AdminCoupons() {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
-          <option value="all">All Status</option>
-          <option value="active">Active</option>
+          <option value="all">{t('admin.allStatus')}</option>
+          <option value="active">{t('admin.active')}</option>
           <option value="inactive">Inactive</option>
-          <option value="expired">Expired</option>
+          <option value="expired">{t('admin.expired')}</option>
         </select>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Coupons</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.totalCoupons')}</p>
           <p className="text-2xl text-gray-900 dark:text-white">{coupons.length}</p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Active</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.active')}</p>
           <p className="text-2xl text-green-600 dark:text-green-400">
             {coupons.filter(c => c.isActive && !isExpired(c.expiresAt)).length}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Usage</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.totalUsage')}</p>
           <p className="text-2xl text-orange-500 dark:text-orange-400">
             {coupons.reduce((sum, c) => sum + c.usageCount, 0)}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Expired</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.expired')}</p>
           <p className="text-2xl text-red-600 dark:text-red-400">
             {coupons.filter(c => isExpired(c.expiresAt)).length}
           </p>

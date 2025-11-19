@@ -1,8 +1,10 @@
 ﻿import { useEffect, useState } from 'react';
 import { analyticsApi } from '../../services/api';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function AdminAnalytics() {
+  const { t } = useLanguage();
   const [stats, setStats] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
@@ -33,12 +35,14 @@ export default function AdminAnalytics() {
 
   return (
     <div className="p-8">
-      <h1 className="mb-8 text-gray-900 dark:text-white">Analytics</h1>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t('admin.analytics')}</h1>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Monthly Sales */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-          <h2 className="mb-6 text-gray-900 dark:text-white">Monthly Sales</h2>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">{t('admin.monthlySales')}</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={stats.salesChart}>
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
@@ -59,7 +63,7 @@ export default function AdminAnalytics() {
 
         {/* Category Distribution */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-          <h2 className="mb-6 text-gray-900 dark:text-white">Top Categories</h2>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">{t('admin.topCategories')}</h2>
           <div className="space-y-4">
             {['Electronics', 'Fashion', 'Wearables', 'Accessories', 'Computers'].map(
               (category, index) => (
@@ -85,28 +89,28 @@ export default function AdminAnalytics() {
 
       {/* Revenue Breakdown */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-        <h2 className="mb-6 text-gray-900 dark:text-white">Revenue Breakdown</h2>
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">{t('admin.revenueBreakdown')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">This Month</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{t('admin.thisMonth')}</p>
             <p className="text-2xl text-gray-900 dark:text-white">
               ${(stats.totalRevenue / 12).toFixed(2)}
             </p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">This Quarter</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{t('admin.thisQuarter')}</p>
             <p className="text-2xl text-gray-900 dark:text-white">
               ${(stats.totalRevenue / 4).toFixed(2)}
             </p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">This Year</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{t('admin.thisYear')}</p>
             <p className="text-2xl text-gray-900 dark:text-white">
               ${stats.totalRevenue.toFixed(2)}
             </p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Projected</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{t('admin.projected')}</p>
             <p className="text-2xl text-green-600 dark:text-green-400">
               ${(stats.totalRevenue * 1.125).toFixed(2)}
             </p>

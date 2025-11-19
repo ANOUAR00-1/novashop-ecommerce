@@ -132,9 +132,9 @@ export default function AdminReviews() {
       <BackButton />
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-gray-900 dark:text-white mb-2">Reviews Management</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t('admin.reviewsManagement')}</h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Moderate and manage customer reviews
+            {t('admin.manageReviews')}
           </p>
         </div>
       </div>
@@ -148,7 +148,7 @@ export default function AdminReviews() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search reviews..."
+            placeholder={t('admin.searchReviews')}
             className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
@@ -159,7 +159,7 @@ export default function AdminReviews() {
           onChange={(e) => setRatingFilter(e.target.value)}
           className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
-          <option value="all">All Ratings</option>
+          <option value="all">{t('admin.allRatings')}</option>
           <option value="5">5 Stars</option>
           <option value="4">4 Stars</option>
           <option value="3">3 Stars</option>
@@ -173,9 +173,9 @@ export default function AdminReviews() {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
-          <option value="all">All Status</option>
-          <option value="approved">Approved</option>
-          <option value="pending">Pending</option>
+          <option value="all">{t('admin.allStatus')}</option>
+          <option value="approved">{t('admin.approved')}</option>
+          <option value="pending">{t('admin.pending')}</option>
           <option value="rejected">Rejected</option>
         </select>
       </div>
@@ -187,19 +187,19 @@ export default function AdminReviews() {
           <p className="text-2xl text-gray-900 dark:text-white">{reviews.length}</p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Pending</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.pending')}</p>
           <p className="text-2xl text-yellow-600 dark:text-yellow-400">
             {reviews.filter(r => r.status === 'pending').length}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Approved</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.approved')}</p>
           <p className="text-2xl text-green-600 dark:text-green-400">
             {reviews.filter(r => r.status === 'approved').length}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Average Rating</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.averageRating')}</p>
           <p className="text-2xl text-orange-500 dark:text-orange-400">
             {(reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1)} ⭐
           </p>
@@ -321,7 +321,7 @@ export default function AdminReviews() {
       {filteredReviews.length === 0 && (
         <div className="text-center py-12">
           <MessageSquare className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-          <p className="text-gray-600 dark:text-gray-400">No reviews found</p>
+          <p className="text-gray-600 dark:text-gray-400">{t('admin.noReviewsFound')}</p>
         </div>
       )}
     </div>
