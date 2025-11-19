@@ -184,7 +184,7 @@ export default function AdminCoupons() {
         >
           <option value="all">{t('admin.allStatus')}</option>
           <option value="active">{t('admin.active')}</option>
-          <option value="inactive">Inactive</option>
+          <option value="inactive">{t('admin.inactive')}</option>
           <option value="expired">{t('admin.expired')}</option>
         </select>
       </div>
@@ -264,7 +264,7 @@ export default function AdminCoupons() {
                   {coupon.type === 'percentage' ? `${coupon.discount}%` : `$${coupon.discount}`}
                 </span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
-                  {coupon.type === 'percentage' ? 'OFF' : 'DISCOUNT'}
+                  {coupon.type === 'percentage' ? t('admin.off') : t('admin.discount')}
                 </span>
               </div>
 
@@ -282,7 +282,7 @@ export default function AdminCoupons() {
                 )}
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   • Expires: {new Date(coupon.expiresAt).toLocaleDateString()}
-                  {expired && <span className="text-red-600 dark:text-red-400 ml-1">(Expired)</span>}
+                  {expired && <span className="text-red-600 dark:text-red-400 ml-1">({t('admin.expiredLabel')})</span>}
                 </p>
                 {coupon.usageLimit && (
                   <p className="text-xs text-gray-600 dark:text-gray-400">
@@ -327,7 +327,7 @@ export default function AdminCoupons() {
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                     } ${expired ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                   >
-                    {coupon.isActive && !expired ? 'Active' : 'Inactive'}
+                    {coupon.isActive && !expired ? t('admin.active') : t('admin.inactive')}
                   </button>
                 </div>
                 

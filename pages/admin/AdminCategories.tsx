@@ -145,12 +145,12 @@ const AdminCategories = () => {
       {showForm && (
         <div className="mb-6 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-            {editingCategory ? 'Edit Category' : 'New Category'}
+            {editingCategory ? t('admin.editCategory') : t('admin.newCategory')}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Name *
+                {t('admin.nameRequired')}
               </label>
               <input
                 type="text"
@@ -165,13 +165,13 @@ const AdminCategories = () => {
                   });
                 }}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
-                placeholder="Electronics"
+                placeholder={t('admin.electronicsPlaceholder')}
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Slug *
+                {t('admin.slugRequired')}
               </label>
               <input
                 type="text"
@@ -185,14 +185,14 @@ const AdminCategories = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Description
+                {t('admin.descriptionLabel')}
               </label>
               <textarea
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 rows={3}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
-                placeholder="Category description..."
+                placeholder={t('admin.categoryDescriptionPlaceholder')}
               />
             </div>
 
@@ -201,14 +201,14 @@ const AdminCategories = () => {
                 type="submit"
                 className="px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
               >
-                {editingCategory ? 'Update' : 'Create'}
+                {editingCategory ? t('admin.update') : t('admin.create')}
               </button>
               <button
                 type="button"
                 onClick={resetForm}
                 className="px-6 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               >
-                Cancel
+                {t('admin.cancel')}
               </button>
             </div>
           </form>
@@ -239,7 +239,7 @@ const AdminCategories = () => {
               {filteredCategories.length === 0 ? (
                 <tr>
                   <td colSpan={4} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-                    No categories found
+                    {t('admin.noCategoriesFound')}
                   </td>
                 </tr>
               ) : (

@@ -176,14 +176,14 @@ export default function AdminReviews() {
           <option value="all">{t('admin.allStatus')}</option>
           <option value="approved">{t('admin.approved')}</option>
           <option value="pending">{t('admin.pending')}</option>
-          <option value="rejected">Rejected</option>
+          <option value="rejected">{t('admin.rejected')}</option>
         </select>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Reviews</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.totalReviews')}</p>
           <p className="text-2xl text-gray-900 dark:text-white">{reviews.length}</p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
