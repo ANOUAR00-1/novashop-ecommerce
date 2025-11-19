@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import UnauthorizedPage from '../pages/UnauthorizedPage';
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -26,7 +27,7 @@ export default function ProtectedRoute({
   }
 
   if (requiredRole && !hasRole(requiredRole)) {
-    return <Navigate to="/" replace />;
+    return <UnauthorizedPage />;
   }
 
   return <>{children}</>;

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { authApi } from '../../services/api';
 import { toast } from 'sonner';
 import { ArrowLeft } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function ForgotPasswordPage() {
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -15,9 +17,9 @@ export default function ForgotPasswordPage() {
     try {
       await authApi.forgotPassword(email);
       setSent(true);
-      toast.success('Password reset email sent!');
+      toast.success(t('auth.forgotPasswordSuccess'));
     } catch (error) {
-      toast.error('Failed to send reset email. Please try again.');
+      toast.error(t('auth.forgotPasswordError'));
     } finally {
       setLoading(false);
     }
@@ -63,7 +65,7 @@ export default function ForgotPasswordPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm mb-2 text-gray-700 dark:text-gray-300">
-                  Email Address
+                  {t('auth.email')}
                 </label>
                 <input
                   type="email"
@@ -71,7 +73,7 @@ export default function ForgotPasswordPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="you@example.com"
+                  placeholder={t('auth.emailPlaceholder')}
                 />
               </div>
 

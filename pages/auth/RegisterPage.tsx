@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function RegisterPage() {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const { register } = useAuth();
   const [formData, setFormData] = useState({
@@ -20,12 +22,12 @@ export default function RegisterPage() {
     setError('');
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError(t('auth.passwordsNoMatch'));
       return;
     }
 
     if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters');
+      setError(t('auth.passwordMinLength'));
       return;
     }
 
@@ -39,7 +41,7 @@ export default function RegisterPage() {
       });
       navigate('/');
     } catch (error) {
-      setError('Registration failed. Please try again.');
+      setError(t('auth.registerError'));
     } finally {
       setLoading(false);
     }
@@ -49,9 +51,9 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="mb-2 text-gray-900 dark:text-white">Create Account</h1>
+          <h1 className="mb-2 text-gray-900 dark:text-white">{t('auth.createAccount')}</h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Join NovaShop today
+            {t('auth.registerSubtitle')}
           </p>
         </div>
 
@@ -66,7 +68,7 @@ export default function RegisterPage() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm mb-2 text-gray-700 dark:text-gray-300">
-                  First Name
+                  {t('auth.firstName')}
                 </label>
                 <input
                   type="text"
@@ -80,7 +82,7 @@ export default function RegisterPage() {
               </div>
               <div>
                 <label className="block text-sm mb-2 text-gray-700 dark:text-gray-300">
-                  Last Name
+                  {t('auth.lastName')}
                 </label>
                 <input
                   type="text"
@@ -96,7 +98,7 @@ export default function RegisterPage() {
 
             <div>
               <label className="block text-sm mb-2 text-gray-700 dark:text-gray-300">
-                Email Address
+                {t('auth.email')}
               </label>
               <input
                 type="email"
@@ -106,13 +108,13 @@ export default function RegisterPage() {
                 }
                 required
                 className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="you@example.com"
+                placeholder={t('auth.emailPlaceholder')}
               />
             </div>
 
             <div>
               <label className="block text-sm mb-2 text-gray-700 dark:text-gray-300">
-                Password
+                {t('auth.password')}
               </label>
               <input
                 type="password"
@@ -122,13 +124,13 @@ export default function RegisterPage() {
                 }
                 required
                 className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="••••••••"
+                placeholder={t('auth.passwordPlaceholder')}
               />
             </div>
 
             <div>
               <label className="block text-sm mb-2 text-gray-700 dark:text-gray-300">
-                Confirm Password
+                {t('auth.confirmPassword')}
               </label>
               <input
                 type="password"
@@ -138,7 +140,7 @@ export default function RegisterPage() {
                 }
                 required
                 className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="••••••••"
+                placeholder={t('auth.passwordPlaceholder')}
               />
             </div>
 
@@ -147,18 +149,18 @@ export default function RegisterPage() {
               disabled={loading}
               className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {loading ? 'Creating Account...' : 'Create Account'}
+              {loading ? t('auth.creatingAccount') : t('auth.createAccount')}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Already have an account?{' '}
+              {t('auth.alreadyHaveAccount')}{' '}
               <Link
                 to="/login"
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                Log in
+                {t('auth.signIn')}
               </Link>
             </p>
           </div>
