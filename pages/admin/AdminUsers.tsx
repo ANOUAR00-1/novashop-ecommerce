@@ -1,30 +1,155 @@
-import { useState } from 'react';
-import { Shield, User as UserIcon, Search } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Shield, User as UserIcon, Search, Plus, Edit, Trash2, Ban, CheckCircle, Mail } from 'lucide-react';
+import { toast } from 'sonner';
+import UserFormModal from '../../components/admin/UserFormModal';
+import { useLanguage } from '../../contexts/LanguageContext';
+import BackButton from '../../components/BackButton';
+import { usersApi } from '../../services/api';
+
+interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: 'user' | 'admin' | 'superadmin';
+  status?: 'active' | 'banned' | 'pending';
+  avatar?: string;
+  phone?: string;
+  joinDate?: string;
+  lastLogin?: string;
+  totalOrders?: number;
+  totalSpent?: number;
+  createdAt?: string;
+}
 
 export default function AdminUsers() {
+  const { t } = useLanguage();
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [roleFilter, setRoleFilter] = useState<string>('all');
+  const [statusFilter, setStatusFilter] = useState<string>('all');
+  const [showForm, setShowForm] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
-  // Mock users data
-  const users = [
-    { id: '1', name: 'John Doe', email: 'john@example.com', role: 'user', joinDate: '2024-01-15' },
-    { id: '2', name: 'Jane Smith', email: 'jane@example.com', role: 'user', joinDate: '2024-02-20' },
-    { id: '3', name: 'Admin User', email: 'admin@novashop.com', role: 'admin', joinDate: '2024-01-01' },
-    { id: '4', name: 'Mike Johnson', email: 'mike@example.com', role: 'user', joinDate: '2024-03-10' },
-  ];
+  useEffect(() => {
+    loadUsers();
+  }, []);
 
-  const filteredUsers = users.filter(
-    (u) =>
-      u.name.toLowerCase().includes(search.toLowerCase()) ||
-      u.email.toLowerCase().includes(search.toLowerCase())
-  );
+  const loadUsers = async () => {
+    try {
+      const data = await usersApi.getAll();
+      setUsers(data);
+    } catch (error) {
+      console.error('Failed to load users:', error);
+      toast.error(t('admin.loadFailed'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    if (window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+      try {
+        // TODO: await usersApi.delete(id);
+        setUsers(users.filter(u => u.id !== id));
+        toast.success(t('admin.userForm.userDeleted'));
+      } catch (error) {
+        toast.error(t('admin.userForm.userDeleteFailed'));
+      }
+    }
+  };
+
+  const handleBanToggle = async (user: User) => {
+    try {
+      const newStatus = user.status === 'banned' ? 'active' : 'banned';
+      // TODO: await usersApi.updateStatus(user.id, newStatus);
+      
+      setUsers(users.map(u => 
+        u.id === user.id ? { ...u, status: newStatus } : u
+      ));
+      
+      toast.success(user.status === 'banned' ? t('admin.userForm.userUnbanned') : t('admin.userForm.userBanned'));
+    } catch (error) {
+      toast.error(t('admin.userForm.statusUpdateFailed'));
+    }
+  };
+
+  const handleEdit = (user: User) => {
+    setSelectedUser(user);
+    setShowForm(true);
+  };
+
+  const handleAdd = () => {
+    setSelectedUser(null);
+    setShowForm(true);
+  };
+
+  const handleFormClose = () => {
+    setShowForm(false);
+    setSelectedUser(null);
+  };
+
+  const handleFormSuccess = () => {
+    loadUsers();
+  };
+
+  const filteredUsers = users.filter((user) => {
+    const matchesSearch = 
+      user.firstName.toLowerCase().includes(search.toLowerCase()) ||
+      user.lastName.toLowerCase().includes(search.toLowerCase()) ||
+      user.email.toLowerCase().includes(search.toLowerCase());
+    
+    const matchesRole = roleFilter === 'all' || user.role === roleFilter;
+    const matchesStatus = statusFilter === 'all' || user.status === statusFilter;
+    
+    return matchesSearch && matchesRole && matchesStatus;
+  });
+
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case 'active':
+        return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
+      case 'banned':
+        return 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400';
+      case 'pending':
+        return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
+      default:
+        return 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400';
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="p-8 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-8">
-      <h1 className="mb-8 text-gray-900 dark:text-white">Users</h1>
+      <BackButton />
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-gray-900 dark:text-white mb-2">Users Management</h1>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Manage users, roles, and permissions
+          </p>
+        </div>
+        <button 
+          onClick={handleAdd}
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+        >
+          <Plus className="w-5 h-5" />
+          Add User
+        </button>
+      </div>
 
-      {/* Search */}
-      <div className="mb-6">
-        <div className="relative max-w-md">
+      {/* Filters */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        {/* Search */}
+        <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
@@ -33,6 +158,56 @@ export default function AdminUsers() {
             placeholder="Search users..."
             className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+        </div>
+
+        {/* Role Filter */}
+        <select
+          value={roleFilter}
+          onChange={(e) => setRoleFilter(e.target.value)}
+          className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="all">All Roles</option>
+          <option value="user">Users</option>
+          <option value="admin">Admins</option>
+          <option value="superadmin">Super Admins</option>
+        </select>
+
+        {/* Status Filter */}
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+          className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="all">All Status</option>
+          <option value="active">Active</option>
+          <option value="banned">Banned</option>
+          <option value="pending">Pending</option>
+        </select>
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Users</p>
+          <p className="text-2xl text-gray-900 dark:text-white">{users.length}</p>
+        </div>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Active</p>
+          <p className="text-2xl text-green-600 dark:text-green-400">
+            {users.filter(u => u.status === 'active').length}
+          </p>
+        </div>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Banned</p>
+          <p className="text-2xl text-red-600 dark:text-red-400">
+            {users.filter(u => u.status === 'banned').length}
+          </p>
+        </div>
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Pending</p>
+          <p className="text-2xl text-yellow-600 dark:text-yellow-400">
+            {users.filter(u => u.status === 'pending').length}
+          </p>
         </div>
       </div>
 
@@ -46,13 +221,19 @@ export default function AdminUsers() {
                   User
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Email
-                </th>
-                <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                   Role
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Status
+                </th>
+                <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Orders / Spent
+                </th>
+                <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                   Join Date
+                </th>
+                <th className="px-6 py-3 text-right text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Actions
                 </th>
               </tr>
             </thead>
@@ -62,25 +243,27 @@ export default function AdminUsers() {
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white">
-                        {user.name[0]}
+                        {user.firstName[0]}{user.lastName[0]}
                       </div>
-                      <span className="text-sm text-gray-900 dark:text-white">
-                        {user.name}
-                      </span>
+                      <div>
+                        <p className="text-sm text-gray-900 dark:text-white">
+                          {user.firstName} {user.lastName}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          {user.email}
+                        </p>
+                      </div>
                     </div>
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
-                    {user.email}
                   </td>
                   <td className="px-6 py-4">
                     <span
                       className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs ${
-                        user.role === 'admin'
+                        user.role === 'admin' || user.role === 'superadmin'
                           ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400'
                           : 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
                       }`}
                     >
-                      {user.role === 'admin' ? (
+                      {user.role === 'admin' || user.role === 'superadmin' ? (
                         <Shield className="w-3 h-3" />
                       ) : (
                         <UserIcon className="w-3 h-3" />
@@ -88,8 +271,52 @@ export default function AdminUsers() {
                       {user.role}
                     </span>
                   </td>
+                  <td className="px-6 py-4">
+                    <span className={`px-2 py-1 rounded-full text-xs capitalize ${getStatusBadge(user.status || 'active')}`}>
+                      {user.status || 'active'}
+                    </span>
+                  </td>
                   <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
-                    {new Date(user.joinDate).toLocaleDateString()}
+                    {user.totalOrders || 0} orders / ${(user.totalSpent || 0).toFixed(2)}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
+                    {user.joinDate ? new Date(user.joinDate).toLocaleDateString() : new Date(user.createdAt || Date.now()).toLocaleDateString()}
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center justify-end gap-2">
+                      <button 
+                        onClick={() => handleEdit(user)}
+                        className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                        title="Edit user"
+                      >
+                        <Edit className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => handleBanToggle(user)}
+                        className={`p-2 rounded-lg transition-colors ${
+                          user.status === 'banned'
+                            ? 'text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/30'
+                            : 'text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/30'
+                        }`}
+                        title={user.status === 'banned' ? 'Unban user' : 'Ban user'}
+                      >
+                        {user.status === 'banned' ? <CheckCircle className="w-4 h-4" /> : <Ban className="w-4 h-4" />}
+                      </button>
+                      <a
+                        href={`mailto:${user.email}`}
+                        className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                        title="Send email"
+                      >
+                        <Mail className="w-4 h-4" />
+                      </a>
+                      <button
+                        onClick={() => handleDelete(user.id)}
+                        className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors"
+                        title="Delete user"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -97,6 +324,15 @@ export default function AdminUsers() {
           </table>
         </div>
       </div>
+
+      {/* User Form Modal */}
+      {showForm && (
+        <UserFormModal
+          user={selectedUser}
+          onClose={handleFormClose}
+          onSuccess={handleFormSuccess}
+        />
+      )}
     </div>
   );
 }

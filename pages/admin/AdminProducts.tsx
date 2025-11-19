@@ -3,8 +3,12 @@ import { Plus, Edit, Trash2, Search } from 'lucide-react';
 import { productsApi, Product } from '../../services/api';
 import { toast } from 'sonner';
 import ProductForm from '../../components/admin/ProductForm';
+import { useLanguage } from '../../contexts/LanguageContext';
+import BackButton from '../../components/BackButton';
+import { getImageUrl } from '../../utils/imageUrl';
 
 export default function AdminProducts() {
+  const { t } = useLanguage();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -30,10 +34,10 @@ export default function AdminProducts() {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         await productsApi.delete(id);
-        toast.success('Product deleted successfully');
+        toast.success(t('admin.productForm.productDeleted'));
         loadProducts();
       } catch (error) {
-        toast.error('Failed to delete product');
+        toast.error(t('admin.productForm.deleteFailed'));
       }
     }
   };
@@ -71,6 +75,7 @@ export default function AdminProducts() {
 
   return (
     <div className="p-8">
+      <BackButton />
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-gray-900 dark:text-white">Products</h1>
         <button 
@@ -128,7 +133,7 @@ export default function AdminProducts() {
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       <img
-                        src={product.image}
+                        src={getImageUrl(product.image)}
                         alt={product.name}
                         className="w-12 h-12 object-cover rounded-lg"
                       />
@@ -140,7 +145,11 @@ export default function AdminProducts() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
-                    {product.category}
+                    {typeof product.category === 'object' && product.category?.name 
+                      ? product.category.name 
+                      : typeof product.category === 'string' 
+                        ? product.category 
+                        : 'N/A'}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">
                     ${product.price.toFixed(2)}

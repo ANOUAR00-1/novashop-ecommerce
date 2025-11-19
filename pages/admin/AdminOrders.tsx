@@ -3,8 +3,11 @@ import { ordersApi, Order } from '../../services/api';
 import { Eye, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
+import { useLanguage } from '../../contexts/LanguageContext';
+import BackButton from '../../components/BackButton';
 
 export default function AdminOrders() {
+  const { t } = useLanguage();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -40,9 +43,9 @@ export default function AdminOrders() {
         order.id === orderId ? { ...order, status: newStatus } : order
       ));
       
-      toast.success('Order status updated successfully');
+      toast.success(t('admin.orderManagement.statusUpdated'));
     } catch (error) {
-      toast.error('Failed to update order status');
+      toast.error(t('admin.orderManagement.statusUpdateFailed'));
     } finally {
       setUpdatingStatus(null);
     }
@@ -73,6 +76,7 @@ export default function AdminOrders() {
 
   return (
     <div className="p-8">
+      <BackButton />
       <h1 className="mb-8 text-gray-900 dark:text-white">Orders</h1>
 
       {/* Search */}
