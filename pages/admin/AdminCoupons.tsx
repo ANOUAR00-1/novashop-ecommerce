@@ -49,7 +49,7 @@ export default function AdminCoupons() {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this coupon?')) {
+    if (window.confirm(t('admin.confirmDeleteCoupon'))) {
       try {
         // TODO: await couponsApi.delete(id);
         setCoupons(coupons.filter(c => c.id !== id));
@@ -335,14 +335,14 @@ export default function AdminCoupons() {
                   <button 
                     onClick={() => handleEdit(coupon)}
                     className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-gray-900/30 rounded-lg transition-colors"
-                    title="Edit coupon"
+                    title={t('admin.editCoupon')}
                   >
                     <Edit className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => handleDelete(coupon.id)}
                     className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors"
-                    title="Delete coupon"
+                    title={t('admin.deleteCoupon')}
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>

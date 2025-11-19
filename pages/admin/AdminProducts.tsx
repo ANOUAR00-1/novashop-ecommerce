@@ -31,7 +31,7 @@ export default function AdminProducts() {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this product?')) {
+    if (window.confirm(t('admin.confirmDeleteProduct'))) {
       try {
         await productsApi.delete(id);
         toast.success(t('admin.productForm.productDeleted'));

@@ -69,7 +69,7 @@ const AdminCategories = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (!window.confirm('Are you sure you want to delete this category?')) {
+    if (!window.confirm(t('admin.confirmDeleteCategory'))) {
       return;
     }
 

@@ -49,7 +49,7 @@ export default function AdminUsers() {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+    if (window.confirm(t('admin.confirmDeleteUser'))) {
       try {
         // TODO: await usersApi.delete(id);
         setUsers(users.filter(u => u.id !== id));
@@ -287,7 +287,7 @@ export default function AdminUsers() {
                       <button 
                         onClick={() => handleEdit(user)}
                         className="p-2 text-orange-500 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-gray-900/30 rounded-lg transition-colors"
-                        title="Edit user"
+                        title={t('admin.editUser')}
                       >
                         <Edit className="w-4 h-4" />
                       </button>
@@ -312,7 +312,7 @@ export default function AdminUsers() {
                       <button
                         onClick={() => handleDelete(user.id)}
                         className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors"
-                        title="Delete user"
+                        title={t('admin.deleteUser')}
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

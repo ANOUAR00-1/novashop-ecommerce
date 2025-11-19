@@ -70,7 +70,7 @@ export default function AdminReviews() {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this review permanently?')) {
+    if (window.confirm(t('admin.confirmDeleteReview'))) {
       try {
         // TODO: await reviewsApi.delete(id);
         setReviews(reviews.filter(r => r.id !== id));
@@ -306,7 +306,7 @@ export default function AdminReviews() {
                     <button
                       onClick={() => handleDelete(review.id)}
                       className="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors"
-                      title="Delete review"
+                      title={t('admin.deleteReview')}
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
