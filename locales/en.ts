@@ -61,6 +61,7 @@ export const en = {
     menu: 'Menu',
     allProducts: 'All Products',
     home: 'Home',
+    about: 'About',
   },
 
   // Footer

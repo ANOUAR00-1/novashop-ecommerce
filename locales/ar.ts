@@ -63,6 +63,7 @@ export const ar: TranslationKeys = {
     menu: 'القائمة',
     allProducts: 'جميع المنتجات',
     home: 'الرئيسية',
+    about: 'حول',
   },
 
   // التذييل

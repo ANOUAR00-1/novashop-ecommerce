@@ -63,6 +63,7 @@ export const fr: TranslationKeys = {
     menu: 'Menu',
     allProducts: 'Tous les produits',
     home: 'Accueil',
+    about: 'À propos',
   },
 
   // Pied de page
