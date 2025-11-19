@@ -37,6 +37,8 @@ export const fetchProducts = createAsyncThunk(
     minPrice?: number;
     maxPrice?: number;
     sort?: string;
+    rating?: number;
+    inStock?: boolean;
   }) => {
     const response = await productsApi.getAll(params);
     return response;
