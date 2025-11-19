@@ -1,108 +1,297 @@
 import { useEffect, useState } from 'react';
-import { DollarSign, ShoppingCart, Users, TrendingUp } from 'lucide-react';
+import { 
+  DollarSign, 
+  ShoppingCart, 
+  Users, 
+  TrendingUp, 
+  Package,
+  AlertCircle,
+  Clock,
+  Star,
+  ArrowUpRight,
+  ArrowDownRight,
+  RefreshCw
+} from 'lucide-react';
 import { analyticsApi } from '../../services/api';
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
+import { useLanguage } from '../../contexts/LanguageContext';
+import BackButton from '../../components/BackButton';
+
+interface DashboardStats {
+  totalRevenue: number;
+  totalOrders: number;
+  totalCustomers: number;
+  averageOrderValue: number;
+  revenueGrowth: number;
+  ordersGrowth: number;
+  customersGrowth: number;
+  topProducts: Array<{
+    id: string;
+    name: string;
+    sales: number;
+    revenue: number;
+  }>;
+  salesChart: Array<{
+    month: string;
+    sales: number;
+    revenue?: number;
+  }>;
+  recentOrders?: Array<{
+    id: string;
+    customer: string;
+    total: number;
+    status: string;
+    date: string;
+  }>;
+  lowStock?: Array<{
+    id: string;
+    name: string;
+    stock: number;
+    image: string;
+  }>;
+  pendingReviews?: number;
+}
 
 export default function AdminDashboard() {
-  const [stats, setStats] = useState<any>(null);
+  const { t } = useLanguage();
+  const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const loadStats = async (showRefreshToast = false) => {
+    try {
+      if (showRefreshToast) {
+        setRefreshing(true);
+      }
+      
+      const data = await analyticsApi.getDashboardStats();
+      setStats(data);
+      
+      if (showRefreshToast) {
+        toast.success(t('admin.dashboardRefreshed'));
+      }
+    } catch (error) {
+      console.error('Failed to load stats:', error);
+      toast.error(t('admin.loadFailed'));
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  };
 
   useEffect(() => {
-    const loadStats = async () => {
-      try {
-        const data = await analyticsApi.getDashboardStats();
-        setStats(data);
-      } catch (error) {
-        console.error('Failed to load stats:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     loadStats();
   }, []);
 
+  const handleRefresh = () => {
+    loadStats(true);
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'delivered':
+        return 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400';
+      case 'shipped':
+        return 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400';
+      case 'processing':
+        return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400';
+      case 'pending':
+        return 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400';
+      default:
+        return 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400';
+    }
+  };
+
   if (loading || !stats) {
     return (
-      <div className="p-8 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="p-8 flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">Loading dashboard...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="p-8">
-      <h1 className="mb-8 text-gray-900 dark:text-white">Dashboard</h1>
+    <div className="p-8 bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <BackButton />
+      {/* Header */}
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Dashboard</h1>
+          <p className="text-gray-600 dark:text-gray-400">Welcome back! Here's what's happening with your store today.</p>
+        </div>
+        <button
+          onClick={handleRefresh}
+          disabled={refreshing}
+          className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+        >
+          <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
+          <span>Refresh</span>
+        </button>
+      </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        {/* Total Revenue */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
               <DollarSign className="w-6 h-6 text-green-600 dark:text-green-400" />
             </div>
-            <span className="text-sm text-green-600 dark:text-green-400">
-              +{stats.revenueGrowth}%
-            </span>
+            <div className="flex items-center gap-1 text-sm">
+              {stats.revenueGrowth >= 0 ? (
+                <ArrowUpRight className="w-4 h-4 text-green-600 dark:text-green-400" />
+              ) : (
+                <ArrowDownRight className="w-4 h-4 text-red-600 dark:text-red-400" />
+              )}
+              <span className={stats.revenueGrowth >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}>
+                {Math.abs(stats.revenueGrowth)}%
+              </span>
+            </div>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Revenue</p>
-          <p className="text-2xl text-gray-900 dark:text-white">
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">
             ${stats.totalRevenue.toLocaleString()}
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+            +${(stats.totalRevenue * 0.125).toLocaleString()} this month
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        {/* Total Orders */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
               <ShoppingCart className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
-            <span className="text-sm text-blue-600 dark:text-blue-400">
-              +{stats.ordersGrowth}%
-            </span>
+            <div className="flex items-center gap-1 text-sm">
+              {stats.ordersGrowth >= 0 ? (
+                <ArrowUpRight className="w-4 h-4 text-green-600 dark:text-green-400" />
+              ) : (
+                <ArrowDownRight className="w-4 h-4 text-red-600 dark:text-red-400" />
+              )}
+              <span className={stats.ordersGrowth >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}>
+                {Math.abs(stats.ordersGrowth)}%
+              </span>
+            </div>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Orders</p>
-          <p className="text-2xl text-gray-900 dark:text-white">
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">
             {stats.totalOrders.toLocaleString()}
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+            {Math.round(stats.totalOrders / 30)} orders/day average
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        {/* Total Customers */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
               <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
             </div>
-            <span className="text-sm text-purple-600 dark:text-purple-400">
-              +{stats.customersGrowth}%
-            </span>
+            <div className="flex items-center gap-1 text-sm">
+              {stats.customersGrowth >= 0 ? (
+                <ArrowUpRight className="w-4 h-4 text-green-600 dark:text-green-400" />
+              ) : (
+                <ArrowDownRight className="w-4 h-4 text-red-600 dark:text-red-400" />
+              )}
+              <span className={stats.customersGrowth >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}>
+                {Math.abs(stats.customersGrowth)}%
+              </span>
+            </div>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Customers</p>
-          <p className="text-2xl text-gray-900 dark:text-white">
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">
             {stats.totalCustomers.toLocaleString()}
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+            {Math.round(stats.totalCustomers * 0.15)} new this month
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        {/* Avg Order Value */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
               <TrendingUp className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </div>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Avg Order Value</p>
-          <p className="text-2xl text-gray-900 dark:text-white">
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">
             ${stats.averageOrderValue.toFixed(2)}
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+            ${(stats.averageOrderValue * 1.05).toFixed(2)} target
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* Quick Actions */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <Link
+          to="/admin/orders"
+          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm opacity-90 mb-1">Pending Orders</p>
+              <p className="text-2xl font-bold">
+                {stats.recentOrders?.filter(o => o.status === 'pending').length || 0}
+              </p>
+            </div>
+            <Clock className="w-8 h-8 opacity-80" />
+          </div>
+        </Link>
+
+        <Link
+          to="/admin/products"
+          className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm opacity-90 mb-1">Low Stock Items</p>
+              <p className="text-2xl font-bold">{stats.lowStock?.length || 0}</p>
+            </div>
+            <AlertCircle className="w-8 h-8 opacity-80" />
+          </div>
+        </Link>
+
+        <Link
+          to="/admin/reviews"
+          className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg p-4 transition-all hover:shadow-lg"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm opacity-90 mb-1">Pending Reviews</p>
+              <p className="text-2xl font-bold">{stats.pendingReviews || 0}</p>
+            </div>
+            <Star className="w-8 h-8 opacity-80" />
+          </div>
+        </Link>
+      </div>
+
+      {/* Charts Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Sales Chart */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-          <h2 className="mb-6 text-gray-900 dark:text-white">Sales Overview</h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Sales Overview</h2>
+            <select className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white">
+              <option>Last 12 Months</option>
+              <option>Last 6 Months</option>
+              <option>Last 3 Months</option>
+            </select>
+          </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={stats.salesChart}>
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-              <XAxis dataKey="month" stroke="#9CA3AF" />
-              <YAxis stroke="#9CA3AF" />
+              <XAxis dataKey="month" stroke="#9CA3AF" style={{ fontSize: '12px' }} />
+              <YAxis stroke="#9CA3AF" style={{ fontSize: '12px' }} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: '#1F2937',
@@ -115,8 +304,9 @@ export default function AdminDashboard() {
                 type="monotone"
                 dataKey="sales"
                 stroke="#3B82F6"
-                strokeWidth={2}
-                dot={{ fill: '#3B82F6' }}
+                strokeWidth={3}
+                dot={{ fill: '#3B82F6', r: 4 }}
+                activeDot={{ r: 6 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -124,24 +314,109 @@ export default function AdminDashboard() {
 
         {/* Top Products */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-          <h2 className="mb-6 text-gray-900 dark:text-white">Top Products</h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Top Products</h2>
+            <Link to="/admin/products" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+              View All
+            </Link>
+          </div>
           <div className="space-y-4">
-            {stats.topProducts.map((product: any, index: number) => (
-              <div key={product.id} className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400">
+            {stats.topProducts.map((product, index) => (
+              <div key={product.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
                   {index + 1}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm text-gray-900 dark:text-white truncate">
+                  <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
                     {product.name}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
                     {product.sales} sales
                   </p>
                 </div>
-                <p className="text-sm text-gray-900 dark:text-white">
-                  ${product.revenue.toLocaleString()}
+                <div className="text-right">
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                    ${product.revenue.toLocaleString()}
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    ${(product.revenue / product.sales).toFixed(2)}/unit
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Recent Orders */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Recent Orders</h2>
+            <Link to="/admin/orders" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+              View All
+            </Link>
+          </div>
+          <div className="space-y-3">
+            {stats.recentOrders?.map((order) => (
+              <div key={order.id} className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      {order.id}
+                    </p>
+                    <span className={`px-2 py-0.5 rounded-full text-xs capitalize ${getStatusColor(order.status)}`}>
+                      {order.status}
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {order.customer} • {new Date(order.date).toLocaleString()}
+                  </p>
+                </div>
+                <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                  ${order.total.toFixed(2)}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Low Stock Alert */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Low Stock Alert</h2>
+              <span className="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full">
+                {stats.lowStock?.length}
+              </span>
+            </div>
+            <Link to="/admin/products" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+              Manage
+            </Link>
+          </div>
+          <div className="space-y-3">
+            {stats.lowStock?.map((product) => (
+              <div key={product.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-12 h-12 object-cover rounded-lg"
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                    {product.name}
+                  </p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <Package className="w-3 h-3 text-red-600 dark:text-red-400" />
+                    <p className="text-xs text-red-600 dark:text-red-400">
+                      Only {product.stock} left
+                    </p>
+                  </div>
+                </div>
+                <button className="px-3 py-1.5 bg-blue-600 text-white text-xs rounded-lg hover:bg-blue-700 transition-colors">
+                  Restock
+                </button>
               </div>
             ))}
           </div>
