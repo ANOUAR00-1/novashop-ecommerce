@@ -4,10 +4,11 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useAppSelector } from '../../store';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
 import LanguageSwitcher from '../LanguageSwitcher';
+import { categoriesApi, Category } from '../../services/api';
 
 export default function Header() {
   const { isAuthenticated, user, logout } = useAuth();
@@ -17,8 +18,21 @@ export default function Header() {
   const wishlistItems = useAppSelector((state) => state.wishlist.items);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await categoriesApi.getAll();
+        setCategories(data);
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg">
@@ -53,66 +67,26 @@ export default function Header() {
                 </svg>
               </button>
               
-              {/* Mega Menu Dropdown */}
+              {/* Mega Menu Dropdown - Dynamic Categories */}
               <div className="absolute left-0 top-full mt-2 w-screen max-w-4xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
                   <div className="grid grid-cols-4 gap-8">
-                    {/* BEDS */}
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
-                        BEDS
-                      </h3>
-                      <ul className="space-y-2">
-                        <li><Link to="/products?category=platform-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Platform Beds</Link></li>
-                        <li><Link to="/products?category=storage-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Storage Beds</Link></li>
-                        <li><Link to="/products?category=regular-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Regular Beds</Link></li>
-                        <li><Link to="/products?category=sleigh-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sleigh Beds</Link></li>
-                        <li><Link to="/products?category=modern-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Modern Beds</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* NIGHTSTANDS */}
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
-                        NIGHTSTANDS
-                      </h3>
-                      <ul className="space-y-2">
-                        <li><Link to="/products?category=wooden-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Wooden Stand</Link></li>
-                        <li><Link to="/products?category=storage-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Storage Stand</Link></li>
-                        <li><Link to="/products?category=barrel-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Barrel Stand</Link></li>
-                        <li><Link to="/products?category=black-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Black Stand</Link></li>
-                        <li><Link to="/products?category=bedside-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bedside Stand</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* ACCESSORIES */}
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
-                        ACCESSORIES
-                      </h3>
-                      <ul className="space-y-2">
-                        <li><Link to="/products?category=bow-ties" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bow Ties</Link></li>
-                        <li><Link to="/products?category=belts" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Belts</Link></li>
-                        <li><Link to="/products?category=bags-purses" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bags & Purses</Link></li>
-                        <li><Link to="/products?category=beauty-coats" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Beauty Coats</Link></li>
-                        <li><Link to="/products?category=bags" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bags</Link></li>
-                      </ul>
-                    </div>
-
-                    {/* FURNITURE LIST */}
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
-                        FURNITURE LIST
-                      </h3>
-                      <ul className="space-y-2">
-                        <li><Link to="/products?category=caps-hats" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Caps & Hats</Link></li>
-                        <li><Link to="/products?category=sofa" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sofa</Link></li>
-                        <li><Link to="/products?category=couch" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Couch</Link></li>
-                        <li><Link to="/products?category=chair" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Chair</Link></li>
-                        <li><Link to="/products?category=bookcase" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bookcase</Link></li>
-                      </ul>
-                    </div>
+                    {categories.slice(0, 16).map((category) => (
+                      <div key={category.id}>
+                        <Link
+                          to={`/products?category=${category.slug}`}
+                          className="text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wider"
+                        >
+                          {category.name}
+                        </Link>
+                      </div>
+                    ))}
                   </div>
+                  {categories.length === 0 && (
+                    <div className="text-center text-gray-500 dark:text-gray-400 py-4">
+                      No categories available
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -128,25 +102,22 @@ export default function Header() {
                 </svg>
               </button>
               
-              {/* Products Mega Menu */}
+              {/* Products Mega Menu - Dynamic */}
               <div className="absolute left-0 top-full mt-2 w-96 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6">
                   <div className="space-y-3">
                     <Link to="/products" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors font-medium">
                       All Products
                     </Link>
-                    <Link to="/products?category=beds" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
-                      Beds
-                    </Link>
-                    <Link to="/products?category=nightstands" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
-                      Nightstands
-                    </Link>
-                    <Link to="/products?category=accessories" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
-                      Accessories
-                    </Link>
-                    <Link to="/products?category=furniture" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
-                      Furniture
-                    </Link>
+                    {categories.slice(0, 8).map((category) => (
+                      <Link
+                        key={category.id}
+                        to={`/products?category=${category.slug}`}
+                        className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors"
+                      >
+                        {category.name}
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>

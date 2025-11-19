@@ -77,6 +77,16 @@ export interface Review {
   createdAt: string;
 }
 
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+  parentId?: string | null;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 // Products API
 export const productsApi = {
   getAll: async (params: {
@@ -141,11 +151,31 @@ export const productsApi = {
 // Categories API
 export const categoriesApi = {
   getAll: async () => {
-    return await http<Array<{ id: string; name: string; slug: string }>>("/categories");
+    return await http<Category[]>("/categories");
   },
 
   getById: async (id: string) => {
-    return await http<{ id: string; name: string; slug: string; description?: string }>(`/categories/${id}`);
+    return await http<Category>(`/categories/${id}`);
+  },
+
+  create: async (category: Partial<Category>) => {
+    return await http<Category>("/categories", {
+      method: "POST",
+      body: category,
+    });
+  },
+
+  update: async (id: string, updates: Partial<Category>) => {
+    return await http<Category>(`/categories/${id}`, {
+      method: "PUT",
+      body: updates,
+    });
+  },
+
+  delete: async (id: string) => {
+    return await http<{ success: boolean }>(`/categories/${id}`, {
+      method: "DELETE",
+    });
   },
 };
 

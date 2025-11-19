@@ -2,6 +2,8 @@ import { X } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { setCategory, setPriceRange, setInStock, setRating, resetFilters } from '../../store/slices/filtersSlice';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useState, useEffect } from 'react';
+import { categoriesApi, Category } from '../../services/api';
 
 interface FilterSidebarProps {
   isOpen: boolean;
@@ -12,24 +14,19 @@ export default function FilterSidebar({ isOpen, onClose }: FilterSidebarProps) {
   const { t } = useLanguage();
   const dispatch = useAppDispatch();
   const filters = useAppSelector((state) => state.filters);
+  const [categories, setCategories] = useState<Category[]>([]);
 
-  const categories = [
-    { value: 'electronics', label: t('home.categories.electronics') },
-    { value: 'computers', label: t('home.categories.computers') },
-    { value: 'wearables', label: t('home.categories.wearables') },
-    { value: 'accessories', label: t('home.categories.accessories') },
-    { value: 'fashion', label: t('home.categories.fashion') },
-    { value: 'furniture', label: t('home.categories.furniture') },
-    { value: 'home-kitchen', label: t('home.categories.homeKitchen') },
-    { value: 'sports-outdoors', label: t('home.categories.sportsOutdoors') },
-    { value: 'beauty-personal-care', label: t('home.categories.beautyPersonalCare') },
-    { value: 'books-media', label: t('home.categories.booksMedia') },
-    { value: 'toys-games', label: t('home.categories.toysGames') },
-    { value: 'office-supplies', label: t('home.categories.officeSupplies') },
-    { value: 'automotive', label: t('home.categories.automotive') },
-    { value: 'health-wellness', label: t('home.categories.healthWellness') },
-    { value: 'camera-photography', label: t('home.categories.cameraPhotography') },
-  ];
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const data = await categoriesApi.getAll();
+        setCategories(data);
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   return (
     <>
@@ -73,15 +70,15 @@ export default function FilterSidebar({ isOpen, onClose }: FilterSidebarProps) {
               <span className="text-gray-700 dark:text-gray-300">{t('common.viewAll')}</span>
             </label>
             {categories.map((cat) => (
-              <label key={cat.value} className="flex items-center gap-2 cursor-pointer">
+              <label key={cat.id} className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="radio"
                   name="category"
-                  checked={filters.category.toLowerCase() === cat.value.toLowerCase()}
-                  onChange={() => dispatch(setCategory(cat.value))}
+                  checked={filters.category.toLowerCase() === cat.slug.toLowerCase()}
+                  onChange={() => dispatch(setCategory(cat.slug))}
                   className="text-blue-600 focus:ring-blue-500"
                 />
-                <span className="text-gray-700 dark:text-gray-300">{cat.label}</span>
+                <span className="text-gray-700 dark:text-gray-300">{cat.name}</span>
               </label>
             ))}
           </div>
