@@ -132,9 +132,9 @@ export default function AdminUsers() {
       <BackButton />
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-gray-900 dark:text-white mb-2">Users Management</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t('admin.usersManagement')}</h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Manage users, roles, and permissions
+            {t('admin.manageUsers')}
           </p>
         </div>
         <button 
@@ -142,7 +142,7 @@ export default function AdminUsers() {
           className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
         >
           <Plus className="w-5 h-5" />
-          Add User
+          {t('admin.addUser')}
         </button>
       </div>
 
@@ -155,7 +155,7 @@ export default function AdminUsers() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search users..."
+            placeholder={t('admin.searchUsers')}
             className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
@@ -166,10 +166,10 @@ export default function AdminUsers() {
           onChange={(e) => setRoleFilter(e.target.value)}
           className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
-          <option value="all">All Roles</option>
-          <option value="user">Users</option>
-          <option value="admin">Admins</option>
-          <option value="superadmin">Super Admins</option>
+          <option value="all">{t('admin.allRoles')}</option>
+          <option value="user">{t('admin.userForm.roleUser')}</option>
+          <option value="admin">{t('admin.userForm.roleAdmin')}</option>
+          <option value="superadmin">{t('admin.userForm.roleSuperAdmin')}</option>
         </select>
 
         {/* Status Filter */}
@@ -178,33 +178,33 @@ export default function AdminUsers() {
           onChange={(e) => setStatusFilter(e.target.value)}
           className="px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
-          <option value="all">All Status</option>
-          <option value="active">Active</option>
-          <option value="banned">Banned</option>
-          <option value="pending">Pending</option>
+          <option value="all">{t('admin.allStatus')}</option>
+          <option value="active">{t('admin.active')}</option>
+          <option value="banned">{t('admin.banned')}</option>
+          <option value="pending">{t('admin.pending')}</option>
         </select>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Users</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.totalUsers')}</p>
           <p className="text-2xl text-gray-900 dark:text-white">{users.length}</p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Active</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.active')}</p>
           <p className="text-2xl text-green-600 dark:text-green-400">
             {users.filter(u => u.status === 'active').length}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Banned</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.banned')}</p>
           <p className="text-2xl text-red-600 dark:text-red-400">
             {users.filter(u => u.status === 'banned').length}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Pending</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.pending')}</p>
           <p className="text-2xl text-yellow-600 dark:text-yellow-400">
             {users.filter(u => u.status === 'pending').length}
           </p>
@@ -218,22 +218,22 @@ export default function AdminUsers() {
             <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
               <tr>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  User
+                  {t('admin.user')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Role
+                  {t('admin.role')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Status
+                  {t('admin.status')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Orders / Spent
+                  {t('admin.ordersSpent')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Join Date
+                  {t('admin.joinDate')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Actions
+                  {t('admin.actions')}
                 </th>
               </tr>
             </thead>

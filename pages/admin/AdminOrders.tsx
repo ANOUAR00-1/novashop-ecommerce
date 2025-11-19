@@ -77,7 +77,10 @@ export default function AdminOrders() {
   return (
     <div className="p-8">
       <BackButton />
-      <h1 className="mb-8 text-gray-900 dark:text-white">Orders</h1>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t('admin.orders')}</h1>
+        <p className="text-gray-600 dark:text-gray-400">{t('admin.manageOrders')}</p>
+      </div>
 
       {/* Search */}
       <div className="mb-6">
@@ -87,7 +90,7 @@ export default function AdminOrders() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search orders..."
+            placeholder={t('admin.searchOrders')}
             className="w-full pl-10 px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
@@ -100,22 +103,22 @@ export default function AdminOrders() {
             <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
               <tr>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Order ID
+                  {t('admin.orderId')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Customer
+                  {t('admin.customer')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Date
+                  {t('admin.date')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Total
+                  {t('admin.total')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Status
+                  {t('admin.status')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Actions
+                  {t('admin.actions')}
                 </th>
               </tr>
             </thead>

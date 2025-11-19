@@ -3,8 +3,10 @@ import { categoriesApi, Category } from '../../services/api';
 import { toast } from 'sonner';
 import { Plus, Edit, Trash2, Search } from 'lucide-react';
 import BackButton from '../../components/BackButton';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const AdminCategories = () => {
+  const { t } = useLanguage();
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -104,10 +106,10 @@ const AdminCategories = () => {
       <div className="mb-6">
         <BackButton />
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mt-4">
-          Category Management
+          {t('admin.categoryManagement')}
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Manage product categories
+          {t('admin.manageCategories')}
         </p>
       </div>
 
@@ -123,7 +125,7 @@ const AdminCategories = () => {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
-            placeholder="Search categories..."
+            placeholder={t('admin.searchCategories')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
@@ -135,7 +137,7 @@ const AdminCategories = () => {
           className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
         >
           <Plus className="w-5 h-5" />
-          Add Category
+          {t('admin.addCategory')}
         </button>
       </div>
 
@@ -220,16 +222,16 @@ const AdminCategories = () => {
             <thead className="bg-gray-50 dark:bg-gray-900">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Name
+                  {t('admin.name')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Slug
+                  {t('admin.slug')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Description
+                  {t('admin.description')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                  Actions
+                  {t('admin.actions')}
                 </th>
               </tr>
             </thead>
