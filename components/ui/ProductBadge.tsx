@@ -26,12 +26,12 @@ export default function ProductBadge({ type, discount, className = '' }: Product
     bestseller: {
       label: 'Best Seller',
       icon: TrendingUp,
-      className: 'bg-purple-500 text-white',
+      className: 'bg-orange-600 text-white',
     },
     limited: {
       label: 'Limited',
       icon: Clock,
-      className: 'bg-yellow-500 text-white',
+      className: 'bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-500/30',
     },
   };
 

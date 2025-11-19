@@ -59,7 +59,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-orange-100 dark:bg-blue-900/30 rounded-lg">
+              <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
                 <Truck className="w-6 h-6 text-orange-500 dark:text-orange-400" />
               </div>
               <div>
