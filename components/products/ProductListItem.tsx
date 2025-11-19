@@ -6,12 +6,16 @@ import { addToCart } from '../../store/slices/cartSlice';
 import { addToWishlist, removeFromWishlist } from '../../store/slices/wishlistSlice';
 import { useAuth } from '../../contexts/AuthContext';
 import { toast } from 'sonner';
+import { useLanguage } from '../../contexts/LanguageContext';
+import { getCategoryTranslationKey } from '../../utils/translateCategory';
+import { getProductNameKey, getProductDescriptionKey } from '../../utils/translateProduct';
 
 interface ProductListItemProps {
   product: Product;
 }
 
 export default function ProductListItem({ product }: ProductListItemProps) {
+  const { t } = useLanguage();
   const dispatch = useAppDispatch();
   const { isAuthenticated } = useAuth();
   const wishlist = useAppSelector((state) => state.wishlist.items);
@@ -28,18 +32,18 @@ export default function ProductListItem({ product }: ProductListItemProps) {
         quantity: 1,
       })
     );
-    toast.success('Added to cart');
+    toast.success(t('toast.itemAddedToCart', { name: product.name }));
   };
 
   const handleWishlist = () => {
     if (!isAuthenticated) {
-      toast.error('Please login to add items to wishlist');
+      toast.error(t('toast.loginRequired'));
       return;
     }
 
     if (isInWishlist) {
       dispatch(removeFromWishlist(product.id));
-      toast.success('Removed from wishlist');
+      toast.success(t('toast.itemRemovedFromWishlist', { name: product.name }));
     } else {
       dispatch(
         addToWishlist({
@@ -50,7 +54,7 @@ export default function ProductListItem({ product }: ProductListItemProps) {
           image: product.image,
         })
       );
-      toast.success('Added to wishlist');
+      toast.success(t('toast.itemAddedToWishlist', { name: product.name }));
     }
   };
 
@@ -66,15 +70,15 @@ export default function ProductListItem({ product }: ProductListItemProps) {
 
       <div className="flex-1 min-w-0">
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-          {product.category}
+          {t(getCategoryTranslationKey(product.category))}
         </p>
         <Link to={`/products/${product.id}`}>
           <h3 className="mb-2 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
-            {product.name}
+            {t(getProductNameKey(product.id))}
           </h3>
         </Link>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
-          {product.description}
+          {t(getProductDescriptionKey(product.id))}
         </p>
 
         <div className="flex items-center gap-2 mb-3">
@@ -117,7 +121,7 @@ export default function ProductListItem({ product }: ProductListItemProps) {
               className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
             >
               <ShoppingCart className="w-5 h-5" />
-              Add to Cart
+              {t('product.addToCart')}
             </button>
           </div>
         </div>
