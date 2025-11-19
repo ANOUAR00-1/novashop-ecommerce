@@ -458,6 +458,49 @@ export const fr: TranslationKeys = {
     dashboardRefreshed: 'Tableau de bord actualisé',
     loadFailed: 'Échec du chargement des données',
     
+    // Statuts et libellés
+    rejected: 'Rejeté',
+    inactive: 'Inactif',
+    off: 'RÉDUIT',
+    discount: 'REMISE',
+    expiredLabel: 'Expiré',
+    noCategoriesFound: 'Aucune catégorie trouvée',
+    
+    // Libellés de formulaire
+    nameLabel: 'Nom',
+    nameRequired: 'Nom *',
+    slugRequired: 'Slug *',
+    descriptionLabel: 'Description',
+    productImage: 'Image du produit',
+    
+    // Boutons de formulaire
+    update: 'Mettre à jour',
+    create: 'Créer',
+    cancel: 'Annuler',
+    save: 'Enregistrer',
+    
+    // Titres de formulaire
+    editCategory: 'Modifier la catégorie',
+    newCategory: 'Nouvelle catégorie',
+    
+    // Placeholders
+    categoryDescriptionPlaceholder: 'Description de la catégorie...',
+    electronicsPlaceholder: 'Électronique',
+    
+    // Info-bulles
+    editUser: 'Modifier l\'utilisateur',
+    deleteUser: 'Supprimer l\'utilisateur',
+    editCoupon: 'Modifier le coupon',
+    deleteCoupon: 'Supprimer le coupon',
+    deleteReview: 'Supprimer l\'avis',
+    
+    // Messages de confirmation
+    confirmDeleteUser: 'Êtes-vous sûr de vouloir supprimer cet utilisateur ? Cette action est irréversible.',
+    confirmDeleteReview: 'Êtes-vous sûr de vouloir supprimer cet avis définitivement ?',
+    confirmDeleteProduct: 'Êtes-vous sûr de vouloir supprimer ce produit ?',
+    confirmDeleteCoupon: 'Êtes-vous sûr de vouloir supprimer ce coupon ?',
+    confirmDeleteCategory: 'Êtes-vous sûr de vouloir supprimer cette catégorie ?',
+    
     // Gestion des utilisateurs
     userForm: {
       editUser: 'Modifier l\'Utilisateur',

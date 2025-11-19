@@ -458,6 +458,49 @@ export const ar: TranslationKeys = {
     dashboardRefreshed: 'تم تحديث لوحة التحكم',
     loadFailed: 'فشل تحميل البيانات',
     
+    // الحالات والتسميات
+    rejected: 'مرفوض',
+    inactive: 'غير نشط',
+    off: 'خصم',
+    discount: 'تخفيض',
+    expiredLabel: 'منتهي',
+    noCategoriesFound: 'لم يتم العثور على فئات',
+    
+    // تسميات النموذج
+    nameLabel: 'الاسم',
+    nameRequired: 'الاسم *',
+    slugRequired: 'الرمز *',
+    descriptionLabel: 'الوصف',
+    productImage: 'صورة المنتج',
+    
+    // أزرار النموذج
+    update: 'تحديث',
+    create: 'إنشاء',
+    cancel: 'إلغاء',
+    save: 'حفظ',
+    
+    // عناوين النموذج
+    editCategory: 'تعديل الفئة',
+    newCategory: 'فئة جديدة',
+    
+    // العناصر النائبة
+    categoryDescriptionPlaceholder: 'وصف الفئة...',
+    electronicsPlaceholder: 'إلكترونيات',
+    
+    // تلميحات الأدوات
+    editUser: 'تعديل المستخدم',
+    deleteUser: 'حذف المستخدم',
+    editCoupon: 'تعديل القسيمة',
+    deleteCoupon: 'حذف القسيمة',
+    deleteReview: 'حذف التقييم',
+    
+    // رسائل التأكيد
+    confirmDeleteUser: 'هل أنت متأكد من حذف هذا المستخدم؟ لا يمكن التراجع عن هذا الإجراء.',
+    confirmDeleteReview: 'هل أنت متأكد من حذف هذا التقييم نهائياً؟',
+    confirmDeleteProduct: 'هل أنت متأكد من حذف هذا المنتج؟',
+    confirmDeleteCoupon: 'هل أنت متأكد من حذف هذه القسيمة؟',
+    confirmDeleteCategory: 'هل أنت متأكد من حذف هذه الفئة؟',
+    
     // إدارة المستخدمين
     userForm: {
       editUser: 'تعديل المستخدم',

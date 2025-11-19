@@ -456,6 +456,49 @@ export const en = {
     dashboardRefreshed: 'Dashboard refreshed',
     loadFailed: 'Failed to load data',
     
+    // Status & Labels
+    rejected: 'Rejected',
+    inactive: 'Inactive',
+    off: 'OFF',
+    discount: 'DISCOUNT',
+    expiredLabel: 'Expired',
+    noCategoriesFound: 'No categories found',
+    
+    // Form Labels
+    nameLabel: 'Name',
+    nameRequired: 'Name *',
+    slugRequired: 'Slug *',
+    descriptionLabel: 'Description',
+    productImage: 'Product Image',
+    
+    // Form Buttons
+    update: 'Update',
+    create: 'Create',
+    cancel: 'Cancel',
+    save: 'Save',
+    
+    // Form Titles
+    editCategory: 'Edit Category',
+    newCategory: 'New Category',
+    
+    // Placeholders
+    categoryDescriptionPlaceholder: 'Category description...',
+    electronicsPlaceholder: 'Electronics',
+    
+    // Tooltips
+    editUser: 'Edit user',
+    deleteUser: 'Delete user',
+    editCoupon: 'Edit coupon',
+    deleteCoupon: 'Delete coupon',
+    deleteReview: 'Delete review',
+    
+    // Confirmation Messages
+    confirmDeleteUser: 'Are you sure you want to delete this user? This action cannot be undone.',
+    confirmDeleteReview: 'Are you sure you want to delete this review permanently?',
+    confirmDeleteProduct: 'Are you sure you want to delete this product?',
+    confirmDeleteCoupon: 'Are you sure you want to delete this coupon?',
+    confirmDeleteCategory: 'Are you sure you want to delete this category?',
+    
     // User Management
     userForm: {
       editUser: 'Edit User',
