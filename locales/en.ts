@@ -499,6 +499,23 @@ export const en = {
     confirmDeleteCoupon: 'Are you sure you want to delete this coupon?',
     confirmDeleteCategory: 'Are you sure you want to delete this category?',
     
+    // Coupon Details
+    minPurchase: 'Min. purchase',
+    maxDiscount: 'Max. discount',
+    usage: 'Usage',
+    unlimited: 'Unlimited',
+    limitReached: 'Limit Reached',
+    expires: 'Expires',
+    
+    // Forgot Password
+    backToLogin: 'Back to Login',
+    forgotPasswordTitle: 'Forgot Password?',
+    forgotPasswordSubtitle: 'Enter your email to receive a reset link',
+    resetLinkSent: 'We\'ve sent a password reset link to',
+    checkInbox: 'Please check your inbox.',
+    sending: 'Sending...',
+    sendResetLink: 'Send Reset Link',
+    
     // User Management
     userForm: {
       editUser: 'Edit User',

@@ -303,7 +303,7 @@ export default function ProductForm({ product, onClose, onSuccess }: ProductForm
           {/* Product Image */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Product Image
+              {t('admin.productImage')}
             </label>
             <input
               type="file"

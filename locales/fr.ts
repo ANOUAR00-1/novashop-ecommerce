@@ -501,6 +501,23 @@ export const fr: TranslationKeys = {
     confirmDeleteCoupon: 'Êtes-vous sûr de vouloir supprimer ce coupon ?',
     confirmDeleteCategory: 'Êtes-vous sûr de vouloir supprimer cette catégorie ?',
     
+    // Détails du coupon
+    minPurchase: 'Achat min.',
+    maxDiscount: 'Réduction max.',
+    usage: 'Utilisation',
+    unlimited: 'Illimité',
+    limitReached: 'Limite atteinte',
+    expires: 'Expire',
+    
+    // Mot de passe oublié
+    backToLogin: 'Retour à la connexion',
+    forgotPasswordTitle: 'Mot de passe oublié ?',
+    forgotPasswordSubtitle: 'Entrez votre email pour recevoir un lien de réinitialisation',
+    resetLinkSent: 'Nous avons envoyé un lien de réinitialisation à',
+    checkInbox: 'Veuillez vérifier votre boîte de réception.',
+    sending: 'Envoi en cours...',
+    sendResetLink: 'Envoyer le lien',
+    
     // Gestion des utilisateurs
     userForm: {
       editUser: 'Modifier l\'Utilisateur',

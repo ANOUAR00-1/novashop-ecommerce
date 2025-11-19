@@ -501,6 +501,23 @@ export const ar: TranslationKeys = {
     confirmDeleteCoupon: 'هل أنت متأكد من حذف هذه القسيمة؟',
     confirmDeleteCategory: 'هل أنت متأكد من حذف هذه الفئة؟',
     
+    // تفاصيل القسيمة
+    minPurchase: 'الحد الأدنى للشراء',
+    maxDiscount: 'الحد الأقصى للخصم',
+    usage: 'الاستخدام',
+    unlimited: 'غير محدود',
+    limitReached: 'تم الوصول للحد',
+    expires: 'ينتهي',
+    
+    // نسيت كلمة المرور
+    backToLogin: 'العودة لتسجيل الدخول',
+    forgotPasswordTitle: 'نسيت كلمة المرور؟',
+    forgotPasswordSubtitle: 'أدخل بريدك الإلكتروني لتلقي رابط إعادة التعيين',
+    resetLinkSent: 'لقد أرسلنا رابط إعادة تعيين كلمة المرور إلى',
+    checkInbox: 'يرجى التحقق من صندوق الوارد الخاص بك.',
+    sending: 'جارٍ الإرسال...',
+    sendResetLink: 'إرسال رابط إعادة التعيين',
+    
     // إدارة المستخدمين
     userForm: {
       editUser: 'تعديل المستخدم',

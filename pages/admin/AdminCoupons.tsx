@@ -272,27 +272,27 @@ export default function AdminCoupons() {
               <div className="space-y-2 mb-4">
                 {coupon.minPurchase && (
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    • Min. purchase: ${coupon.minPurchase}
+                    • {t('admin.minPurchase')}: ${coupon.minPurchase}
                   </p>
                 )}
                 {coupon.maxDiscount && (
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    • Max. discount: ${coupon.maxDiscount}
+                    • {t('admin.maxDiscount')}: ${coupon.maxDiscount}
                   </p>
                 )}
                 <p className="text-xs text-gray-600 dark:text-gray-400">
-                  • Expires: {new Date(coupon.expiresAt).toLocaleDateString()}
+                  • {t('admin.expires')}: {new Date(coupon.expiresAt).toLocaleDateString()}
                   {expired && <span className="text-red-600 dark:text-red-400 ml-1">({t('admin.expiredLabel')})</span>}
                 </p>
                 {coupon.usageLimit && (
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    • Usage: {coupon.usageCount} / {coupon.usageLimit}
-                    {limitReached && <span className="text-orange-600 dark:text-orange-400 ml-1">(Limit Reached)</span>}
+                    • {t('admin.usage')}: {coupon.usageCount} / {coupon.usageLimit}
+                    {limitReached && <span className="text-orange-600 dark:text-orange-400 ml-1">({t('admin.limitReached')})</span>}
                   </p>
                 )}
                 {!coupon.usageLimit && (
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    • Usage: {coupon.usageCount} (Unlimited)
+                    • {t('admin.usage')}: {coupon.usageCount} ({t('admin.unlimited')})
                   </p>
                 )}
               </div>

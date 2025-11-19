@@ -33,13 +33,13 @@ export default function ForgotPasswordPage() {
           className="inline-flex items-center gap-2 text-orange-500 dark:text-orange-400 hover:underline mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Login
+          {t('admin.backToLogin')}
         </Link>
 
         <div className="text-center mb-8">
-          <h1 className="mb-2 text-gray-900 dark:text-white">Forgot Password?</h1>
+          <h1 className="mb-2 text-gray-900 dark:text-white">{t('admin.forgotPasswordTitle')}</h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Enter your email to receive a reset link
+            {t('admin.forgotPasswordSubtitle')}
           </p>
         </div>
 
@@ -51,14 +51,14 @@ export default function ForgotPasswordPage() {
                   <span className="text-3xl">✓</span>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400">
-                  We've sent a password reset link to <strong>{email}</strong>. Please check your inbox.
+                  {t('admin.resetLinkSent')} <strong>{email}</strong>. {t('admin.checkInbox')}
                 </p>
               </div>
               <Link
                 to="/login"
                 className="block w-full px-6 py-3 bg-orange-500 text-white text-center rounded-lg hover:bg-orange-600 transition-colors"
               >
-                Back to Login
+                {t('admin.backToLogin')}
               </Link>
             </div>
           ) : (
@@ -82,7 +82,7 @@ export default function ForgotPasswordPage() {
                 disabled={loading}
                 className="w-full px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
-                {loading ? 'Sending...' : 'Send Reset Link'}
+                {loading ? t('admin.sending') : t('admin.sendResetLink')}
               </button>
             </form>
           )}
