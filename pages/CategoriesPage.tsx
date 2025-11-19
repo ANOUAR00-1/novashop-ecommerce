@@ -3,6 +3,7 @@ import { Laptop, Shirt, Watch, Home, Dumbbell, Palette } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAppSelector } from '../store';
 import BackButton from '../components/BackButton';
+import { getCategoryTranslationKey } from '../utils/translateCategory';
 
 export default function CategoriesPage() {
   const { t } = useLanguage();
@@ -96,7 +97,7 @@ export default function CategoriesPage() {
                   <div className="mb-4">
                     <Icon className="w-12 h-12" />
                   </div>
-                  <h2 className="text-2xl font-bold mb-2">{category.name}</h2>
+                  <h2 className="text-2xl font-bold mb-2">{t(getCategoryTranslationKey(category.name))}</h2>
                   <p className="text-sm opacity-90 mb-3">{category.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold">
