@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../store';
 import { removeFromWishlist } from '../../store/slices/wishlistSlice';
 import { addToCart } from '../../store/slices/cartSlice';
 import { toast } from 'sonner';
+import BackButton from '../../components/BackButton';
 
 export default function WishlistPage() {
   const dispatch = useAppDispatch();
@@ -31,6 +32,7 @@ export default function WishlistPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4 max-w-6xl">
+        <BackButton />
         <h1 className="mb-8 text-gray-900 dark:text-white">My Wishlist</h1>
 
         {items.length === 0 ? (

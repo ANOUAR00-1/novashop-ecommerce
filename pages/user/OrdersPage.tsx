@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Package, Eye } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { fetchOrders } from '../../store/slices/ordersSlice';
+import BackButton from '../../components/BackButton';
 
 export default function OrdersPage() {
   const dispatch = useAppDispatch();
@@ -38,6 +39,7 @@ export default function OrdersPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4 max-w-6xl">
+        <BackButton />
         <h1 className="mb-8 text-gray-900 dark:text-white">My Orders</h1>
 
         {orders.length === 0 ? (

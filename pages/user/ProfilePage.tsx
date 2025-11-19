@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { toast } from 'sonner';
 import { User, Mail, MapPin, Phone } from 'lucide-react';
+import BackButton from '../../components/BackButton';
 
 export default function ProfilePage() {
   const { user } = useAuth();
@@ -50,6 +51,7 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4 max-w-4xl">
+        <BackButton />
         <h1 className="mb-8 text-gray-900 dark:text-white">My Profile</h1>
 
         <div className="bg-white dark:bg-gray-800 rounded-lg p-8 mb-6">
