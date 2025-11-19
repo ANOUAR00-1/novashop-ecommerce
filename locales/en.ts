@@ -362,6 +362,7 @@ export const en = {
   admin: {
     dashboard: 'Dashboard',
     products: 'Products',
+    categories: 'Categories',
     orders: 'Orders',
     users: 'Users',
     coupons: 'Coupons',

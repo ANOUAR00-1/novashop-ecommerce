@@ -364,6 +364,7 @@ export const fr: TranslationKeys = {
   admin: {
     dashboard: 'Tableau de Bord',
     products: 'Produits',
+    categories: 'Catégories',
     orders: 'Commandes',
     users: 'Utilisateurs',
     coupons: 'Coupons',

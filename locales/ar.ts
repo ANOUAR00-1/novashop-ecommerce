@@ -364,6 +364,7 @@ export const ar: TranslationKeys = {
   admin: {
     dashboard: 'لوحة التحكم',
     products: 'المنتجات',
+    categories: 'الفئات',
     orders: 'الطلبات',
     users: 'المستخدمون',
     coupons: 'القسائم',

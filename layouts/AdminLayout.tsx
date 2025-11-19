@@ -11,20 +11,22 @@ import {
   FolderTree,
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function AdminLayout() {
   const location = useLocation();
   const { logout } = useAuth();
+  const { t } = useLanguage();
 
   const navigation = [
-    { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-    { name: 'Products', href: '/admin/products', icon: Package },
-    { name: 'Categories', href: '/admin/categories', icon: FolderTree },
-    { name: 'Orders', href: '/admin/orders', icon: ShoppingCart },
-    { name: 'Users', href: '/admin/users', icon: Users },
-    { name: 'Coupons', href: '/admin/coupons', icon: Tag },
-    { name: 'Reviews', href: '/admin/reviews', icon: MessageSquare },
-    { name: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
+    { name: t('admin.dashboard'), href: '/admin', icon: LayoutDashboard },
+    { name: t('admin.products'), href: '/admin/products', icon: Package },
+    { name: t('admin.categories'), href: '/admin/categories', icon: FolderTree },
+    { name: t('admin.orders'), href: '/admin/orders', icon: ShoppingCart },
+    { name: t('admin.users'), href: '/admin/users', icon: Users },
+    { name: t('admin.coupons'), href: '/admin/coupons', icon: Tag },
+    { name: t('admin.reviews'), href: '/admin/reviews', icon: MessageSquare },
+    { name: t('admin.analytics'), href: '/admin/analytics', icon: BarChart3 },
   ];
 
   const isActive = (href: string) => {
@@ -67,7 +69,7 @@ export default function AdminLayout() {
               className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
               <LogOut className="w-5 h-5" />
-              <span>Logout</span>
+              <span>{t('common.logout')}</span>
             </button>
           </nav>
         </aside>
