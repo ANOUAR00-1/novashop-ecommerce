@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import { productsApi, Product } from '../../services/api';
+import { useLanguage } from '../../contexts/LanguageContext';
+import { getProductNameKey } from '../../utils/translateProduct';
 
 interface SearchBarProps {
   onClose?: () => void;
@@ -13,6 +15,7 @@ export default function SearchBar({ onClose }: SearchBarProps) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const debounceTimer = useRef<NodeJS.Timeout>();
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (query.length < 2) {
@@ -101,7 +104,7 @@ export default function SearchBar({ onClose }: SearchBarProps) {
                   />
                   <div className="flex-1 text-left">
                     <p className="text-sm text-gray-900 dark:text-white">
-                      {product.name}
+                      {t(getProductNameKey(product.id))}
                     </p>
                     <p className="text-sm text-blue-600 dark:text-blue-400">
                       ${product.price.toFixed(2)}

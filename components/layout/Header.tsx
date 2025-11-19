@@ -2,14 +2,17 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart, Heart, User, Search, Menu, Moon, Sun } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { useAppSelector } from '../../store';
 import { useState } from 'react';
 import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 export default function Header() {
   const { isAuthenticated, user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
   const cartItems = useAppSelector((state) => state.cart.items);
   const wishlistItems = useAppSelector((state) => state.wishlist.items);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -18,66 +21,173 @@ export default function Header() {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg">
       <div className="container mx-auto px-4">
         {/* Top Bar */}
         <div className="flex items-center justify-between h-16">
           {/* Mobile Menu Button */}
           <button
             onClick={() => setShowMobileMenu(!showMobileMenu)}
-            className="lg:hidden p-2 text-gray-600 dark:text-gray-300"
+            className="lg:hidden p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all"
           >
             <Menu className="w-6 h-6" />
           </button>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg"></div>
-            <span className="text-gray-900 dark:text-white hidden sm:block">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-xl shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300"></div>
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hidden sm:block">
               NovaShop
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-2">
+            <div className="relative group">
+              <button
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all font-medium flex items-center gap-1"
+              >
+                Shop
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Mega Menu Dropdown */}
+              <div className="absolute left-0 top-full mt-2 w-screen max-w-4xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
+                  <div className="grid grid-cols-4 gap-8">
+                    {/* BEDS */}
+                    <div>
+                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+                        BEDS
+                      </h3>
+                      <ul className="space-y-2">
+                        <li><Link to="/products?category=platform-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Platform Beds</Link></li>
+                        <li><Link to="/products?category=storage-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Storage Beds</Link></li>
+                        <li><Link to="/products?category=regular-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Regular Beds</Link></li>
+                        <li><Link to="/products?category=sleigh-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sleigh Beds</Link></li>
+                        <li><Link to="/products?category=modern-beds" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Modern Beds</Link></li>
+                      </ul>
+                    </div>
+
+                    {/* NIGHTSTANDS */}
+                    <div>
+                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+                        NIGHTSTANDS
+                      </h3>
+                      <ul className="space-y-2">
+                        <li><Link to="/products?category=wooden-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Wooden Stand</Link></li>
+                        <li><Link to="/products?category=storage-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Storage Stand</Link></li>
+                        <li><Link to="/products?category=barrel-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Barrel Stand</Link></li>
+                        <li><Link to="/products?category=black-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Black Stand</Link></li>
+                        <li><Link to="/products?category=bedside-stand" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bedside Stand</Link></li>
+                      </ul>
+                    </div>
+
+                    {/* ACCESSORIES */}
+                    <div>
+                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+                        ACCESSORIES
+                      </h3>
+                      <ul className="space-y-2">
+                        <li><Link to="/products?category=bow-ties" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bow Ties</Link></li>
+                        <li><Link to="/products?category=belts" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Belts</Link></li>
+                        <li><Link to="/products?category=bags-purses" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bags & Purses</Link></li>
+                        <li><Link to="/products?category=beauty-coats" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Beauty Coats</Link></li>
+                        <li><Link to="/products?category=bags" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bags</Link></li>
+                      </ul>
+                    </div>
+
+                    {/* FURNITURE LIST */}
+                    <div>
+                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+                        FURNITURE LIST
+                      </h3>
+                      <ul className="space-y-2">
+                        <li><Link to="/products?category=caps-hats" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Caps & Hats</Link></li>
+                        <li><Link to="/products?category=sofa" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Sofa</Link></li>
+                        <li><Link to="/products?category=couch" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Couch</Link></li>
+                        <li><Link to="/products?category=chair" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Chair</Link></li>
+                        <li><Link to="/products?category=bookcase" className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bookcase</Link></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Products Dropdown */}
+            <div className="relative group">
+              <button
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all font-medium flex items-center gap-1"
+              >
+                {t('header.products')}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Products Mega Menu */}
+              <div className="absolute left-0 top-full mt-2 w-96 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6">
+                  <div className="space-y-3">
+                    <Link to="/products" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors font-medium">
+                      All Products
+                    </Link>
+                    <Link to="/products?category=beds" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
+                      Beds
+                    </Link>
+                    <Link to="/products?category=nightstands" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
+                      Nightstands
+                    </Link>
+                    <Link to="/products?category=accessories" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
+                      Accessories
+                    </Link>
+                    <Link to="/products?category=furniture" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors">
+                      Furniture
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <Link
-              to="/products"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              to="/blog"
+              className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all font-medium"
             >
-              Products
+              Blog
             </Link>
+
             <Link
-              to="/products?category=Electronics"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              to="/about"
+              className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all font-medium"
             >
-              Electronics
+              About
             </Link>
+
             <Link
-              to="/products?category=Fashion"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              to="/contact"
+              className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all font-medium"
             >
-              Fashion
-            </Link>
-            <Link
-              to="/products?category=Wearables"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              Wearables
+              Contact
             </Link>
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setShowSearch(!showSearch)}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="p-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all"
             >
               <Search className="w-5 h-5" />
             </button>
 
+            <LanguageSwitcher />
+
             <button
               onClick={toggleTheme}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="p-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all"
             >
               {theme === 'light' ? (
                 <Moon className="w-5 h-5" />
@@ -89,11 +199,11 @@ export default function Header() {
             {isAuthenticated && (
               <Link
                 to="/wishlist"
-                className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative"
+                className="p-3 text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all relative group"
               >
-                <Heart className="w-5 h-5" />
+                <Heart className="w-5 h-5 group-hover:fill-current" />
                 {wishlistItems.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg animate-pulse">
                     {wishlistItems.length}
                   </span>
                 )}
@@ -102,11 +212,11 @@ export default function Header() {
 
             <Link
               to="/cart"
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative"
+              className="p-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all relative group"
             >
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-blue-600 text-white text-xs rounded-full flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
                   {cartCount}
                 </span>
               )}
@@ -114,50 +224,50 @@ export default function Header() {
 
             {isAuthenticated ? (
               <div className="relative group">
-                <button className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <button className="p-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all">
                   <User className="w-5 h-5" />
                 </button>
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                  <div className="p-3 border-b border-gray-200 dark:border-gray-700">
-                    <p className="text-sm text-gray-900 dark:text-white">
+                <div className="absolute right-0 mt-3 w-56 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+                    <p className="font-semibold text-gray-900 dark:text-white">
                       {user?.firstName} {user?.lastName}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                       {user?.email}
                     </p>
                   </div>
                   <div className="py-2">
                     <Link
                       to="/profile"
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      className="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-all rounded-lg mx-2"
                     >
-                      Profile
+                      {t('header.profile')}
                     </Link>
                     <Link
                       to="/orders"
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      className="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-all rounded-lg mx-2"
                     >
-                      Orders
+                      {t('header.orders')}
                     </Link>
                     <Link
                       to="/wishlist"
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      className="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-all rounded-lg mx-2"
                     >
-                      Wishlist
+                      {t('header.wishlist')}
                     </Link>
                     {user?.role === 'admin' && (
                       <Link
                         to="/admin"
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                        className="block px-4 py-2.5 text-sm font-medium text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all rounded-lg mx-2"
                       >
-                        Admin Dashboard
+                        {t('header.adminDashboard')}
                       </Link>
                     )}
                     <button
                       onClick={logout}
-                      className="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      className="w-full text-left px-4 py-2.5 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all rounded-lg mx-2 mt-2"
                     >
-                      Logout
+                      {t('header.logout')}
                     </button>
                   </div>
                 </div>
@@ -165,9 +275,9 @@ export default function Header() {
             ) : (
               <Link
                 to="/login"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl font-semibold"
               >
-                Login
+                {t('header.login')}
               </Link>
             )}
           </div>
@@ -175,7 +285,7 @@ export default function Header() {
 
         {/* Search Bar */}
         {showSearch && (
-          <div className="pb-4">
+          <div className="pb-4 animate-slide-down">
             <SearchBar onClose={() => setShowSearch(false)} />
           </div>
         )}
