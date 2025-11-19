@@ -3,6 +3,7 @@ import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../store';
 import { removeFromCart, updateQuantity, clearCart } from '../store/slices/cartSlice';
 import { toast } from 'sonner';
+import BackButton from '../components/BackButton';
 
 export default function CartPage() {
   const dispatch = useAppDispatch();
@@ -51,6 +52,7 @@ export default function CartPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4">
+        <BackButton />
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-gray-900 dark:text-white">Shopping Cart</h1>
           <button

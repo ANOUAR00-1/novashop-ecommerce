@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { CheckCircle, Package, Truck, MapPin } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../store';
 import { fetchOrderById } from '../store/slices/ordersSlice';
+import BackButton from '../components/BackButton';
 
 export default function OrderConfirmationPage() {
   const { orderId } = useParams<{ orderId: string }>();
@@ -42,6 +43,7 @@ export default function OrderConfirmationPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4 max-w-4xl">
+        <BackButton />
         {/* Success Message */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-8 text-center mb-8">
           <CheckCircle className="w-16 h-16 text-green-600 dark:text-green-400 mx-auto mb-4" />

@@ -6,6 +6,7 @@ import { clearCart } from '../store/slices/cartSlice';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'sonner';
 import { CreditCard, Smartphone } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 export default function CheckoutPage() {
   const navigate = useNavigate();
@@ -78,6 +79,7 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4">
+        <BackButton />
         <h1 className="mb-8 text-gray-900 dark:text-white">Checkout</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
