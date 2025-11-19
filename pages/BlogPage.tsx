@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Search } from 'lucide-react';
 import BackButton from '../components/BackButton';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface BlogPost {
   id: string;
@@ -16,6 +17,7 @@ interface BlogPost {
 }
 
 export default function BlogPage() {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -285,7 +287,7 @@ Start your winter shopping early to get the best selection and take advantage of
               <Search className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search articles..."
+                placeholder={t('admin.searchArticles')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-orange-500"

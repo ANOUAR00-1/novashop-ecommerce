@@ -516,6 +516,18 @@ export const en = {
     sending: 'Sending...',
     sendResetLink: 'Send Reset Link',
     
+    // More Tooltips
+    banUser: 'Ban user',
+    unbanUser: 'Unban user',
+    sendEmail: 'Send email',
+    viewProduct: 'View product',
+    approveReview: 'Approve review',
+    rejectReview: 'Reject review',
+    
+    // Placeholders
+    searchArticles: 'Search articles...',
+    electronicsSlug: 'electronics',
+    
     // User Management
     userForm: {
       editUser: 'Edit User',

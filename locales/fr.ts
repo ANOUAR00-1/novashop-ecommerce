@@ -518,6 +518,18 @@ export const fr: TranslationKeys = {
     sending: 'Envoi en cours...',
     sendResetLink: 'Envoyer le lien',
     
+    // Plus d\'info-bulles
+    banUser: 'Bannir l\'utilisateur',
+    unbanUser: 'Débannir l\'utilisateur',
+    sendEmail: 'Envoyer un email',
+    viewProduct: 'Voir le produit',
+    approveReview: 'Approuver l\'avis',
+    rejectReview: 'Rejeter l\'avis',
+    
+    // Placeholders
+    searchArticles: 'Rechercher des articles...',
+    electronicsSlug: 'electronique',
+    
     // Gestion des utilisateurs
     userForm: {
       editUser: 'Modifier l\'Utilisateur',

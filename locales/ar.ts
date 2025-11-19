@@ -518,6 +518,18 @@ export const ar: TranslationKeys = {
     sending: 'جارٍ الإرسال...',
     sendResetLink: 'إرسال رابط إعادة التعيين',
     
+    // تلميحات إضافية
+    banUser: 'حظر المستخدم',
+    unbanUser: 'إلغاء حظر المستخدم',
+    sendEmail: 'إرسال بريد إلكتروني',
+    viewProduct: 'عرض المنتج',
+    approveReview: 'الموافقة على التقييم',
+    rejectReview: 'رفض التقييم',
+    
+    // العناصر النائبة
+    searchArticles: 'البحث عن مقالات...',
+    electronicsSlug: 'الكترونيات',
+    
     // إدارة المستخدمين
     userForm: {
       editUser: 'تعديل المستخدم',

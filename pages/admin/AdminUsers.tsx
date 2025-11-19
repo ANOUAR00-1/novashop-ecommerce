@@ -298,14 +298,14 @@ export default function AdminUsers() {
                             ? 'text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/30'
                             : 'text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/30'
                         }`}
-                        title={user.status === 'banned' ? 'Unban user' : 'Ban user'}
+                        title={user.status === 'banned' ? t('admin.unbanUser') : t('admin.banUser')}
                       >
                         {user.status === 'banned' ? <CheckCircle className="w-4 h-4" /> : <Ban className="w-4 h-4" />}
                       </button>
                       <a
                         href={`mailto:${user.email}`}
                         className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                        title="Send email"
+                        title={t('admin.sendEmail')}
                       >
                         <Mail className="w-4 h-4" />
                       </a>

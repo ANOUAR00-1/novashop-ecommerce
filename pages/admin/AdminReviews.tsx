@@ -278,7 +278,7 @@ export default function AdminReviews() {
                     <Link
                       to={`/products/${review.productId}`}
                       className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                      title="View product"
+                      title={t('admin.viewProduct')}
                     >
                       <Eye className="w-4 h-4" />
                     </Link>
@@ -287,7 +287,7 @@ export default function AdminReviews() {
                       <button
                         onClick={() => handleApprove(review.id)}
                         className="p-2 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/30 rounded-lg transition-colors"
-                        title="Approve review"
+                        title={t('admin.approveReview')}
                       >
                         <CheckCircle className="w-4 h-4" />
                       </button>
@@ -297,7 +297,7 @@ export default function AdminReviews() {
                       <button
                         onClick={() => handleReject(review.id)}
                         className="p-2 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/30 rounded-lg transition-colors"
-                        title="Reject review"
+                        title={t('admin.rejectReview')}
                       >
                         <XCircle className="w-4 h-4" />
                       </button>
