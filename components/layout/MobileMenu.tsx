@@ -1,6 +1,7 @@
 ﻿import { Link } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const { isAuthenticated, user, logout } = useAuth();
+  const { t } = useLanguage();
 
   if (!isOpen) return null;
 
@@ -17,7 +19,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <div className="fixed inset-0 bg-black/50" onClick={onClose}></div>
       <div className="fixed inset-y-0 left-0 w-full max-w-sm bg-white dark:bg-gray-800 shadow-xl">
         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-gray-900 dark:text-white">Menu</h2>
+          <h2 className="text-gray-900 dark:text-white">{t('header.menu')}</h2>
           <button
             onClick={onClose}
             className="p-2 text-gray-600 dark:text-gray-300"
@@ -32,35 +34,35 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClick={onClose}
             className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
           >
-            Home
+            {t('header.home')}
           </Link>
           <Link
             to="/products"
             onClick={onClose}
             className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
           >
-            All Products
+            {t('header.allProducts')}
           </Link>
           <Link
             to="/products?category=Electronics"
             onClick={onClose}
             className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
           >
-            Electronics
+            {t('home.categories.electronics')}
           </Link>
           <Link
             to="/products?category=Fashion"
             onClick={onClose}
             className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
           >
-            Fashion
+            {t('home.categories.fashion')}
           </Link>
           <Link
             to="/products?category=Wearables"
             onClick={onClose}
             className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
           >
-            Wearables
+            {t('home.categories.wearables')}
           </Link>
 
           {isAuthenticated && (
@@ -75,21 +77,21 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 onClick={onClose}
                 className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
               >
-                Profile
+                {t('header.profile')}
               </Link>
               <Link
                 to="/orders"
                 onClick={onClose}
                 className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
               >
-                Orders
+                {t('header.orders')}
               </Link>
               <Link
                 to="/wishlist"
                 onClick={onClose}
                 className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
               >
-                Wishlist
+                {t('header.wishlist')}
               </Link>
               {user?.role === 'admin' && (
                 <Link
@@ -97,7 +99,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   onClick={onClose}
                   className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
                 >
-                  Admin Dashboard
+                  {t('header.adminDashboard')}
                 </Link>
               )}
               <button
@@ -107,7 +109,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 }}
                 className="w-full text-left px-4 py-3 text-red-600 dark:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
               >
-                Logout
+                {t('header.logout')}
               </button>
             </>
           )}
@@ -118,7 +120,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               onClick={onClose}
               className="block px-4 py-3 bg-orange-500 text-white text-center rounded-lg hover:bg-orange-600"
             >
-              Login
+              {t('header.login')}
             </Link>
           )}
         </nav>

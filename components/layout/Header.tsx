@@ -9,6 +9,7 @@ import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { categoriesApi, Category } from '../../services/api';
+import { getCategoryTranslationKey } from '../../utils/translateCategory';
 
 export default function Header() {
   const { isAuthenticated, user, logout } = useAuth();
@@ -77,14 +78,14 @@ export default function Header() {
                           to={`/products?category=${category.slug}`}
                           className="text-sm font-bold text-gray-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-400 transition-colors uppercase tracking-wider"
                         >
-                          {category.name}
+                          {t(getCategoryTranslationKey(category.name))}
                         </Link>
                       </div>
                     ))}
                   </div>
                   {categories.length === 0 && (
                     <div className="text-center text-gray-500 dark:text-gray-400 py-4">
-                      No categories available
+                      {t('common.loading')}
                     </div>
                   )}
                 </div>
@@ -107,7 +108,7 @@ export default function Header() {
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6">
                   <div className="space-y-3">
                     <Link to="/products" className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-orange-500/10 hover:text-orange-500 dark:hover:text-orange-400 rounded-lg transition-colors font-medium">
-                      All Products
+                      {t('header.allProducts')}
                     </Link>
                     {categories.slice(0, 8).map((category) => (
                       <Link
@@ -115,7 +116,7 @@ export default function Header() {
                         to={`/products?category=${category.slug}`}
                         className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-orange-50 dark:hover:bg-orange-500/10 hover:text-orange-500 dark:hover:text-orange-400 rounded-lg transition-colors"
                       >
-                        {category.name}
+                        {t(getCategoryTranslationKey(category.name))}
                       </Link>
                     ))}
                   </div>
