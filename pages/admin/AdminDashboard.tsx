@@ -121,8 +121,8 @@ export default function AdminDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Dashboard</h1>
-          <p className="text-gray-600 dark:text-gray-400">Welcome back! Here's what's happening with your store today.</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t('admin.dashboard')}</h1>
+          <p className="text-gray-600 dark:text-gray-400">{t('admin.welcomeBack')}</p>
         </div>
         <button
           onClick={handleRefresh}
@@ -130,7 +130,7 @@ export default function AdminDashboard() {
           className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
         >
           <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
-          <span>Refresh</span>
+          <span>{t('admin.refresh')}</span>
         </button>
       </div>
 
@@ -153,12 +153,12 @@ export default function AdminDashboard() {
               </span>
             </div>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Revenue</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.totalRevenue')}</p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white">
             ${stats.totalRevenue.toLocaleString()}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-            +${(stats.totalRevenue * 0.125).toLocaleString()} this month
+            +${(stats.totalRevenue * 0.125).toLocaleString()} {t('admin.thisMonth')}
           </p>
         </div>
 
@@ -179,12 +179,12 @@ export default function AdminDashboard() {
               </span>
             </div>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Orders</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.totalOrders')}</p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white">
             {stats.totalOrders.toLocaleString()}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-            {Math.round(stats.totalOrders / 30)} orders/day average
+            {Math.round(stats.totalOrders / 30)} {t('admin.ordersPerDay')}
           </p>
         </div>
 
@@ -205,12 +205,12 @@ export default function AdminDashboard() {
               </span>
             </div>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Customers</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.totalCustomers')}</p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white">
             {stats.totalCustomers.toLocaleString()}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-            {Math.round(stats.totalCustomers * 0.15)} new this month
+            {Math.round(stats.totalCustomers * 0.15)} {t('admin.newThisMonth')}
           </p>
         </div>
 
@@ -221,12 +221,12 @@ export default function AdminDashboard() {
               <TrendingUp className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </div>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Avg Order Value</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('admin.avgOrderValue')}</p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white">
             ${stats.averageOrderValue.toFixed(2)}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-            ${(stats.averageOrderValue * 1.05).toFixed(2)} target
+            ${(stats.averageOrderValue * 1.05).toFixed(2)} {t('admin.target')}
           </p>
         </div>
       </div>
@@ -239,7 +239,7 @@ export default function AdminDashboard() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm opacity-90 mb-1">Pending Orders</p>
+              <p className="text-sm opacity-90 mb-1">{t('admin.pendingOrders')}</p>
               <p className="text-2xl font-bold">
                 {stats.recentOrders?.filter(o => o.status === 'pending').length || 0}
               </p>
@@ -254,7 +254,7 @@ export default function AdminDashboard() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm opacity-90 mb-1">Low Stock Items</p>
+              <p className="text-sm opacity-90 mb-1">{t('admin.lowStockItems')}</p>
               <p className="text-2xl font-bold">{stats.lowStock?.length || 0}</p>
             </div>
             <AlertCircle className="w-8 h-8 opacity-80" />
@@ -267,7 +267,7 @@ export default function AdminDashboard() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm opacity-90 mb-1">Pending Reviews</p>
+              <p className="text-sm opacity-90 mb-1">{t('admin.pendingReviews')}</p>
               <p className="text-2xl font-bold">{stats.pendingReviews || 0}</p>
             </div>
             <Star className="w-8 h-8 opacity-80" />
@@ -280,11 +280,11 @@ export default function AdminDashboard() {
         {/* Sales Chart */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Sales Overview</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{t('admin.salesOverview')}</h2>
             <select className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white">
-              <option>Last 12 Months</option>
-              <option>Last 6 Months</option>
-              <option>Last 3 Months</option>
+              <option>{t('admin.last12Months')}</option>
+              <option>{t('admin.last6Months')}</option>
+              <option>{t('admin.last3Months')}</option>
             </select>
           </div>
           <ResponsiveContainer width="100%" height={300}>
