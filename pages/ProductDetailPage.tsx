@@ -8,12 +8,16 @@ import { addToWishlist, removeFromWishlist } from '../store/slices/wishlistSlice
 import { reviewsApi, Review } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'sonner';
+import BackButton from '../components/BackButton';
+import { useLanguage } from '../contexts/LanguageContext';
+import { getProductNameKey, getProductDescriptionKey } from '../utils/translateProduct';
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { isAuthenticated } = useAuth();
+  const { t } = useLanguage();
   const { currentProduct: product, loading } = useAppSelector((state) => state.products);
   const wishlist = useAppSelector((state) => state.wishlist.items);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -129,6 +133,7 @@ export default function ProductDetailPage() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <div className="container mx-auto px-4 py-8">
+        <BackButton />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
           {/* Image Gallery */}
           <div>
@@ -164,7 +169,7 @@ export default function ProductDetailPage() {
               {product.category}
             </p>
             <h1 className="mb-4 text-gray-900 dark:text-white">
-              {product.name}
+              {t(getProductNameKey(product.id))}
             </h1>
 
             <div className="flex items-center gap-4 mb-6">
@@ -202,7 +207,7 @@ export default function ProductDetailPage() {
             </div>
 
             <p className="text-gray-600 dark:text-gray-400 mb-6">
-              {product.description}
+              {t(getProductDescriptionKey(product.id))}
             </p>
 
             {/* Variants */}
@@ -360,7 +365,7 @@ export default function ProductDetailPage() {
             <div>
               <h3 className="mb-4 text-gray-900 dark:text-white">Description</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                {product.description}
+                {t(getProductDescriptionKey(product.id))}
               </p>
               {product.features && (
                 <>

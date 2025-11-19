@@ -35,6 +35,8 @@ export default function ProductsPage() {
         minPrice: filters.minPrice,
         maxPrice: filters.maxPrice,
         sort: filters.sort,
+        rating: filters.rating,
+        inStock: filters.inStock,
       })
     );
   }, [dispatch, filters, pagination.page]);

@@ -2,12 +2,21 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Shield, Truck, HeadphonesIcon } from 'lucide-react';
 import { productsApi, Product } from '../services/api';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useAuth } from '../contexts/AuthContext';
 import ProductCard from '../components/products/ProductCard';
+import HeroSlider from '../components/home/HeroSlider';
+import FlashSalesSection from '../components/home/FlashSalesSection';
+import TestimonialsSection from '../components/home/TestimonialsSection';
+import RecentlyViewedSection from '../components/products/RecentlyViewedSection';
 
 export default function HomePage() {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+  const [flashSaleProducts, setFlashSaleProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useLanguage();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     console.log('🏠 HomePage: Component mounted');
@@ -15,9 +24,10 @@ export default function HomePage() {
     const loadProducts = async () => {
       try {
         console.log('📦 HomePage: Loading featured products...');
-        const response = await productsApi.getAll({ limit: 6 });
+        const response = await productsApi.getAll({ limit: 12 });
         console.log('✅ HomePage: Products loaded successfully', response.products.length);
-        setFeaturedProducts(response.products);
+        setFeaturedProducts(response.products.slice(0, 6));
+        setFlashSaleProducts(response.products.filter(p => p.originalPrice).slice(0, 4));
         setError(null);
       } catch (err) {
         console.error('❌ HomePage: Failed to load products:', err);
@@ -42,25 +52,7 @@ export default function HomePage() {
       )}
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white">
-        <div className="container mx-auto px-4 py-20 md:py-32">
-          <div className="max-w-3xl">
-            <h1 className="mb-6 text-white">
-              Welcome to NovaShop
-            </h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Discover premium electronics, fashion, and accessories. Quality products with fast shipping and excellent customer service.
-            </p>
-            <Link
-              to="/products"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-            >
-              Shop Now
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* Features */}
       <section className="py-12 bg-gray-50 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700">
@@ -71,9 +63,9 @@ export default function HomePage() {
                 <Truck className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <h3 className="mb-1 text-gray-900 dark:text-white">Free Shipping</h3>
+                <h3 className="mb-1 text-gray-900 dark:text-white">{t('home.features.freeShipping.title')}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  On orders over $50
+                  {t('home.features.freeShipping.description')}
                 </p>
               </div>
             </div>
@@ -82,9 +74,9 @@ export default function HomePage() {
                 <Shield className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <div>
-                <h3 className="mb-1 text-gray-900 dark:text-white">Secure Payment</h3>
+                <h3 className="mb-1 text-gray-900 dark:text-white">{t('home.features.secure.title')}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  100% secure transactions
+                  {t('home.features.secure.description')}
                 </p>
               </div>
             </div>
@@ -93,9 +85,9 @@ export default function HomePage() {
                 <Zap className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
               <div>
-                <h3 className="mb-1 text-gray-900 dark:text-white">Fast Delivery</h3>
+                <h3 className="mb-1 text-gray-900 dark:text-white">{t('home.features.returns.title')}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  2-3 business days
+                  {t('home.features.returns.description')}
                 </p>
               </div>
             </div>
@@ -104,9 +96,9 @@ export default function HomePage() {
                 <HeadphonesIcon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
               </div>
               <div>
-                <h3 className="mb-1 text-gray-900 dark:text-white">24/7 Support</h3>
+                <h3 className="mb-1 text-gray-900 dark:text-white">{t('home.features.support.title')}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Dedicated support team
+                  {t('home.features.support.description')}
                 </p>
               </div>
             </div>
@@ -118,54 +110,54 @@ export default function HomePage() {
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-gray-900 dark:text-white">
-            Shop by Category
+            {t('home.categories.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link
-              to="/products?category=Electronics"
+              to="/products?category=electronics"
               className="group relative h-64 rounded-2xl overflow-hidden"
             >
               <img
                 src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600"
-                alt="Electronics"
+                alt={t('home.categories.electronics')}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                 <div>
-                  <h3 className="text-white mb-2">Electronics</h3>
-                  <p className="text-white/80 text-sm">Laptops, phones & more</p>
+                  <h3 className="text-white mb-2">{t('home.categories.electronics')}</h3>
+                  <p className="text-white/80 text-sm">{t('header.electronics')}</p>
                 </div>
               </div>
             </Link>
             <Link
-              to="/products?category=Fashion"
+              to="/products?category=fashion"
               className="group relative h-64 rounded-2xl overflow-hidden"
             >
               <img
                 src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600"
-                alt="Fashion"
+                alt={t('home.categories.fashion')}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                 <div>
-                  <h3 className="text-white mb-2">Fashion</h3>
-                  <p className="text-white/80 text-sm">Clothing & accessories</p>
+                  <h3 className="text-white mb-2">{t('home.categories.fashion')}</h3>
+                  <p className="text-white/80 text-sm">{t('header.fashion')}</p>
                 </div>
               </div>
             </Link>
             <Link
-              to="/products?category=Wearables"
+              to="/products?category=wearables"
               className="group relative h-64 rounded-2xl overflow-hidden"
             >
               <img
                 src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"
-                alt="Wearables"
+                alt={t('header.wearables')}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                 <div>
-                  <h3 className="text-white mb-2">Wearables</h3>
-                  <p className="text-white/80 text-sm">Smart watches & fitness</p>
+                  <h3 className="text-white mb-2">{t('header.wearables')}</h3>
+                  <p className="text-white/80 text-sm">{t('header.wearables')}</p>
                 </div>
               </div>
             </Link>
@@ -173,16 +165,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Flash Sales */}
+      {!loading && flashSaleProducts.length > 0 && (
+        <FlashSalesSection products={flashSaleProducts} />
+      )}
+
+      {/* Recently Viewed */}
+      <RecentlyViewedSection />
+
       {/* Featured Products */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-gray-900 dark:text-white">Featured Products</h2>
+            <h2 className="text-gray-900 dark:text-white">{t('home.featuredProducts.title')}</h2>
             <Link
               to="/products"
               className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2"
             >
-              View All
+              {t('common.viewAll')}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -210,24 +210,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-white">
-            Ready to Start Shopping?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied customers. Get exclusive deals and fast shipping on all orders.
-          </p>
-          <Link
-            to="/register"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
-          >
-            Create Account
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-      </section>
+      {/* CTA Section - Only show when not logged in */}
+      {!isAuthenticated && (
+        <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="mb-4 text-white">
+              {t('home.cta.title')}
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              {t('home.cta.subtitle')}
+            </p>
+            <Link
+              to="/register"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+            >
+              {t('home.cta.button')}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* Testimonials */}
+      <TestimonialsSection />
     </div>
   );
 }
