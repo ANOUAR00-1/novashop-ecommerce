@@ -1148,6 +1148,21 @@ export const en = {
     clearAll: 'Clear All',
   },
 
+  // Blog Page
+  blog: {
+    title: 'NovaShop Blog',
+    subtitle: 'Discover tips, trends, and stories from the world of online shopping',
+    categories: {
+      all: 'All',
+      shopping: 'Shopping',
+      trends: 'Trends',
+      furniture: 'Furniture',
+      fashion: 'Fashion',
+      stories: 'Stories',
+      seasonal: 'Seasonal',
+    },
+  },
+
   // About Page
   about: {
     hero: {

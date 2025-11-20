@@ -1150,6 +1150,21 @@ export const ar: TranslationKeys = {
     clearAll: 'مسح الكل',
   },
 
+  // صفحة المدونة
+  blog: {
+    title: 'مدونة NovaShop',
+    subtitle: 'اكتشف النصائح والاتجاهات والقصص من عالم التسوق عبر الإنترنت',
+    categories: {
+      all: 'الكل',
+      shopping: 'التسوق',
+      trends: 'الاتجاهات',
+      furniture: 'الأثاث',
+      fashion: 'الموضة',
+      stories: 'القصص',
+      seasonal: 'موسمي',
+    },
+  },
+
   // صفحة من نحن
   about: {
     hero: {

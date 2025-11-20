@@ -1150,6 +1150,21 @@ export const fr: TranslationKeys = {
     clearAll: 'Tout Effacer',
   },
 
+  // Page Blog
+  blog: {
+    title: 'Blog NovaShop',
+    subtitle: 'Découvrez des conseils, des tendances et des histoires du monde du shopping en ligne',
+    categories: {
+      all: 'Tout',
+      shopping: 'Shopping',
+      trends: 'Tendances',
+      furniture: 'Meubles',
+      fashion: 'Mode',
+      stories: 'Histoires',
+      seasonal: 'Saisonnier',
+    },
+  },
+
   // Page À Propos
   about: {
     hero: {

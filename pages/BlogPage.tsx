@@ -274,10 +274,10 @@ Start your winter shopping early to get the best selection and take advantage of
         <section className="mb-16">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              NovaShop Blog
+              {t('blog.title')}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Discover tips, trends, and stories from the world of online shopping
+              {t('blog.subtitle')}
             </p>
           </div>
 
@@ -307,7 +307,7 @@ Start your winter shopping early to get the best selection and take advantage of
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >
-                {category}
+                {t(`blog.categories.${category}`)}
               </button>
             ))}
           </div>
