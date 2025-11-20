@@ -1139,56 +1139,54 @@ export const fr: TranslationKeys = {
     hero: {
       title: 'À Propos de NovaShop',
       subtitle: 'Votre partenaire de confiance pour des produits premium et un service exceptionnel depuis 2020',
+      mission: 'Nous avons pour mission de révolutionner le shopping en ligne en proposant des produits premium, un service exceptionnel et une expérience client inoubliable.',
     },
     stats: {
       customers: 'Clients Satisfaits',
       products: 'Produits',
       countries: 'Pays',
       awards: 'Prix Remportés',
+      reviews: 'Avis Produits',
     },
     story: {
       title: 'Notre Histoire',
-      paragraph1: 'Fondée en 2020, NovaShop a commencé avec une mission simple : rendre les produits premium accessibles à tous. Ce qui a commencé comme une petite boutique en ligne est devenu une plateforme e-commerce de confiance servant des clients dans le monde entier.',
-      paragraph2: 'Nous croyons que faire du shopping devrait être une expérience agréable. C\'est pourquoi nous sélectionnons soigneusement chaque produit de notre catalogue, en assurant qualité, valeur et innovation. De l\'électronique de pointe à la mode intemporelle, nous vous apportons le meilleur du marché.',
-      paragraph3: 'Notre engagement envers la satisfaction client guide tout ce que nous faisons. Avec une livraison rapide, des retours faciles et un support réactif, nous sommes là pour rendre votre parcours d\'achat fluide et agréable.',
+      paragraph1: 'Fondée en 2020, NovaShop a débuté avec une vision simple : rendre le shopping premium accessible à tous. Ce qui a commencé comme une petite startup est devenu une plateforme de confiance servant des clients dans plus de 120 pays.',
+      paragraph2: 'Nous croyons que les grands produits doivent être abordables, et qu\'un service exceptionnel doit être la norme, pas l\'exception. Chaque jour, notre équipe travaille sans relâche pour vous offrir la meilleure sélection de produits à des prix imbattables.',
+      paragraph3: 'Notre engagement envers la durabilité et l\'approvisionnement éthique signifie que vous pouvez acheter en toute confiance, sachant que vos achats soutiennent des pratiques commerciales responsables.',
+      year: '2020',
+      yearText: 'Fondée avec une vision',
     },
     values: {
-      title: 'Nos Valeurs',
-      quality: {
-        title: 'Qualité Avant Tout',
-        description: 'Nous ne faisons jamais de compromis sur la qualité des produits ou le service client',
+      title: 'Nos Valeurs Fondamentales',
+      customerFirst: {
+        title: 'Le Client d\'Abord',
+        description: 'Chaque décision que nous prenons est guidée par ce qui est le mieux pour nos clients. Votre satisfaction est notre objectif ultime.',
       },
-      trust: {
-        title: 'Confiance et Sécurité',
-        description: 'Vos données et transactions sont toujours protégées',
-      },
-      speed: {
-        title: 'Livraison Rapide',
-        description: 'Traitement et expédition rapides pour vous livrer plus vite',
+      sustainability: {
+        title: 'Durabilité',
+        description: 'Nous nous engageons à réduire notre impact environnemental et à soutenir des pratiques durables tout au long de notre chaîne d\'approvisionnement.',
       },
       innovation: {
         title: 'Innovation',
-        description: 'Toujours vous apporter les produits les plus récents et les meilleurs',
+        description: 'Nous innovons constamment pour fournir de meilleurs produits, services et expériences à nos clients.',
       },
     },
     team: {
       title: 'Rencontrez Notre Équipe',
-      ceo: {
-        name: 'Sarah Johnson',
-        role: 'PDG et Fondatrice',
-      },
-      cto: {
-        name: 'Emily Chen',
-        role: 'Directrice de la Technologie',
-      },
-      cmo: {
-        name: 'Michael Rodriguez',
-        role: 'Directeur Marketing',
-      },
-      coo: {
-        name: 'Jessica Williams',
-        role: 'Directrice des Opérations',
-      },
+      founderCEO: 'Fondateur & PDG',
+      chiefProductOfficer: 'Directeur des Produits',
+      headOfOperations: 'Responsable des Opérations',
+      customerSuccessLead: 'Responsable Satisfaction Client',
+    },
+    whyChooseUs: {
+      title: 'Pourquoi Choisir NovaShop ?',
+      description: 'Avec plus de 50 000 clients satisfaits et une note de 4,9 étoiles, nous nous engageons à offrir l\'excellence à chaque interaction.',
+      premiumQuality: 'Qualité Premium',
+      premiumQualityDesc: 'Produits soigneusement sélectionnés de marques de confiance',
+      fastShipping: 'Livraison Rapide',
+      fastShippingDesc: 'Livraison gratuite sur les commandes de plus de 50$',
+      support247: 'Support 24/7',
+      support247Desc: 'Équipe de service client dédiée',
     },
     mission: {
       title: 'Notre Mission',

@@ -1137,56 +1137,54 @@ export const en = {
     hero: {
       title: 'About NovaShop',
       subtitle: 'Your trusted partner for premium products and exceptional service since 2020',
+      mission: 'We\'re on a mission to revolutionize online shopping by providing premium products, exceptional service, and an unforgettable customer experience.',
     },
     stats: {
       customers: 'Happy Customers',
       products: 'Products',
       countries: 'Countries',
       awards: 'Awards Won',
+      reviews: 'Product Reviews',
     },
     story: {
       title: 'Our Story',
-      paragraph1: 'Founded in 2020, NovaShop started with a simple mission: to make premium products accessible to everyone. What began as a small online store has grown into a trusted e-commerce platform serving customers worldwide.',
-      paragraph2: 'We believe shopping should be an enjoyable experience. That\'s why we carefully curate every product in our catalog, ensuring quality, value, and innovation. From cutting-edge electronics to timeless fashion, we bring you the best the market has to offer.',
-      paragraph3: 'Our commitment to customer satisfaction drives everything we do. With fast delivery, easy returns, and responsive support, we\'re here to make your shopping journey smooth and enjoyable.',
+      paragraph1: 'Founded in 2020, NovaShop started with a simple vision: to make premium shopping accessible to everyone. What began as a small startup has grown into a trusted platform serving customers across 120+ countries.',
+      paragraph2: 'We believe that great products should be affordable, and exceptional service should be the standard, not the exception. Every day, our team works tirelessly to bring you the best selection of products at unbeatable prices.',
+      paragraph3: 'Our commitment to sustainability and ethical sourcing means you can shop with confidence, knowing that your purchases support responsible business practices.',
+      year: '2020',
+      yearText: 'Founded with a vision',
     },
     values: {
-      title: 'Our Values',
-      quality: {
-        title: 'Quality First',
-        description: 'We never compromise on product quality or customer service',
+      title: 'Our Core Values',
+      customerFirst: {
+        title: 'Customer First',
+        description: 'Every decision we make is guided by what\'s best for our customers. Your satisfaction is our ultimate goal.',
       },
-      trust: {
-        title: 'Trust & Security',
-        description: 'Your data and transactions are always protected',
-      },
-      speed: {
-        title: 'Fast Delivery',
-        description: 'Quick processing and shipping to get you your items faster',
+      sustainability: {
+        title: 'Sustainability',
+        description: 'We\'re committed to reducing our environmental impact and supporting sustainable practices throughout our supply chain.',
       },
       innovation: {
         title: 'Innovation',
-        description: 'Always bringing you the latest and best products',
+        description: 'We constantly innovate to provide better products, services, and experiences for our customers.',
       },
     },
     team: {
       title: 'Meet Our Team',
-      ceo: {
-        name: 'Sarah Johnson',
-        role: 'CEO & Founder',
-      },
-      cto: {
-        name: 'Emily Chen',
-        role: 'Chief Technology Officer',
-      },
-      cmo: {
-        name: 'Michael Rodriguez',
-        role: 'Chief Marketing Officer',
-      },
-      coo: {
-        name: 'Jessica Williams',
-        role: 'Chief Operating Officer',
-      },
+      founderCEO: 'Founder & CEO',
+      chiefProductOfficer: 'Chief Product Officer',
+      headOfOperations: 'Head of Operations',
+      customerSuccessLead: 'Customer Success Lead',
+    },
+    whyChooseUs: {
+      title: 'Why Choose NovaShop?',
+      description: 'With over 50,000 happy customers and a 4.9-star rating, we\'re committed to delivering excellence in every interaction.',
+      premiumQuality: 'Premium Quality',
+      premiumQualityDesc: 'Carefully curated products from trusted brands',
+      fastShipping: 'Fast Shipping',
+      fastShippingDesc: 'Free shipping on orders over $50',
+      support247: '24/7 Support',
+      support247Desc: 'Dedicated customer service team',
     },
     mission: {
       title: 'Our Mission',

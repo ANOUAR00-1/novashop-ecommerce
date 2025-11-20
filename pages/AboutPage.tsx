@@ -1,33 +1,36 @@
 ﻿import { Users, Award, Globe, Heart } from 'lucide-react';
 import BackButton from '../components/BackButton';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+  
   const stats = [
-    { icon: Users, label: 'Happy Customers', value: '50K+' },
-    { icon: Award, label: 'Awards Won', value: '15+' },
-    { icon: Globe, label: 'Countries', value: '120+' },
-    { icon: Heart, label: 'Product Reviews', value: '100K+' }
+    { icon: Users, label: t('about.stats.customers'), value: '50K+' },
+    { icon: Award, label: t('about.stats.awards'), value: '15+' },
+    { icon: Globe, label: t('about.stats.countries'), value: '120+' },
+    { icon: Heart, label: t('about.stats.reviews'), value: '100K+' }
   ];
 
   const team = [
     {
       name: 'John Smith',
-      role: 'Founder & CEO',
+      role: t('about.team.founderCEO'),
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'
     },
     {
       name: 'Sarah Johnson',
-      role: 'Chief Product Officer',
+      role: t('about.team.chiefProductOfficer'),
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop'
     },
     {
       name: 'Michael Chen',
-      role: 'Head of Operations',
+      role: t('about.team.headOfOperations'),
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop'
     },
     {
       name: 'Emma Davis',
-      role: 'Customer Success Lead',
+      role: t('about.team.customerSuccessLead'),
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop'
     }
   ];
@@ -41,10 +44,10 @@ export default function AboutPage() {
         <section className="mb-20">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              About NovaShop
+              {t('about.hero.title')}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              We're on a mission to revolutionize online shopping by providing premium products, exceptional service, and an unforgettable customer experience.
+              {t('about.hero.mission')}
             </p>
           </div>
 
@@ -71,22 +74,22 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Our Story
+                {t('about.story.title')}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-                Founded in 2020, NovaShop started with a simple vision: to make premium shopping accessible to everyone. What began as a small startup has grown into a trusted platform serving customers across 120+ countries.
+                {t('about.story.paragraph1')}
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-                We believe that great products should be affordable, and exceptional service should be the standard, not the exception. Every day, our team works tirelessly to bring you the best selection of products at unbeatable prices.
+                {t('about.story.paragraph2')}
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-400">
-                Our commitment to sustainability and ethical sourcing means you can shop with confidence, knowing that your purchases support responsible business practices.
+                {t('about.story.paragraph3')}
               </p>
             </div>
             <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl h-96 flex items-center justify-center">
               <div className="text-center text-white">
-                <div className="text-6xl font-bold mb-4">2020</div>
-                <p className="text-xl">Founded with a vision</p>
+                <div className="text-6xl font-bold mb-4">{t('about.story.year')}</div>
+                <p className="text-xl">{t('about.story.yearText')}</p>
               </div>
             </div>
           </div>
@@ -95,7 +98,7 @@ export default function AboutPage() {
         {/* Our Values */}
         <section className="mb-20">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Our Core Values
+            {t('about.values.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
@@ -103,10 +106,10 @@ export default function AboutPage() {
                 <span className="text-3xl">🎯</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Customer First
+                {t('about.values.customerFirst.title')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Every decision we make is guided by what's best for our customers. Your satisfaction is our ultimate goal.
+                {t('about.values.customerFirst.description')}
               </p>
             </div>
 
@@ -115,10 +118,10 @@ export default function AboutPage() {
                 <span className="text-3xl">🌱</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Sustainability
+                {t('about.values.sustainability.title')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                We're committed to reducing our environmental impact and supporting sustainable practices throughout our supply chain.
+                {t('about.values.sustainability.description')}
               </p>
             </div>
 
@@ -127,10 +130,10 @@ export default function AboutPage() {
                 <span className="text-3xl">💡</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Innovation
+                {t('about.values.innovation.title')}
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                We constantly innovate to provide better products, services, and experiences for our customers.
+                {t('about.values.innovation.description')}
               </p>
             </div>
           </div>
@@ -139,7 +142,7 @@ export default function AboutPage() {
         {/* Our Team */}
         <section className="mb-20">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Meet Our Team
+            {t('about.team.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
@@ -164,25 +167,25 @@ export default function AboutPage() {
 
         {/* Why Choose Us */}
         <section className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-12 text-white text-center">
-          <h2 className="text-4xl font-bold mb-6">Why Choose NovaShop?</h2>
+          <h2 className="text-4xl font-bold mb-6">{t('about.whyChooseUs.title')}</h2>
           <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-            With over 50,000 happy customers and a 4.9-star rating, we're committed to delivering excellence in every interaction.
+            {t('about.whyChooseUs.description')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div>
               <div className="text-4xl font-bold mb-2">✓</div>
-              <h3 className="text-xl font-bold mb-2">Premium Quality</h3>
-              <p className="text-white/90">Carefully curated products from trusted brands</p>
+              <h3 className="text-xl font-bold mb-2">{t('about.whyChooseUs.premiumQuality')}</h3>
+              <p className="text-white/90">{t('about.whyChooseUs.premiumQualityDesc')}</p>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">✓</div>
-              <h3 className="text-xl font-bold mb-2">Fast Shipping</h3>
-              <p className="text-white/90">Free shipping on orders over $50</p>
+              <h3 className="text-xl font-bold mb-2">{t('about.whyChooseUs.fastShipping')}</h3>
+              <p className="text-white/90">{t('about.whyChooseUs.fastShippingDesc')}</p>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">✓</div>
-              <h3 className="text-xl font-bold mb-2">24/7 Support</h3>
-              <p className="text-white/90">Dedicated customer service team</p>
+              <h3 className="text-xl font-bold mb-2">{t('about.whyChooseUs.support247')}</h3>
+              <p className="text-white/90">{t('about.whyChooseUs.support247Desc')}</p>
             </div>
           </div>
         </section>
