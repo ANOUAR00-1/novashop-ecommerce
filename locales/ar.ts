@@ -1376,9 +1376,26 @@ export const ar: TranslationKeys = {
     },
     addressDeleted: 'تم حذف العنوان بنجاح',
   },
-  // المنتجات
+  // صفحة المنتجات
   products: {
-    product1: { name: 'سماعات رأس لاسلكية بإلغاء الضوضاء', description: 'سماعات لاسلكية متميزة مع إلغاء نشط للضوضاء وعمر بطارية 30 ساعة.' },
+    title: 'جميع المنتجات',
+    filters: 'الفلاتر',
+    sortBy: 'ترتيب حسب',
+    priceRange: 'نطاق السعر',
+    category: 'الفئة',
+    allCategories: 'جميع الفئات',
+    inStock: 'متوفر',
+    onSale: 'عرض خاص',
+    clearFilters: 'مسح الفلاتر',
+    showingResults: 'عرض {{count}} نتيجة',
+    addToCart: 'أضف إلى السلة',
+    viewDetails: 'عرض التفاصيل',
+    noProductsFound: 'لم يتم العثور على منتجات',
+    searchPlaceholder: 'البحث عن منتجات...',
+  },
+  // ترجمات المنتجات
+  productTranslations: {
+    product1: { name: 'سماعات لاسلكية بخاصية إلغاء الضوضاء', description: 'سماعات لاسلكية فاخرة مع إلغاء نشط للضوضاء وعمر بطارية 30 ساعة.' },
     product2: { name: 'ساعة ذكية برو', description: 'تتبع متقدم للياقة البدنية مع مراقبة معدل ضربات القلب ونظام GPS وتحليل النوم.' },
     product3: { name: 'كمبيوتر محمول فائق النحافة 15"', description: 'أداء قوي في تصميم أنيق. مثالي للمحترفين والمبدعين.' },
     product4: { name: 'قاعدة شحن لاسلكية', description: 'شحن لاسلكي سريع لجميع الأجهزة المتوافقة. أنيق وفعال.' },

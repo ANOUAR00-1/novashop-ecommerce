@@ -1376,8 +1376,26 @@ export const fr: TranslationKeys = {
     },
     addressDeleted: 'Adresse supprimée avec succès',
   },
-  // Produits
+  // Page Produits
   products: {
+    title: 'Tous les Produits',
+    filters: 'Filtres',
+    sortBy: 'Trier par',
+    priceRange: 'Gamme de Prix',
+    category: 'Catégorie',
+    allCategories: 'Toutes les Catégories',
+    inStock: 'En Stock',
+    onSale: 'En Promotion',
+    clearFilters: 'Effacer les Filtres',
+    showingResults: 'Affichage de {{count}} résultats',
+    addToCart: 'Ajouter au Panier',
+    viewDetails: 'Voir les Détails',
+    noProductsFound: 'Aucun produit trouvé',
+    searchPlaceholder: 'Rechercher des produits...',
+  },
+
+  // Traductions de Produits
+  productTranslations: {
     product1: { name: 'Casque sans fil à réduction de bruit', description: 'Casque sans fil premium avec réduction de bruit active et autonomie de 30 heures.' },
     product2: { name: 'Montre intelligente Pro', description: 'Suivi de fitness avancé avec surveillance de la fréquence cardiaque, GPS et analyse du sommeil.' },
     product3: { name: 'Ordinateur portable ultra-fin 15"', description: 'Performance puissante dans un design élégant. Parfait pour les professionnels et les créateurs.' },

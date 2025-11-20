@@ -8,8 +8,10 @@ import ProductCard from '../components/products/ProductCard';
 import ProductListItem from '../components/products/ProductListItem';
 import FilterSidebar from '../components/products/FilterSidebar';
 import Pagination from '../components/Pagination';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ProductsPage() {
+  const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const dispatch = useAppDispatch();
   const { items: products, loading, pagination } = useAppSelector((state) => state.products);
@@ -155,7 +157,7 @@ export default function ProductsPage() {
             ) : (
               <div className="text-center py-20">
                 <p className="text-xl text-gray-600 dark:text-gray-400">
-                  No products found
+                  {t('products.noProductsFound')}
                 </p>
               </div>
             )}
