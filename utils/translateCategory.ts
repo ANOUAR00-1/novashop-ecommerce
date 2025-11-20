@@ -4,24 +4,44 @@ export function getCategoryTranslationKey(category: string | null | undefined): 
     return 'home.categories.uncategorized';
   }
   
+  // Normalize category name (uppercase for comparison)
+  const normalizedCategory = category.toUpperCase().trim();
+  
   // Map category names to translation keys
   const categoryMap: Record<string, string> = {
-    'Electronics': 'home.categories.electronics',
-    'Computers': 'home.categories.computers',
-    'Wearables': 'home.categories.wearables',
-    'Accessories': 'home.categories.accessories',
-    'Fashion': 'home.categories.fashion',
-    'Furniture': 'home.categories.furniture',
-    'Home & Kitchen': 'home.categories.homeKitchen',
-    'Sports & Outdoors': 'home.categories.sportsOutdoors',
-    'Beauty & Personal Care': 'home.categories.beautyPersonalCare',
-    'Books & Media': 'home.categories.booksMedia',
-    'Toys & Games': 'home.categories.toysGames',
-    'Office Supplies': 'home.categories.officeSupplies',
-    'Automotive': 'home.categories.automotive',
-    'Health & Wellness': 'home.categories.healthWellness',
-    'Camera & Photography': 'home.categories.cameraPhotography',
+    // Original categories
+    'ELECTRONICS': 'home.categories.electronics',
+    'COMPUTERS': 'home.categories.computers',
+    'WEARABLES': 'home.categories.wearables',
+    'ACCESSORIES': 'home.categories.accessories',
+    'FASHION': 'home.categories.fashion',
+    'FURNITURE': 'home.categories.furniture',
+    'HOME & KITCHEN': 'home.categories.homeKitchen',
+    'SPORTS & OUTDOORS': 'home.categories.sportsOutdoors',
+    'BEAUTY & PERSONAL CARE': 'home.categories.beautyPersonalCare',
+    'BOOKS & MEDIA': 'home.categories.booksMedia',
+    'TOYS & GAMES': 'home.categories.toysGames',
+    'OFFICE SUPPLIES': 'home.categories.officeSupplies',
+    'AUTOMOTIVE': 'home.categories.automotive',
+    'HEALTH & WELLNESS': 'home.categories.healthWellness',
+    'CAMERA & PHOTOGRAPHY': 'home.categories.cameraPhotography',
+    
+    // Additional specific categories from your database
+    'BARREL STAND': 'home.categories.barrelStand',
+    'BAGS & PURSES': 'home.categories.bagsPurses',
+    'BAGS': 'home.categories.bags',
+    'BELTS': 'home.categories.belts',
+    'BEDSIDE STAND': 'home.categories.bedsideStand',
+    'BEDS': 'home.categories.beds',
+    'BEAUTY COATS': 'home.categories.beautyCoats',
+    'BOW TIES': 'home.categories.bowTies',
+    'BOOKS': 'home.categories.books',
+    'BOOKCASE': 'home.categories.bookcase',
+    'BLACK STAND': 'home.categories.blackStand',
+    'COUCH': 'home.categories.couch',
+    'CHAIR': 'home.categories.chair',
+    'CAPS & HATS': 'home.categories.capsHats',
   };
 
-  return categoryMap[category] || category;
+  return categoryMap[normalizedCategory] || category;
 }
