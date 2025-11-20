@@ -664,6 +664,24 @@ export const en = {
     pleaseFillAllFields: 'Please fill all required fields',
   },
 
+  // Products Page
+  products: {
+    title: 'All Products',
+    filters: 'Filters',
+    sortBy: 'Sort By',
+    priceRange: 'Price Range',
+    category: 'Category',
+    allCategories: 'All Categories',
+    inStock: 'In Stock',
+    onSale: 'On Sale',
+    clearFilters: 'Clear Filters',
+    showingResults: 'Showing {{count}} results',
+    addToCart: 'Add to Cart',
+    viewDetails: 'View Details',
+    noProductsFound: 'No products found',
+    searchPlaceholder: 'Search products...',
+  },
+
   // Filters
   filters: {
     filterBy: 'Filter By',
@@ -1375,8 +1393,8 @@ export const en = {
     addressDeleted: 'Address deleted successfully',
   },
 
-  // Products
-  products: {
+  // Product Translations
+  productTranslations: {
     product1: { name: 'Wireless Noise-Canceling Headphones', description: 'Premium wireless headphones with active noise cancellation and 30-hour battery life.' },
     product2: { name: 'Smart Watch Pro', description: 'Advanced fitness tracking with heart rate monitoring, GPS, and sleep analysis.' },
     product3: { name: 'Ultra-Slim Laptop 15"', description: 'Powerful performance in a sleek design. Perfect for professionals and creators.' },

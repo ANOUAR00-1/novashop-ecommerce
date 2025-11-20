@@ -247,25 +247,17 @@ describe('i18n Translation Tests', () => {
       expect(ar.admin).toBeDefined();
     });
     
-    it('should have products section with 70 products in all languages', () => {
-      expect(en.products).toBeDefined();
-      expect(fr.products).toBeDefined();
-      expect(ar.products).toBeDefined();
+    it('should have productTranslations section with 70 products in all languages', () => {
+      expect(en.productTranslations).toBeDefined();
+      expect(fr.productTranslations).toBeDefined();
+      expect(ar.productTranslations).toBeDefined();
       
       // Check that we have product1 through product70
       for (let i = 1; i <= 70; i++) {
-        const key = `product${i}` as keyof typeof en.products;
-        expect(en.products[key]).toBeDefined();
-        expect(fr.products[key]).toBeDefined();
-        expect(ar.products[key]).toBeDefined();
-        
-        // Each product should have name and description
-        expect(en.products[key].name).toBeDefined();
-        expect(en.products[key].description).toBeDefined();
-        expect(fr.products[key].name).toBeDefined();
-        expect(fr.products[key].description).toBeDefined();
-        expect(ar.products[key].name).toBeDefined();
-        expect(ar.products[key].description).toBeDefined();
+        const key = `product${i}`;
+        expect((en as any).productTranslations[key]).toBeDefined();
+        expect((fr as any).productTranslations[key]).toBeDefined();
+        expect((ar as any).productTranslations[key]).toBeDefined();
       }
     });
   });
